@@ -1,0 +1,246 @@
+﻿    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('requestForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var serviceTitle = document.querySelector('.banner-title');
+                let serviceValue = '';
+                if (serviceTitle && serviceTitle.textContent) {
+                    serviceValue = serviceTitle.textContent.trim();
+                } else {
+                    serviceValue = 'Managing Comments and Messages'; // fallback value
+                }
+                const data = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    phone_number: form.phone_number.value,
+                    service: serviceValue,
+                    messages: form.messages.value
+                };
+                fetch('https://alt-mate.com/api/contacts', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(response => {
+                    alert('Request sent successfully!');
+                    form.reset();
+                })
+                .catch(err => {
+                    alert('Error sending request.');
+                });
+            });
+        }
+    });
+    </script>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Comments and Messages | ALT MATE</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            document.documentElement.lang = savedLang;
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    <style>
+        html.lang-ready { visibility: visible !important; }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open Menu">
+        <img src="../../images/hamburger-menu.png" alt="Menu" style="width: 28px; height: 28px;">
+    </button>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="../../images/logo.svg" alt="ALT MATE Logo" style="height: 48px;">
+            <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="../home.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10L10 3L17 10V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="../aboutus.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="../missions.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 13L15 18.5L10 15.5L5 18.5L6 13L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Missions
+                    </a>
+                </li>
+                <li>
+                    <a href="../services.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4V16C12 16.5304 11.7893 17.0391 11.4142 17.4142C11.0391 17.7893 10.5304 18 10 18C9.46957 18 8.96086 17.7893 8.58579 17.4142C8.21071 17.0391 8 16.5304 8 16V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Our Services
+                    </a>
+                </li>
+                <li>
+                    <a href="../bundles.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h4v4H4V4zm6 0h6v4h-6V4zM4 10h4v6H4v-6zm6 0h6v6h-6v-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Bundles
+                    </a>
+                </li>
+                <li>
+                    <a href="../samples.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Samples
+                    </a>
+                </li>
+                <li>
+                    <a href="../blog.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="currentColor"/>
+                        </svg>
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../contact.html" class="sidebar-contact-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6.5A2 2 0 0 1 5 4.5h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contact Info
+            </a>
+            <div class="sidebar-social-icons">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../../images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Header (Hidden on Mobile) -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="../../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+        </div>
+        <div class="header-right">
+            <div class="desktop-language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="ar">ع</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../home.html" data-translate="home">Home</a></li>
+                    <li><a href="../aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="../missions.html" data-translate="missions">Missions</a></li>
+                    <li><a href="../services.html" class="active" data-translate="ourServices">Our Services</a></li>
+                    <li><a href="../bundles.html" data-translate="bundles">Bundles</a></li>
+                    <li><a href="../samples.html" data-translate="samples">Samples</a></li>
+                    <li><a href="../blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="../contact.html" class="contact-btn" data-translate="contactInfo">Contact Info</a>
+            </div>
+        </div>
+    </header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <section class="service-banner">
+        <div class="banner-image" style="background-image: url('../../images/services page/managing comments and messages.jpg');">
+            <div class="banner-overlay"></div>
+            <h1 class="banner-title" data-translate="managingCommentsAndMessages">Managing Comments and Messages</h1>
+        </div>
+    </section>
+    <section class="service-content">
+        <div class="service-content-container">
+            <p data-translate="managingCommentsIntro">We manage your online community and protect your reputation.</p>
+            <h3 data-translate="servicesInclude">Services include:</h3>
+            <ul style="margin-bottom:18px;">
+                <li data-translate="moderatingComments">Moderating comments and filtering inappropriate content.</li>
+                <li data-translate="realTimeReplies">Real-time replies to inquiries.</li>
+                <li data-translate="customerSupportChannels">Customer support integrated into digital channels.</li>
+                <li data-translate="sentimentAnalysisReporting">Sentiment analysis with detailed reporting.</li>
+            </ul>
+            <p><strong data-translate="outcome">Outcome:</strong> <span data-translate="managingCommentsOutcomeDetail">more trust, better engagement, and proactive reputation management.</span></p>
+            <div class="request-box">
+                <div class="request-icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <p class="request-message" data-translate="toOrderThisService">To order this service, make a request.</p>
+                <a href="../request-service.html?service=Managing%20Comments%20and%20Messages" class="request-btn" data-translate="makeRequest">Make a Request</a>
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">ALTMATE</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركه التميت لتقنيات الاعمال(Alt Mate)<br>جميع الحقوق محفوظة</p>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="../missions.html">Why AltMate?</a></li>
+                    <li><a href="../team.html">Meet the team</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../services.html">Digital Media</a></li>
+                    <li><a href="../services.html">Strategy</a></li>
+                    <li><a href="../services.html">Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get our updates</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="email-input">
+                    <button type="submit" class="submit-btn">→</button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../../images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFrbWRyaA==" target="_blank"><img src="../../images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../../images/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../../images/x-icon.png" alt="X"></a>
+                    <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../../images/tiktok-icon.png" alt="TikTok"></a>
+                    <a href="https://wa.me/message/EMHIZ5YFEYR6F1" target="_blank"><img src="../../images/whatsapp-icon.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../java/language-switcher.js"></script>
+    <script src="../../java/main.js"></script>
+</body>
+</html>

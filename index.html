@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALT MATE</title>
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <style>
+        #splash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #fff8f0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.5s;
+        }
+        
+        .splash-content {
+            display: flex;
+            gap: 30px;
+            font-size: 2.5rem;
+            font-family: Arial, sans-serif;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .splash-word {
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        #word-build {
+            font-weight: bold;
+            color: #ff6b35; /* Orange color */
+        }
+        
+        .splash-logo {
+            opacity: 0;
+            transition: opacity 0.7s;
+            width: 400px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            max-width: 80vw;
+            max-height: 60vh;
+        }
+        
+        .hide {
+            opacity: 0 !important;
+        }
+        
+        #splash-overlay.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-overlay">
+        <div class="splash-content" id="splash-words">
+            <span class="splash-word" id="word-think">think</span>
+            <span class="splash-word" id="word-build">build</span>
+            <span class="splash-word" id="word-succeed">succeed</span>
+        </div>
+        <div class="splash-content" id="splash-logo-container" style="display: none;">
+            <img src="images/logo.svg" alt="Logo" class="splash-logo" id="splash-logo">
+        </div>
+    </div>
+
+    <script>
+        console.log('Script starting...');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded!');
+            
+            const splash = document.getElementById('splash-overlay');
+            const wordThink = document.getElementById('word-think');
+            const wordBuild = document.getElementById('word-build');
+            const wordSucceed = document.getElementById('word-succeed');
+            const splashWords = document.getElementById('splash-words');
+            const splashLogo = document.getElementById('splash-logo');
+            const splashLogoContainer = document.getElementById('splash-logo-container');
+            
+            console.log('Elements found:', {
+                splash: !!splash,
+                wordThink: !!wordThink,
+                wordBuild: !!wordBuild,
+                wordSucceed: !!wordSucceed,
+                splashWords: !!splashWords,
+                splashLogo: !!splashLogo,
+                splashLogoContainer: !!splashLogoContainer
+            });
+            
+            // Step 1: Show words one by one
+            setTimeout(() => {
+                console.log('Showing think...');
+                if (wordThink) wordThink.style.opacity = 1;
+                
+                setTimeout(() => {
+                    console.log('Showing build...');
+                    if (wordBuild) wordBuild.style.opacity = 1;
+                    
+                    setTimeout(() => {
+                        console.log('Showing succeed...');
+                        if (wordSucceed) wordSucceed.style.opacity = 1;
+                        
+                        // Step 2: Hide words
+                        setTimeout(() => {
+                            console.log('Hiding words...');
+                            if (splashWords) splashWords.classList.add('hide');
+                            
+                            // Step 3: Show logo in same position
+                            setTimeout(() => {
+                                console.log('Showing logo...');
+                                if (splashLogoContainer) splashLogoContainer.style.display = 'flex';
+                                if (splashLogo) splashLogo.style.opacity = 1;
+                                
+                                // Step 4: Redirect
+                                setTimeout(() => {
+                                    console.log('Starting redirect...');
+                                    if (splash) splash.classList.add('hide');
+                                    
+                                    setTimeout(() => {
+                                        console.log('Redirecting...');
+                                        window.location.href = './html/home.html';
+                                    }, 500);
+                                }, 1500);
+                            }, 700);
+                        }, 700);
+                    }, 500);
+                }, 500);
+            }, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALT MATE</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Prevent FOUC (Flash of Unstyled Content) by setting language before page renders -->
+    <script>
+        // This runs immediately before the page renders
+        (function() {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            document.documentElement.lang = savedLang;
+            // Hide body until translations are applied
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    <style>
+        /* Ensure body is visible after JS loads */
+        html.lang-ready {
+            visibility: visible !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open Menu">
+        <img src="../images/hamburger-menu.png" alt="Menu" style="width: 28px; height: 28px;">
+    </button>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height: 48px;">
+            <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="home.html" class="active" data-translate="home">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10L10 3L17 10V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="aboutus.html" data-translate="aboutUs">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="missions.html" data-translate="missions">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 13L15 18.5L10 15.5L5 18.5L6 13L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Missions
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html" data-translate="ourServices">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4V16C12 16.5304 11.7893 17.0391 11.4142 17.4142C11.0391 17.7893 10.5304 18 10 18C9.46957 18 8.96086 17.7893 8.58579 17.4142C8.21071 17.0391 8 16.5304 8 16V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Our Services
+                    </a>
+                </li>
+                <li>
+                    <a href="bundles.html" data-translate="bundles">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h4v4H4V4zm6 0h6v4h-6V4zM4 10h4v6H4v-6zm6 0h6v6h-6v-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Bundles
+                    </a>
+                </li>
+                <li>
+                    <a href="samples.html" data-translate="samples">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Samples
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html" data-translate="blog">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="currentColor"/>
+                        </svg>
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="contact.html" class="sidebar-contact-btn" data-translate="contactInfo">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6.5A2 2 0 0 1 5 4.5h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contact Info
+            </a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher-container">
+                <button class="language-toggle" aria-label="Switch Language">
+                    <span class="lang-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12H22M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="lang-text">العربية</span>
+                </button>
+            </div>
+            
+            <div class="sidebar-social-icons">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Header (Hidden on Mobile) -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+        </div>
+        <div class="header-right">
+            <!-- Language Switcher (Next to Home) -->
+            <div class="desktop-language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="ar">ع</button>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" class="active" data-translate="home">Home</a></li>
+                    <li><a href="aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="missions.html" data-translate="missions">Missions</a></li>
+                    <li><a href="services.html" data-translate="ourServices">Our Services</a></li>
+                    <li><a href="bundles.html" data-translate="bundles">Bundles</a></li>
+                    <li><a href="samples.html" data-translate="samples">Samples</a></li>
+                    <li><a href="blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="contact.html" class="contact-btn" data-translate="contactInfo">Contact Info</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1 class="hero-title" data-translate="heroTitle">Crafting Digital Experience to help Brands Grow</h1>
+            <p class="hero-subtitle" data-translate="heroSubtitle">The digital agency with a human approach</p>
+            <a href="samples.html" class="hero-button" data-translate="checkOutWork">CHECK OUT OUR WORK</a>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-left">
+                <span class="services-label" data-translate="whatWeDo">WHAT WE DO</span>
+                <h2 class="services-title" data-translate="innovationsImpact">Innovations and impact</h2>
+                <p class="services-description" data-translate="innovationsDesc">Rise helps marketing leaders make smarter media investment decisions data.</p>
+                <a href="services.html" class="services-button" data-translate="discoverMore">DISCOVER MORE</a>
+            </div>
+            <div class="services-right">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                            <rect x="2" y="3" width="6" height="6"></rect>
+                            <rect x="16" y="3" width="6" height="6"></rect>
+                            <rect x="9" y="15" width="6" height="6"></rect>
+                            <line x1="5" y1="9" x2="5" y2="15"></line>
+                            <line x1="19" y1="9" x2="19" y2="15"></line>
+                            <line x1="5" y1="15" x2="9" y2="15"></line>
+                            <line x1="15" y1="15" x2="19" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-translate="digitalMedia">Digital Media</h3>
+                    <p class="service-description" data-translate="digitalMediaDesc">Seamless integration across all digital media channels with advanced targeting full combined handful.</p>
+                    <a href="services.html" class="service-link" data-translate="readMore">Read More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"></path>
+                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"></path>
+                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"></path>
+                            <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"></path>
+                            <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-translate="strategy">Strategy</h3>
+                    <p class="service-description" data-translate="strategyDesc">From concept to execution, we create digital campaigns from scratch and show combined with of structures.</p>
+                    <a href="services.html" class="service-link" data-translate="readMore">Read More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+                            <line x1="7" y1="7" x2="17" y2="7"></line>
+                            <line x1="7" y1="12" x2="17" y2="12"></line>
+                            <line x1="7" y1="17" x2="10" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-translate="development">Development</h3>
+                    <p class="service-description" data-translate="developmentDesc">We use the latest technology and we never stop learning and that's why model sentence structures.</p>
+                    <a href="services.html" class="service-link" data-translate="readMore">Read More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                            <path d="M3 3v18h18"></path>
+                            <path d="M18 17l-5-5-3 3-3-3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title" data-translate="analytics">Analytics</h3>
+                    <p class="service-description" data-translate="analyticsDesc">From concept to execution, we create digital structures campaigns from scratch and show you .</p>
+                    <a href="services.html" class="service-link" data-translate="readMore">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Background image will be set in CSS -->
+            </div>
+            <div class="about-content">
+                <span class="about-label" data-translate="whoWeAre">WHO WE ARE</span>
+                <h2 class="about-title" data-translate="aboutTitle">Our designers and engineers know collaboration is the essence</h2>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                <path d="M9 9h6v6H9z"></path>
+                                <path d="M9 1v6"></path>
+                                <path d="M15 1v6"></path>
+                                <path d="M9 17v6"></path>
+                                <path d="M15 17v6"></path>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title" data-translate="qualityProducts">Quality Products</h3>
+                            <p class="feature-description" data-translate="qualityProductsDesc">We provide quality products with top creative talent build brands that stand out section.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title" data-translate="trueValue">True Value</h3>
+                            <p class="feature-description" data-translate="trueValueDesc">It's not just our track record the efficiency We increase true value talent to build.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title" data-translate="discoverSharing">Discover & Sharing</h3>
+                            <p class="feature-description" data-translate="discoverSharingDesc">Whether you are fortune we Discover & share products bonorum undoubtable creative.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f26622" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3 class="feature-title" data-translate="buildFaster">Build Faster</h3>
+                            <p class="feature-description" data-translate="buildFasterDesc">Unlock opportunity by creating disc over human centered products through build faster.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+        <!-- Choose Bundle Section -->
+            <section class="choose-bundle-section" style="margin-bottom:0px; margin-top:0px; text-align:center;">
+            <h2 style="color:#192f59; font-size:2rem; font-weight:800; margin-bottom:10px;" data-translate="chooseBundleTitle">Choose Your Bundle or Customize</h2>
+            <p style="font-size:1.15rem; color:#555; margin-bottom:24px;" data-translate="chooseBundleDesc">Select from our ready-made packages or create your own to fit your business needs.</p>
+            <a href="services.html" class="cta-button" style="background:#f26622; color:#fff; padding:12px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1.1rem;" data-translate="exploreBundles">Explore Bundles</a>
+            <a href="bundles.html" class="cta-button" style="background:#fff; color:#f26622; padding:12px 32px; border-radius:8px; font-weight:700; text-decoration:none; font-size:1.1rem; border:2px solid #f26622; margin-left:16px;" data-translate="customizeNow">Customize Now</a>
+        </section>
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+        <div class="testimonials-container">
+            <span class="testimonials-label" data-translate="testimonialLabel">TESTIMONIAL</span>
+            <h2 class="testimonials-title" data-translate="ourClients">OUR CLIENTS</h2>
+            <div class="client-slider" style="display:flex; align-items:center; margin-top:20px; justify-content:space-between;">
+                <button id="client-prev" class="client-btn" style="background:#f26622; border:none; font-size:24px; cursor:pointer; color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:40px;">&lt;</button>
+                <div class="client-wrapper" style="overflow:hidden; max-width:1100px; display:flex; flex-grow:1; margin:0 40px; justify-content:center;">
+                    <div id="client-track" style="display:flex; justify-content:center; align-items:center; gap:20px; width:100%; transition:transform 0.5s;">
+                        <!-- Images will be injected by JS -->
+                    </div>
+                </div>
+                <button id="client-next" class="client-btn" style="background:#f26622; border:none; font-size:24px; cursor:pointer; color:#fff; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-left:40px;">&gt;</button>
+            </div>
+            <style>
+                .testimonials-section { margin-bottom: 0px !important; }
+            </style>
+            
+            
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section class="privacy-policy-section" style="background: #f8f9fa; padding: 80px 0;">
+        <div class="privacy-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <span class="privacy-label" style="color: #f26622; font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 15px;" data-translate="privacyLabel">Your Privacy Matters</span>
+            <h2 class="privacy-title" style="color: #192f59; font-size: 36px; font-weight: 700; margin-bottom: 20px;" data-translate="privacyTitle">PRIVACY POLICY</h2>
+            <p class="privacy-description" style="color: #666; font-size: 16px; line-height: 1.8; max-width: 800px; margin: 0 auto 30px;" data-translate="privacyDescription">
+                We are committed to protecting your privacy and ensuring your data is handled securely. Your trust is important to us, and we're transparent about how we collect, use, and protect your information.
+            </p>
+            <div class="privacy-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="openPrivacyModal()" class="privacy-btn view-policy" style="background: #192f59; color: #fff; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; display: inline-block; border: none; cursor: pointer;" data-translate="viewPolicy">View Full Policy</button>
+                <button onclick="openPreferencesModal()" class="privacy-btn manage-preferences" style="background: transparent; color: #192f59; padding: 15px 40px; border: 2px solid #192f59; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; display: inline-block; cursor: pointer;" data-translate="managePreferences">Manage Preferences</button>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Privacy Policy Section Styles */
+        .privacy-btn.view-policy:hover {
+            background: #f26622;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(242, 102, 34, 0.3);
+        }
+        
+        .privacy-btn.manage-preferences:hover {
+            background: #192f59;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(25, 47, 89, 0.2);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .privacy-policy-section {
+                padding: 50px 0 !important;
+            }
+            
+            .privacy-title {
+                font-size: 28px !important;
+            }
+            
+            .privacy-description {
+                font-size: 14px !important;
+            }
+            
+            .privacy-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .privacy-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+  
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-text"><span data-translate="likeWhatYouSee">Like what you see?</span> <span class="cta-highlight" data-translate="letsWork">Let's work</span></h2>
+            <a href="contact.html" class="cta-button" data-translate="contactUs">CONTACT US</a>
+        </div>
+    </section>
+    
+    <script>
+        // Pre-render content with correct language
+        (function() {
+            var lang = window.preloadedLang || 'en';
+            var t = window.preTranslations[lang];
+            
+            // Update main content immediately
+            document.getElementById('main-heading').textContent = t.homeContent;
+            document.getElementById('main-description').textContent = t.homeDescription;
+        })();
+    </script>
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo" data-translate="footerAltmate">ALTMATE</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركه التميت لتقنيات الاعمال(Alt Mate)<br>جميع الحقوق محفوظة</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="company">Company</h4>
+                <ul>
+                    <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
+                    <li><a href="missions.html" data-translate="whyAltmate">Why AltMate?</a></li>
+                    <!-- Removed link to deleted page: Meet the team -->
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="servicesFooter">Services</h4>
+                <ul>
+                    <li><a href="services.html" data-translate="digitalMediaFooter">Digital Media</a></li>
+                    <li><a href="services.html" data-translate="strategyFooter">Strategy</a></li>
+                    <li><a href="services.html" data-translate="developmentFooter">Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="getOurUpdates">Get our updates</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="email-input" data-translate="yourEmailPlaceholder">
+                    <button type="submit" class="submit-btn">→</button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFrbWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../images/x-icon.png" alt="X"></a>
+                    <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../images/tiktok-icon.png" alt="TikTok"></a>
+                    <a href="https://wa.me/message/EMHIZ5YFEYR6F1" target="_blank"><img src="../images/whatsapp-icon.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="privacy-modal" style="display: none;">
+        <div class="modal-overlay" onclick="closePrivacyModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePrivacyModal()">&times;</button>
+            <h2 data-translate="privacyPolicyFull">Privacy Policy</h2>
+            <div class="modal-body">
+                <div class="policy-section">
+                    <h3 data-translate="privacyIntroTitle">Introduction</h3>
+                    <p data-translate="privacyIntroText">At ALT MATE, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 data-translate="privacyCollectionTitle">Information We Collect</h3>
+                    <p data-translate="privacyCollectionText">We collect information that you provide directly to us, including name, email address, phone number, and business details when you contact us or use our services.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 data-translate="privacyUseTitle">How We Use Your Information</h3>
+                    <p data-translate="privacyUseText">We use your information to provide services, respond to inquiries, improve our offerings, and communicate with you about our services and updates.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 data-translate="privacySecurityTitle">Data Security</h3>
+                    <p data-translate="privacySecurityText">We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div id="preferencesModal" class="privacy-modal" style="display: none;">
+        <div class="modal-overlay" onclick="closePreferencesModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePreferencesModal()">&times;</button>
+            <h2 data-translate="privacyPreferencesTitle">Privacy Preferences</h2>
+            <div class="modal-body">
+                <p data-translate="privacyPreferencesIntro">Manage your privacy preferences and control how we use your data.</p>
+                
+                <div class="preference-item">
+                    <div class="preference-header">
+                        <h4 data-translate="prefEssentialTitle">Essential Cookies</h4>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="essentialCookies" checked disabled>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p data-translate="prefEssentialDesc">Required for the website to function properly. Cannot be disabled.</p>
+                </div>
+                
+                <div class="preference-item">
+                    <div class="preference-header">
+                        <h4 data-translate="prefAnalyticsTitle">Analytics Cookies</h4>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="analyticsCookies" onchange="savePreferences()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p data-translate="prefAnalyticsDesc">Help us understand how visitors use our website to improve user experience.</p>
+                </div>
+                
+                <div class="preference-item">
+                    <div class="preference-header">
+                        <h4 data-translate="prefMarketingTitle">Marketing Cookies</h4>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="marketingCookies" onchange="savePreferences()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p data-translate="prefMarketingDesc">Used to deliver personalized advertisements and track campaign effectiveness.</p>
+                </div>
+                
+                <div class="preference-actions">
+                    <button onclick="acceptAllPreferences()" class="pref-btn accept-all" data-translate="prefAcceptAll">Accept All</button>
+                    <button onclick="rejectAllPreferences()" class="pref-btn reject-all" data-translate="prefRejectAll">Reject All</button>
+                    <button onclick="closePreferencesModal()" class="pref-btn save" data-translate="prefSave">Save Preferences</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .privacy-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            z-index: 10001;
+        }
+        
+        /* RTL Support */
+        [dir="rtl"] .modal-content {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        [dir="rtl"] .modal-body {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .policy-section {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .policy-section h3 {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .policy-section p {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .preference-item {
+            text-align: right;
+        }
+        
+        [dir="rtl"] .preference-item p {
+            text-align: right;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #666;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        [dir="rtl"] .modal-close {
+            right: auto;
+            left: 15px;
+        }
+        
+        .modal-close:hover {
+            background: #f0f0f0;
+            color: #f26622;
+        }
+        
+        .modal-content h2 {
+            color: #192f59;
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f26622;
+        }
+        
+        .modal-body {
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .policy-section {
+            margin-bottom: 25px;
+        }
+        
+        .policy-section h3 {
+            color: #192f59;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .policy-section p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        
+        /* Preference Items */
+        .preference-item {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .preference-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .preference-header h4 {
+            color: #192f59;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .preference-item p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #f26622;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+        
+        input:disabled + .toggle-slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Preference Actions */
+        .preference-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .pref-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pref-btn.accept-all {
+            background: #f26622;
+            color: #fff;
+        }
+        
+        .pref-btn.accept-all:hover {
+            background: #d65519;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(242, 102, 34, 0.3);
+        }
+        
+        .pref-btn.reject-all {
+            background: transparent;
+            color: #666;
+            border: 2px solid #ccc;
+        }
+        
+        .pref-btn.reject-all:hover {
+            background: #f0f0f0;
+            border-color: #999;
+        }
+        
+        .pref-btn.save {
+            background: #192f59;
+            color: #fff;
+        }
+        
+        .pref-btn.save:hover {
+            background: #142340;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(25, 47, 89, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 25px;
+                width: 95%;
+                max-height: 90vh;
+            }
+            
+            .modal-content h2 {
+                font-size: 22px;
+            }
+            
+            .policy-section h3 {
+                font-size: 18px;
+            }
+            
+            .preference-actions {
+                flex-direction: column;
+            }
+            
+            .pref-btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        // Privacy Modal Functions
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacyModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Set RTL direction based on current language
+            const lang = localStorage.getItem('language') || 'ar';
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Apply translations if available
+            if (window.languageSwitcher) {
+                window.languageSwitcher.applyLanguage(lang);
+            }
+        }
+        
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function openPreferencesModal() {
+            const modal = document.getElementById('preferencesModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            loadPreferences();
+            
+            // Set RTL direction based on current language
+            const lang = localStorage.getItem('language') || 'ar';
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            
+            // Apply translations if available
+            if (window.languageSwitcher) {
+                window.languageSwitcher.applyLanguage(lang);
+            }
+        }
+        
+        function closePreferencesModal() {
+            document.getElementById('preferencesModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Preference Management
+        function loadPreferences() {
+            const prefs = JSON.parse(localStorage.getItem('privacyPreferences') || '{"analytics": false, "marketing": false}');
+            document.getElementById('analyticsCookies').checked = prefs.analytics;
+            document.getElementById('marketingCookies').checked = prefs.marketing;
+        }
+        
+        function savePreferences() {
+            const prefs = {
+                analytics: document.getElementById('analyticsCookies').checked,
+                marketing: document.getElementById('marketingCookies').checked
+            };
+            localStorage.setItem('privacyPreferences', JSON.stringify(prefs));
+        }
+        
+        function acceptAllPreferences() {
+            document.getElementById('analyticsCookies').checked = true;
+            document.getElementById('marketingCookies').checked = true;
+            savePreferences();
+            closePreferencesModal();
+            showNotification('prefAccepted');
+        }
+        
+        function rejectAllPreferences() {
+            document.getElementById('analyticsCookies').checked = false;
+            document.getElementById('marketingCookies').checked = false;
+            savePreferences();
+            closePreferencesModal();
+            showNotification('prefRejected');
+        }
+        
+        function showNotification(messageKey) {
+            const messages = {
+                en: {
+                    prefAccepted: 'All preferences accepted',
+                    prefRejected: 'Optional preferences rejected'
+                },
+                ar: {
+                    prefAccepted: 'تم قبول جميع التفضيلات',
+                    prefRejected: 'تم رفض التفضيلات الاختيارية'
+                }
+            };
+            
+            const lang = localStorage.getItem('language') || 'ar';
+            const message = messages[lang][messageKey];
+            
+            const notification = document.createElement('div');
+            notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #192f59; color: #fff; padding: 15px 25px; border-radius: 8px; z-index: 10002; box-shadow: 0 4px 15px rgba(0,0,0,0.2); animation: slideIn 0.3s ease; font-family: Arial, sans-serif;';
+            notification.textContent = message;
+            
+            if (lang === 'ar') {
+                notification.style.right = 'auto';
+                notification.style.left = '20px';
+                notification.style.direction = 'rtl';
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePrivacyModal();
+                closePreferencesModal();
+            }
+        });
+        
+        // Animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            [dir="rtl"] @keyframes slideIn {
+                from { transform: translateX(-100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            [dir="rtl"] @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(-100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    <script src="../java/main.js"></script>
+    <script src="../java/language-switcher.js"></script>
+</body>
+</html>

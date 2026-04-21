@@ -1,0 +1,176 @@
+/* =============== Contact page overrides =============== */
+
+/* Left panel background and spacing */
+.section-x.bg-light-s2{
+  background:#fff4f4;
+}
+.section-x .container-custom{
+  padding-top:24px;
+  padding-bottom:24px;
+}
+
+/* Breadcrumb */
+.breadcumb-menu{
+  margin:8px 0 28px;
+}
+.breadcumb-menu li,
+.breadcumb-menu li a{
+  color:#ef4360;
+  font-weight:600;
+}
+
+/* Title */
+.section-head-s5 h2{
+  font-size:clamp(34px,4.2vw,56px);
+  line-height:1.15;
+  margin:6px 0 10px;
+  letter-spacing:.2px;
+}
+
+/* Form grid spacing */
+.genox-form .row{
+  margin-left:-12px;
+  margin-right:-12px;
+}
+.genox-form .form-field-s2{
+  padding-left:12px;
+  padding-right:12px;
+  padding-bottom:28px;
+}
+
+/* Inputs, select, textarea */
+.genox-form .input.bdr-b,
+.genox-form .input-select.bdr-b,
+.genox-form .input-msg.bdr-b{
+  background:transparent;
+  border:0;
+  border-bottom:1px solid rgba(18,18,18,.18);
+  border-radius:0;
+  padding:14px 0 16px;
+  font-size:18px;
+  color:#121212;
+  transition:border-color .2s ease, color .2s ease;
+}
+
+.genox-form .input::placeholder,
+.genox-form .input-select::placeholder,
+.genox-form .input-msg::placeholder{
+  color:rgba(18,18,18,.45);
+}
+
+/* Focus state */
+.genox-form .input:focus,
+.genox-form .input-select:focus,
+.genox-form .input-msg:focus{
+  outline:0;
+  border-bottom-color:#ef4360;
+  color:#0d0d0d;
+}
+
+/* Select arrow */
+.form-select{
+  position:relative;
+}
+.form-select select{
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  background:transparent;
+}
+.form-select::after{
+  content:"";
+  position:absolute;
+  right:8px;
+  top:22px;
+  width:8px;
+  height:8px;
+  border-right:2px solid rgba(18,18,18,.55);
+  border-bottom:2px solid rgba(18,18,18,.55);
+  transform:rotate(45deg);
+  pointer-events:none;
+}
+
+/* Textarea */
+.genox-form .input-msg{
+  min-height:140px;
+  resize:vertical;
+}
+
+/* Send button style to match the reference */
+.btn-creative{
+  position:relative;
+  display:inline-block;
+  background:transparent;
+  color:#0a0a0a;
+  font-weight:800;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+  padding:18px 26px 18px 96px;
+  border:0;
+  cursor:pointer;
+}
+.btn-creative:focus{
+  outline:none;
+}
+
+/* Red square */
+.btn-creative::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:80px;
+  height:64px;
+  background:#ff4358;
+}
+
+/* Short black line */
+.btn-creative::after{
+  content:"";
+  position:absolute;
+  left:50px;
+  top:50%;
+  width:42px;
+  height:2px;
+  background:#111;
+  transform:translateY(-50%);
+  transition:width .2s ease;
+}
+
+/* Hover feedback */
+.btn-creative:hover::after{
+  width:58px;
+}
+.btn-creative:hover::before{
+  filter:brightness(.95);
+}
+
+/* Right shapes area */
+.bg-image-quarter{
+  mix-blend-mode:normal;
+}
+.shape-circle .fill,
+.shape-square,
+.shape-rectangle{
+  background:#ffd8dc;
+}
+.shape-triangle .fill{
+  fill:#e9d7fb;
+}
+.shape .stroke .triangle{
+  stroke:#111;
+  fill:transparent;
+}
+
+/* Prevent overlap and shaking on small screens */
+@media (max-width: 992px){
+  .bg-image-quarter{ display:none; }
+}
+
+/* Footer tweaks */
+.footer .wgs-menu a{
+  color:#c9ced6;
+}
+.footer .wgs-menu a:hover{
+  color:#ffffff;
+}

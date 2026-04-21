@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALT MATE - Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            document.documentElement.lang = savedLang;
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    <style>
+        html.lang-ready { visibility: visible !important; }
+    </style>
+</head>
+<body class="blog-page">
+    
+
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open Menu">
+        <img src="../images/hamburger-menu.png" alt="Menu" style="width: 28px; height: 28px;">
+    </button>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height: 48px;">
+            <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="home.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10L10 3L17 10V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 17.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span data-translate="home">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="aboutus.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span data-translate="aboutUs">About Us</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="missions.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 13L15 18.5L10 15.5L5 18.5L6 13L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span data-translate="missions">Missions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4V16C12 16.5304 11.7893 17.0391 11.4142 17.4142C11.0391 17.7893 10.5304 18 10 18C9.46957 18 8.96086 17.7893 8.58579 17.4142C8.21071 17.0391 8 16.5304 8 16V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span data-translate="ourServices">Our Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bundles.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h4v4H4V4zm6 0h6v4h-6V4zM4 10h4v6H4v-6zm6 0h6v6h-6v-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span data-translate="bundles">Bundles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="samples.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span data-translate="samples">Samples</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html" class="active">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="currentColor"/>
+                        </svg>
+                        <span data-translate="blog">Blog</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="contact.html" class="sidebar-contact-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6.5A2 2 0 0 1 5 4.5h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-translate="contactInfo">Contact Info</span>
+            </a>
+            <button class="language-toggle" aria-label="Toggle Language" style="width:100%;margin-top:10px;padding:10px 12px;border:1px solid #192f59;border-radius:6px;background:#fff;color:#192f59;">
+                <span class="lang-text" data-translate="language">العربية</span>
+            </button>
+            <div class="sidebar-social-icons">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Header (Hidden on Mobile) -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+        </div>
+        <div class="header-right">
+            <!-- Language Switcher (Next to Home) -->
+            <div class="desktop-language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="ar">ع</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" data-translate="home">Home</a></li>
+                    <li><a href="aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="missions.html" data-translate="missions">Missions</a></li>
+                    <li><a href="services.html" data-translate="ourServices">Our Services</a></li>
+                    <li><a href="bundles.html" data-translate="bundles">Bundles</a></li>
+                    <li><a href="samples.html" data-translate="samples">Samples</a></li>
+                    <li><a href="blog.html" class="active" data-translate="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="contact.html" class="contact-btn" data-translate="contactInfo">Contact Info</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="blog-header-banner">
+            <img src="../images/blogs images/banner-laptop-female-hands-copyspace-grey-color-background-banner-laptop-female-hands-copyspace-grey-125446009.webp" alt="Blog Banner">
+        </div>
+        <div class="blog-header-overlay"></div>
+        <div class="blog-header-content">
+            <h1 class="blog-main-title" data-translate="altMateBlog">ALT MATE Blog</h1>
+            <p class="blog-subtitle" data-translate="blogSubtitle">Insights, Tips, and Stories from the World of Digital Marketing</p>
+        </div>
+    </section>
+
+    <!-- Dynamic Blog Posts Section -->
+    <section class="blog-posts-section" style="padding:60px 20px;">
+        <div class="container" style="max-width:1200px; margin:0 auto;">
+            <h2 style="text-align:center; font-size:2.5rem; margin-bottom:40px; color:#23355d;" data-translate="latestPosts">Latest Blog Posts</h2>
+            <div id="blog-posts-grid" class="blog-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:30px;">
+                <div style="grid-column:1/-1; text-align:center; padding:50px; color:#666;">Loading blog posts...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">ALTMATE</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركه التميت لتقنيات الاعمال(Alt Mate)<br>جميع الحقوق محفوظة</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="companyFooter">Company</h4>
+                <ul>
+                    <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
+                    <li><a href="missions.html" data-translate="whyAltMate">Why AltMate?</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="servicesFooter">Services</h4>
+                <ul>
+                    <li><a href="services.html" data-translate="digitalMediaFooter">Digital Media</a></li>
+                    <li><a href="services.html" data-translate="strategyFooter">Strategy</a></li>
+                    <li><a href="services.html" data-translate="developmentFooter">Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="getUpdates">Get our updates</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="email-input" data-translate="yourEmailPlaceholder">
+                    <button type="submit" class="submit-btn">→</button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../images/x-icon.png" alt="X"></a>
+                    <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../images/tiktok-icon.png" alt="TikTok"></a>
+                    <a href="https://wa.me/message/EMHIZ5YFEYR6F1" target="_blank"><img src="../images/whatsapp-icon.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../java/main.js"></script>
+    <script src="../java/language-switcher.js"></script>
+    <script>
+        // Load blog posts from backend
+        const BLOG_API_URL = 'https://alt-mate.com/api/posts';
+        
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogPostsGrid = document.getElementById('blog-posts-grid');
+            
+            if (!blogPostsGrid) {
+                console.error('Blog posts grid element not found');
+                return;
+            }
+
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch(BLOG_API_URL);
+                
+                // Check if response is OK
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Ensure data is an array
+                const posts = Array.isArray(data) ? data : [];
+                
+                if (posts.length === 0) {
+                    blogPostsGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px; color:#666;">No blog posts available yet.</div>';
+                    return;
+                }
+
+                // Get current language
+                const currentLang = document.documentElement.lang || 'ar';
+                const isArabic = currentLang === 'ar';
+
+                blogPostsGrid.innerHTML = posts.map(post => `
+                    <article class="blog-card" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.3s;">
+                        ${post.photoUrl ? `
+                            <div style="width:100%; height:220px; overflow:hidden;">
+                                <img src="${post.photoUrl}" alt="${post.title}" style="width:100%; height:100%; object-fit:cover;">
+                            </div>
+                        ` : ''}
+                        <div style="padding:24px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; font-size:0.9rem; color:#666;">
+                                <span>${new Date(post.date).toLocaleDateString(isArabic ? 'ar-EG' : 'en-US')}</span>
+                            </div>
+                            <h3 style="font-size:1.5rem; margin-bottom:12px; color:#23355d; line-height:1.4;">${post.title}</h3>
+                            <p style="color:#666; line-height:1.6; margin-bottom:16px;">
+                                ${isArabic ? post.descriptionAr : post.descriptionEn}
+                            </p>
+                        </div>
+                    </article>
+                `).join('');
+
+                // Add hover effect
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    card.onmouseenter = function() { this.style.transform = 'translateY(-8px)'; };
+                    card.onmouseleave = function() { this.style.transform = 'translateY(0)'; };
+                });
+
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                if (blogPostsGrid) {
+                    blogPostsGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px; color:#dc3545;">Error loading blog posts. Please try again later.</div>';
+                }
+            }
+        }
+
+        // Load posts when page loads
+        loadBlogPosts();
+
+        // Reload posts when language changes
+        document.addEventListener('languageChanged', function() {
+            loadBlogPosts();
+        });
+        
+        }); // End DOMContentLoaded
+    </script>
+</body>
+</html>

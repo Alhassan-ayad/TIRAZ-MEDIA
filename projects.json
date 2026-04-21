@@ -1,0 +1,32 @@
+{
+  "samples": [
+    {
+      "id": "1",
+      "category": "branding",
+      "en": {
+        "title": "Brand Identity for XYZ",
+        "description": "A complete branding project for XYZ company, including logo, colors, and guidelines.",
+        "imageUrl": "images/samples/branding-xyz.jpg"
+      },
+      "ar": {
+        "title": "هوية العلامة التجارية لشركة XYZ",
+        "description": "مشروع علامة تجارية متكامل لشركة XYZ يشمل الشعار والألوان ودليل الاستخدام.",
+        "imageUrl": "images/samples/branding-xyz.jpg"
+      }
+    },
+    {
+      "id": "2",
+      "category": "web",
+      "en": {
+        "title": "E-commerce Website for ABC",
+        "description": "A modern e-commerce platform for ABC with payment integration.",
+        "imageUrl": "images/samples/web-abc.jpg"
+      },
+      "ar": {
+        "title": "موقع تجارة إلكترونية لشركة ABC",
+        "description": "منصة تجارة إلكترونية حديثة لشركة ABC مع تكامل الدفع الإلكتروني.",
+        "imageUrl": "images/samples/web-abc.jpg"
+      }
+    }
+  ]
+}

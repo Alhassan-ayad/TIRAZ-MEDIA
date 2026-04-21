@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Service | ALT MATE</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            document.documentElement.lang = savedLang;
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    <style>
+        html.lang-ready { visibility: visible !important; }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open Menu">
+        <img src="../images/hamburger-menu.png" alt="Menu" style="width: 28px; height: 28px;">
+    </button>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height: 48px;">
+            <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="home.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10L10 3L17 10V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="aboutus.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="missions.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 13L15 18.5L10 15.5L5 18.5L6 13L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Missions
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4V16C12 16.5304 11.7893 17.0391 11.4142 17.4142C11.0391 17.7893 10.5304 18 10 18C9.46957 18 8.96086 17.7893 8.58579 17.4142C8.21071 17.0391 8 16.5304 8 16V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Our Services
+                    </a>
+                </li>
+                <li>
+                    <a href="bundles.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h4v4H4V4zm6 0h6v4h-6V4zM4 10h4v6H4v-6zm6 0h6v6h-6v-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Bundles
+                    </a>
+                </li>
+                <li>
+                    <a href="samples.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Samples
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="currentColor"/>
+                        </svg>
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="contact.html" class="sidebar-contact-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6.5A2 2 0 0 1 5 4.5h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contact Info
+            </a>
+            <div class="sidebar-social-icons">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Header (Hidden on Mobile) -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+        </div>
+        <div class="header-right">
+            <div class="desktop-language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="ar">ع</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" data-translate="home">Home</a></li>
+                    <li><a href="aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="missions.html" data-translate="missions">Missions</a></li>
+                    <li><a href="services.html" data-translate="ourServices">Our Services</a></li>
+                    <li><a href="bundles.html" data-translate="bundles">Bundles</a></li>
+                    <li><a href="samples.html" data-translate="samples">Samples</a></li>
+                    <li><a href="blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="contact.html" class="contact-btn" data-translate="contactInfo">Contact Info</a>
+            </div>
+        </div>
+    </header>
+    <section class="request-form-section">
+        <div class="request-form-container">
+            <h1>Request This Service</h1>
+            <form class="request-form" id="requestForm">
+                <label for="service-select" class="form-label" id="bundleLabel">Service</label>
+                <select id="service-select" class="form-input" disabled>
+                    <option selected>Website and Application</option>
+                </select>
+                <!-- Hidden input to store the actual service value for form submission -->
+                <input type="hidden" id="service-value" name="service" value="Website and Application">
+                <!-- Hidden input to store the order summary details for backend -->
+                <input type="hidden" id="order-summary-value" name="order_summary" value="">
+                <!-- Summary of the customized order forwarded from services page -->
+                <div id="custom-summary" style="display:none;margin-top:16px;margin-bottom:16px;padding:16px;border:2px solid #FF6B35;border-radius:12px;background:#FFF9F5;box-shadow:0 2px 8px rgba(255,107,53,0.1);">
+                    <strong style="color:#192f59;font-size:1.1rem;display:block;margin-bottom:12px;">📋 Order Summary</strong>
+                    <div id="custom-summary-content" style="color:#333;font-size:0.95rem;line-height:1.8;"></div>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                    <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" name="phone_number" placeholder="Your Phone" class="form-input" required>
+                </div>
+                <div class="form-row">
+                    <textarea name="messages" placeholder="Describe your request" class="form-input" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </section>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">ALTMATE</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركه التميت لتقنيات الاعمال(Alt Mate)<br>جميع الحقوق محفوظة</p>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="aboutus.html">About us</a></li>
+                    <li><a href="missions.html">Why AltMate?</a></li>
+                    <li><a href="team.html">Meet the team</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Digital Media</a></li>
+                    <li><a href="services.html">Strategy</a></li>
+                    <li><a href="services.html">Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get our updates</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="email-input">
+                    <button type="submit" class="submit-btn">→</button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFrbWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../images/x-icon.png" alt="X"></a>
+                    <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../images/tiktok-icon.png" alt="TikTok"></a>
+                    <a href="https://wa.me/message/EMHIZ5YFEYR6F1" target="_blank"><img src="../images/whatsapp-icon.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../java/main.js"></script>
+    <script>
+    // Set the service select box value and bundle label from the URL query parameter and keep it locked
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const service = params.get('service');
+        const summary = params.get('summary');
+        const select = document.getElementById('service-select');
+        const hiddenInput = document.getElementById('service-value');
+        const bundleLabel = document.getElementById('bundleLabel');
+        if (service && select) {
+            let bundleNum = '';
+            let bundleText = '';
+            if (service.toLowerCase().includes('ai agent bundle 1')) {
+                bundleNum = 'Bundle 1';
+                bundleText = 'AI Agent Bundle 1 – Starter';
+            } else if (service.toLowerCase().includes('ai agent bundle 2')) {
+                bundleNum = 'Bundle 2';
+                bundleText = 'AI Agent Bundle 2 – Pro';
+            } else if (service.toLowerCase().includes('digital marketing bundle 1')) {
+                bundleNum = 'Bundle 1';
+                bundleText = 'Digital Marketing Bundle 1';
+            } else if (service.toLowerCase().includes('digital marketing bundle 2')) {
+                bundleNum = 'Bundle 2';
+                bundleText = 'Digital Marketing Bundle 2';
+            } else if (service.toLowerCase().includes('digital marketing bundle 3')) {
+                bundleNum = 'Bundle 3';
+                bundleText = 'Digital Marketing Bundle 3';
+            } else if (service.toLowerCase().includes('media trend package a')) {
+                bundleNum = 'Package A';
+                bundleText = 'Media Trend Package A';
+            } else if (service.toLowerCase().includes('media trend package b')) {
+                bundleNum = 'Package B';
+                bundleText = 'Media Trend Package B';
+            }
+            select.innerHTML = '';
+            const opt = document.createElement('option');
+            if (bundleText) {
+                opt.value = bundleText;
+                opt.textContent = bundleText;
+                // Set the hidden input value for form submission
+                hiddenInput.value = bundleText;
+            } else {
+                opt.value = service;
+                opt.textContent = service;
+                // Set the hidden input value for form submission
+                hiddenInput.value = service;
+            }
+            opt.selected = true;
+            select.appendChild(opt);
+            select.disabled = true;
+            bundleLabel.textContent = bundleNum ? bundleNum : 'Service';
+        }
+
+        // If there's a summary, decode and render it (from customize buttons)
+        if (summary) {
+            const summaryBox = document.getElementById('custom-summary');
+            const summaryContent = document.getElementById('custom-summary-content');
+            const orderSummaryInput = document.getElementById('order-summary-value');
+            const decoded = decodeSummary(summary);
+            
+            // Build readable lines with better formatting for display
+            const lines = decoded.map(pair => {
+                // Capitalize first letter of each word in key
+                const formattedKey = pair.key.split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+                return `<div style="padding:4px 0;"><strong style="color:#192f59;">${formattedKey}:</strong> <span style="color:#555;">${pair.value}</span></div>`;
+            });
+            
+            summaryContent.innerHTML = lines.join('');
+            summaryBox.style.display = 'block';
+            
+            // Store the summary as a formatted string
+            const summaryText = decoded.map(pair => {
+                const formattedKey = pair.key.split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+                return `${formattedKey}: ${pair.value}`;
+            }).join(', ');
+            
+            // Get the service name (use current value or default)
+            const serviceName = service || 'Individual Services Bundle';
+            
+            // Combine service name with summary for backend
+            const combinedServiceValue = `${serviceName} - ${summaryText}`;
+            
+            // Update the hidden service input with combined value
+            hiddenInput.value = combinedServiceValue;
+            
+            // Update the visible select to show just the service name
+            select.innerHTML = `<option selected>${serviceName}</option>`;
+            bundleLabel.textContent = 'Service';
+            
+            // Store in order_summary field as well (optional, for backup)
+            if (orderSummaryInput) {
+                orderSummaryInput.value = summaryText;
+            }
+            
+            console.log('Service field set to:', combinedServiceValue);
+        }
+    });
+
+    function decodeSummary(summaryStr) {
+        try {
+            // Format is key:val|key:val ... where keys and vals are URI encoded
+            const parts = summaryStr.split('|');
+            const result = [];
+            parts.forEach(p => {
+                const idx = p.indexOf(':');
+                if (idx === -1) return;
+                const k = decodeURIComponent(p.substring(0, idx));
+                const v = decodeURIComponent(p.substring(idx + 1));
+                // Clean up key formatting
+                const cleanKey = k.replace(/[-_]/g, ' ').replace(/\s+/g, ' ').trim();
+                result.push({ key: cleanKey, value: v });
+            });
+            return result;
+        } catch (e) {
+            return [{ key: 'Summary', value: decodeURIComponent(summaryStr) }];
+        }
+    }
+
+    document.getElementById("requestForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        // Collect form data
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Debug: Log the data being sent
+        console.log("Form data being sent:", data);
+        
+        // Ensure order_summary is included even if empty
+        if (!data.order_summary) {
+            data.order_summary = '';
+        }
+
+        try {
+            // Send data as JSON to the backend
+            const response = await fetch("https://alt-mate.com/api/contacts", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to submit request. Please try again.");
+            }
+
+            const result = await response.json();
+            console.log("Saved post:", result);
+            alert("Request submitted successfully!");
+            this.reset(); // Reset the form after successful submission
+        } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred while submitting your request.");
+        }
+    });
+    </script>
+    <script src="../java/language-switcher.js"></script>
+</body>
+</html>

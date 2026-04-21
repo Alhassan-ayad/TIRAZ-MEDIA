@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #23355d;
+            overflow: hidden;
+        }
+        .dashboard-wrapper {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            background: #fff;
+            width: 270px;
+            padding: 32px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 16px rgba(10,35,66,0.08);
+        }
+        .sidebar-logo {
+            width: 120px;
+            margin-bottom: 16px;
+            border-radius: 16px;
+            background: #f5f7fa;
+            padding: 16px;
+        }
+        .sidebar-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #23355d;
+            margin-bottom: 32px;
+        }
+        .sidebar-menu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .sidebar-menu a {
+            text-decoration: none;
+            color: #23355d;
+            font-size: 1.05rem;
+            padding: 10px 24px;
+            border-radius: 20px 0 0 20px;
+            transition: background 0.2s;
+        }
+        .sidebar-menu a.active, .sidebar-menu a:hover {
+            background: #e3eaf7;
+            font-weight: 500;
+        }
+        .main-content {
+            flex: 1;
+            background: #23355d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .main-content h1 {
+            color: #4a5a7a;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+        .main-content p {
+            color: #fff;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        .loading {
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .error {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* New Styles for Content Management */
+        .content-management-container {
+            width: 100%;
+            max-width: 900px;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        .content-management-container h1 {
+            color: #23355d;
+            margin-top: 0;
+        }
+        .page-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        .page-list a {
+            display: block;
+            padding: 8px 16px;
+            background: #f0f4f9;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #23355d;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .page-list a:hover {
+            background: #e3eaf7;
+        }
+
+        .editor-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .editor-title {
+            color: #23355d;
+            border-bottom: 2px solid #e3eaf7;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        textarea.form-control {
+            min-height: 120px;
+            font-family: monospace;
+        }
+        .form-fieldset {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        .editor-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .btn-save, .btn-secondary {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-save {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-save:hover {
+            background-color: #218838;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* New Modal Styles for History Viewer */
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .history-list {
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+        .history-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-meta {
+            display: flex;
+            flex-direction: column;
+        }
+        .history-user {
+            font-weight: bold;
+            color: #333;
+        }
+        .history-date {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .history-change-type {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        .history-change-type.update { background-color: #cfe2ff; color: #084298; }
+        .history-change-type.create { background-color: #d1e7dd; color: #0f5132; }
+        .history-change-type.delete { background-color: #f8d7da; color: #842029; }
+        .history-change-type.revert { background-color: #fff3cd; color: #664d03; }
+
+        .history-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .history-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .history-data-toggle {
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .history-data-toggle summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #0d6efd;
+        }
+        .history-data-content {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        /* New notice styles for save status */
+        .notice {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .notice.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .notice.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-title">Dashboard</div>
+            <nav class="sidebar-menu">
+                <a href="#" class="active" data-section="messages">Messages</a>
+                <a href="#" data-section="content">Employee Management</a>
+                <a href="#" data-section="projects">Projects Management</a>
+                <a href="#" data-section="blog">Blog Management</a>
+                <a href="#" data-section="analytics">Analytics</a>
+            </nav>
+        </aside>
+        <main class="main-content" id="mainContent">
+            <h1 id="dashboard-title">Welcome to Admin Dashboard</h1>
+            <div id="dashboard-desc" class="loading">Select a section from the sidebar.</div>
+            <div id="contacts-section" style="display:none; width:100%; max-width:1400px; height:calc(100vh - 40px); flex-direction:column;">
+                <h2 style="color:#fff; margin-bottom:16px;">Messages</h2>
+                <div style="margin-bottom:16px; display:flex; gap:8px; align-items:center; flex-shrink:0;">
+                    <input type="text" id="searchInput" placeholder="Search contacts..." style="padding:8px; border-radius:4px; border:1px solid #ccc; width:220px;">
+                    <button id="searchBtn" style="padding:8px 16px; border-radius:4px; background:#23355d; color:#fff; border:none; cursor:pointer;">Search</button>
+                    <button id="resetBtn" style="padding:8px 16px; border-radius:4px; background:#6c757d; color:#fff; border:none; cursor:pointer;">Reset</button>
+                    <button id="exportExcelBtn" style="padding:8px 16px; border-radius:4px; background:#28a745; color:#fff; border:none; cursor:pointer; margin-left:auto;">Export to Excel</button>
+                    <button id="deleteAllBtn" style="padding:8px 16px; border-radius:4px; background:#dc3545; color:#fff; border:none; cursor:pointer;">Delete All</button>
+                </div>
+                <div style="flex:1; overflow:auto; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                    <table id="contacts-table" style="width:100%; background:#fff; border-collapse:separate; border-spacing:0; table-layout:fixed; margin-bottom:20px;">
+                        <thead style="background:#23355d; color:white; position:sticky; top:0; z-index:10;">
+                            <tr>
+                                <th style="padding:16px; text-align:left; width:12%;">Name</th>
+                                <th style="padding:16px; text-align:left; width:18%;">Email</th>
+                                <th style="padding:16px; text-align:left; width:10%;">Phone</th>
+                                <th style="padding:16px; text-align:left; width:25%;">Service</th>
+                                <th style="padding:16px; text-align:left; width:20%;">Message</th>
+                                <th style="padding:16px; text-align:left; width:15%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Contacts will be rendered here -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Add New Contact Form -->
+                <div style="margin-top:20px; padding:20px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); flex-shrink:0;">
+                    <h3 style="margin-bottom:16px; color:#23355d;">Add New Message</h2>
+                    <form id="addContactForm" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+                        <input type="text" name="name" placeholder="Name" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="email" name="email" placeholder="Email" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="phone_number" placeholder="Phone" style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="service" placeholder="Service" style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="messages" placeholder="Message" required style="padding:8px; border-radius:4px; border:1px solid #ccc; grid-column:1 / -1;">
+                        <button type="submit" style="padding:10px 20px; border-radius:4px; background:#28a745; color:#fff; border:none; cursor:pointer; font-weight:500; grid-column:1 / -1;">Add Message</button>
+                    </form>
+                    <div id="formStatus" style="margin-top:12px; color:#155724;"></div>
+                </div>
+            </div>
+                <!-- Employee Management Section -->
+                <div id="employees-section" style="display:none; width:100%; max-width:1400px; height:calc(100vh - 40px); flex-direction:column;">
+                    <h2 style="color:#fff; margin-bottom:16px;">Employee Management</h2>
+                    <div style="flex:1; overflow:auto; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                        <table id="employees-table" style="width:100%; background:#fff; border-collapse:separate; border-spacing:0; table-layout:fixed; margin-bottom:20px;">
+                            <thead style="background:#23355d; color:white; position:sticky; top:0; z-index:10;">
+                                <tr>
+                                    <th style="padding:16px; width:8%;">Photo</th>
+                                    <th style="padding:16px; width:10%;">Name (EN)</th>
+                                    <th style="padding:16px; width:10%;">Name (AR)</th>
+                                    <th style="padding:16px; width:12%;">Role (EN)</th>
+                                    <th style="padding:16px; width:12%;">Role (AR)</th>
+                                    <th style="padding:16px; width:20%;">Description (EN)</th>
+                                    <th style="padding:16px; width:20%;">Description (AR)</th>
+                                    <th style="padding:16px; width:8%;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Employees will be rendered here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Add Employee Form -->
+                    <div style="margin-top:20px; padding:20px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); flex-shrink:0;">
+                        <h3 style="margin-bottom:16px; color:#23355d;">Add New Employee</h3>
+                        <form id="addEmployeeForm" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+                            <input type="text" name="nameEn" placeholder="Name (EN)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                            <input type="text" name="nameAr" placeholder="Name (AR)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                            <input type="text" name="roleEn" placeholder="Role (EN)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                            <input type="text" name="roleAr" placeholder="Role (AR)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                            <input type="text" name="descriptionEn" placeholder="Description (EN)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                            <input type="text" name="descriptionAr" placeholder="Description (AR)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                            <input type="text" name="photoUrl" placeholder="Photo URL" style="padding:8px; border-radius:4px; border:1px solid #ccc; grid-column:1 / -1;">
+                            <button type="submit" style="padding:10px 20px; border-radius:4px; background:#28a745; color:#fff; border:none; cursor:pointer; font-weight:500; grid-column:1 / -1;">Add Employee</button>
+                        </form>
+                        <div id="employeeFormStatus" style="margin-top:12px; color:#155724;"></div>
+                    </div>
+                </div>
+
+                <!-- Projects Management Section -->
+                <div id="projects-section" style="display:none; width:100%; max-width:1200px;">
+                    <h2 style="color:#23355d;">Projects Management</h2>
+                    <div id="project-category-filters" style="margin-bottom:18px;">
+                        <button class="proj-cat-btn" data-category="all" style="padding:8px 16px; margin-right:8px; border-radius:4px; background:#23355d; color:#fff; border:none; cursor:pointer;">All</button>
+                        <button class="proj-cat-btn" data-category="Web & Applications" style="padding:8px 16px; margin-right:8px; border-radius:4px; background:#4a5a7a; color:#fff; border:none; cursor:pointer;">Web & Applications</button>
+                        <button class="proj-cat-btn" data-category="Advertising Campaigns" style="padding:8px 16px; margin-right:8px; border-radius:4px; background:#4a5a7a; color:#fff; border:none; cursor:pointer;">Advertising Campaigns</button>
+                        <button class="proj-cat-btn" data-category="Advertising Results" style="padding:8px 16px; margin-right:8px; border-radius:4px; background:#4a5a7a; color:#fff; border:none; cursor:pointer;">Advertising Results</button>
+                        <button class="proj-cat-btn" data-category="Photography" style="padding:8px 16px; margin-right:8px; border-radius:4px; background:#4a5a7a; color:#fff; border:none; cursor:pointer;">Photography</button>
+                    </div>
+                    <table id="projects-table" style="width:98vw; max-width:1200px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-collapse:separate; border-spacing:0;">
+                        <thead style="background:#23355d; color:white;">
+                            <tr>
+                                <th style="padding:16px;">Title (EN)</th>
+                                <th style="padding:16px;">Title (AR)</th>
+                                <th style="padding:16px;">Description (EN)</th>
+                                <th style="padding:16px;">Description (AR)</th>
+                                <th style="padding:16px;">Image</th>
+                                <th style="padding:16px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Projects will be rendered here -->
+                        </tbody>
+                    </table>
+                    <h3 style="margin-top:32px; color:#23355d;">Add New Project</h3>
+                    <form id="addProjectForm" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px;">
+                        <input type="text" name="titleEn" placeholder="Title (EN)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="titleAr" placeholder="Title (AR)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="descriptionEn" placeholder="Description (EN)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="descriptionAr" placeholder="Description (AR)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="imageUrl" placeholder="Image URL" style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <input type="text" name="category" placeholder="Category (e.g. web&applications)" required style="padding:8px; border-radius:4px; border:1px solid #ccc;">
+                        <button type="submit" style="padding:8px 16px; border-radius:4px; background:#28a745; color:#fff; border:none; cursor:pointer;">Add Project</button>
+                    </form>
+                    <div id="projectFormStatus" style="margin-bottom:16px; color:#155724;"></div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analytics-section" style="display:none; width:100%; max-width:1400px; height:calc(100vh - 40px); flex-direction:column; overflow:auto;">
+                    <h2 style="color:#fff; margin-bottom:16px;">Analytics Dashboard</h2>
+                    
+                    <!-- Summary Cards -->
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:20px;">
+                        <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                            <h3 style="color:#23355d; font-size:1rem; margin:0 0 8px 0;">Total Messages</h3>
+                            <p id="total-messages" style="font-size:2rem; font-weight:700; color:#FF6B35; margin:0;">0</p>
+                        </div>
+                        <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                            <h3 style="color:#23355d; font-size:1rem; margin:0 0 8px 0;">Service Orders</h3>
+                            <p id="service-orders" style="font-size:2rem; font-weight:700; color:#28a745; margin:0;">0</p>
+                        </div>
+                        <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                            <h3 style="color:#23355d; font-size:1rem; margin:0 0 8px 0;">Bundle Orders</h3>
+                            <p id="bundle-orders" style="font-size:2rem; font-weight:700; color:#007bff; margin:0;">0</p>
+                        </div>
+                        <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                            <h3 style="color:#23355d; font-size:1rem; margin:0 0 8px 0;">Custom Orders</h3>
+                            <p id="custom-orders" style="font-size:2rem; font-weight:700; color:#ffc107; margin:0;">0</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(450px, 1fr)); gap:20px; margin-bottom:20px;">
+                        <!-- Country Distribution -->
+                        <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                            <h3 style="color:#23355d; margin:0 0 16px 0;">Messages by Country</h3>
+                            <div id="country-chart" style="max-height:300px; overflow-y:auto;"></div>
+                        </div>
+
+                        <!-- Top Services -->
+                        <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                            <h3 style="color:#23355d; margin:0 0 16px 0;">Most Requested Services</h3>
+                            <div id="services-chart" style="max-height:300px; overflow-y:auto;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Order Types Chart -->
+                    <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-bottom:20px;">
+                        <h3 style="color:#23355d; margin:0 0 16px 0;">Order Type Distribution</h3>
+                        <div id="order-types-chart" style="display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap; padding:20px;"></div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                        <h3 style="color:#23355d; margin:0 0 16px 0;">Recent Messages Trend</h3>
+                        <div id="recent-activity" style="max-height:200px; overflow-y:auto;"></div>
+                    </div>
+                </div>
+
+                <!-- Blog Section -->
+                <div id="blog-section" style="display:none; width:100%; max-width:1400px; height:calc(100vh - 40px); flex-direction:column;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                        <h2 style="color:#fff; margin:0;">Blog Posts</h2>
+                        <div style="display:flex; gap:12px;">
+                            <button id="addBlogPostBtn" style="background:#FF6B35; color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;">
+                                + Add New Post
+                            </button>
+                            <button id="deleteAllBlogPostsBtn" style="background:#dc3545; color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;">
+                                Delete All Posts
+                            </button>
+                        </div>
+                    </div>
+                    <div id="blog-posts-container" style="background:#fff; padding:20px; border-radius:12px; overflow-y:auto; flex:1;">
+                        <div id="blog-posts-list"></div>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+    <!-- Blog Post Form Modal -->
+    <div id="blog-post-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center; overflow-y:auto; padding:20px;">
+        <div style="background:#fff; padding:30px; border-radius:8px; width:90%; max-width:700px; max-height:90vh; overflow-y:auto;">
+            <h2 id="blog-modal-title" style="margin-bottom:20px; color:#23355d;">Add New Blog Post</h2>
+            <form id="blog-post-form">
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold; color:#333;">Title *</label>
+                    <input type="text" id="blog-title" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold; color:#333;">Description (English) *</label>
+                    <textarea id="blog-descriptionEn" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; min-height:120px; box-sizing:border-box;"></textarea>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold; color:#333;">Description (Arabic) *</label>
+                    <textarea id="blog-descriptionAr" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; min-height:120px; box-sizing:border-box;"></textarea>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:bold; color:#333;">Photo</label>
+                    <div style="display:flex; gap:10px; flex-direction:column;">
+                        <input type="file" id="blog-photoFile" accept="image/*" style="padding:10px; border:1px solid #ddd; border-radius:5px; box-sizing:border-box;">
+                        <span style="color:#666; font-size:0.9rem;">OR</span>
+                        <input type="url" id="blog-photoUrl" placeholder="Enter image URL" style="padding:10px; border:1px solid #ddd; border-radius:5px; box-sizing:border-box;">
+                        <div id="blog-image-preview" style="display:none; margin-top:10px;">
+                            <img id="blog-preview-img" src="" alt="Preview" style="max-width:100%; max-height:200px; border-radius:8px; border:2px solid #ddd;">
+                        </div>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px; margin-top:20px;">
+                    <button type="submit" style="padding:10px 20px; background:#28a745; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:500;">Save Post</button>
+                    <button type="button" id="closeBlogModalBtn" style="padding:10px 20px; background:#6c757d; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:500;">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+    // Sidebar navigation logic
+    document.addEventListener('DOMContentLoaded', function() {
+    const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+    const contactsSection = document.getElementById('contacts-section');
+    const employeesSection = document.getElementById('employees-section');
+    const projectsSection = document.getElementById('projects-section');
+    const blogSection = document.getElementById('blog-section');
+    const analyticsSection = document.getElementById('analytics-section');
+    const dashboardTitle = document.getElementById('dashboard-title');
+    const dashboardDesc = document.getElementById('dashboard-desc');
+    const contactsTableBody = document.querySelector('#contacts-table tbody');
+    const employeesTableBody = document.querySelector('#employees-table tbody');
+    const projectsTableBody = document.querySelector('#projects-table tbody');
+    const blogPostsList = document.getElementById('blog-posts-list');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const addContactForm = document.getElementById('addContactForm');
+    const formStatus = document.getElementById('formStatus');
+    const addEmployeeForm = document.getElementById('addEmployeeForm');
+    const employeeFormStatus = document.getElementById('employeeFormStatus');
+    const addProjectForm = document.getElementById('addProjectForm');
+    const projectFormStatus = document.getElementById('projectFormStatus');
+    const blogPostModal = document.getElementById('blog-post-modal');
+    const blogPostForm = document.getElementById('blog-post-form');
+    const addBlogPostBtn = document.getElementById('addBlogPostBtn');
+    const closeBlogModalBtn = document.getElementById('closeBlogModalBtn');
+    const deleteAllBlogPostsBtn = document.getElementById('deleteAllBlogPostsBtn');
+
+        let currentCategory = 'all';
+        let editingBlogPostId = null;
+        
+        // API URLs
+        const API_BASE = 'https://alt-mate.com/api';
+        const PROJ_API = 'https://alt-mate.com/api/projects';
+        const EMP_API = 'https://alt-mate.com/api/employees';
+        const BLOG_API = 'https://alt-mate.com/api/posts';
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const section = this.getAttribute('data-section');
+                
+                // Hide all sections
+                dashboardDesc.style.display = 'none';
+                contactsSection.style.display = 'none';
+                employeesSection.style.display = 'none';
+                projectsSection.style.display = 'none';
+                blogSection.style.display = 'none';
+                analyticsSection.style.display = 'none';
+                
+                if (section === 'messages') {
+                    dashboardTitle.textContent = 'Messages';
+                    contactsSection.style.display = 'flex';
+                    fetchContacts();
+                } else if (section === 'content') {
+                    dashboardTitle.textContent = 'Employee Management';
+                    employeesSection.style.display = 'flex';
+                    fetchEmployees();
+                } else if (section === 'projects') {
+                    dashboardTitle.textContent = 'Projects Management';
+                    projectsSection.style.display = 'block';
+                    fetchProjects(currentCategory);
+                } else if (section === 'blog') {
+                    dashboardTitle.textContent = 'Blog Management';
+                    blogSection.style.display = 'flex';
+                    fetchBlogPosts();
+                } else if (section === 'analytics') {
+                    dashboardTitle.textContent = 'Analytics';
+                    analyticsSection.style.display = 'flex';
+                    loadAnalytics();
+                }
+            });
+        });
+
+        // Project category filter logic
+        const categoryButtons = document.querySelectorAll('.proj-cat-btn');
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryButtons.forEach(b => b.style.background = '#4a5a7a');
+                this.style.background = '#23355d';
+                currentCategory = this.dataset.category;
+                fetchProjects(currentCategory);
+            });
+        });
+        // Projects CRUD logic
+        function renderProjects(projects) {
+            projectsTableBody.innerHTML = '';
+            if (!projects || projects.length === 0) {
+                projectsTableBody.innerHTML = '<tr><td colspan="6">No projects found.</td></tr>';
+                return;
+            }
+            projects.forEach(proj => {
+                const row = document.createElement('tr');
+                row.style.borderBottom = '2px solid #e3eaf7';
+                row.innerHTML = `
+                    <td style="padding:16px;">${proj.titleEn || ''}</td>
+                    <td style="padding:16px;">${proj.titleAr || ''}</td>
+                    <td style="padding:16px;">${proj.descriptionEn || ''}</td>
+                    <td style="padding:16px;">${proj.descriptionAr || ''}</td>
+                    <td style="padding:16px; text-align:center;">${proj.imageUrl ? `<img src="${proj.imageUrl}" alt="image" style="width:48px; height:48px; border-radius:8px; object-fit:cover;">` : ''}</td>
+                    <td style="padding:16px;">
+                        <button class="edit-proj-btn" data-id="${proj.id}" style="margin-right:8px; padding:6px 12px; border-radius:4px; background:#ffc107; color:#23355d; border:none; cursor:pointer;">Edit</button>
+                        <button class="delete-proj-btn" data-id="${proj.id}" style="padding:6px 12px; border-radius:4px; background:#dc3545; color:#fff; border:none; cursor:pointer;">Delete</button>
+                    </td>
+                `;
+                projectsTableBody.appendChild(row);
+            });
+            // Edit/Delete listeners
+            document.querySelectorAll('.edit-proj-btn').forEach(btn => {
+                btn.onclick = function() { editProject(btn.dataset.id); };
+            });
+            document.querySelectorAll('.delete-proj-btn').forEach(btn => {
+                btn.onclick = function() { deleteProject(btn.dataset.id); };
+            });
+        }
+
+        function fetchProjects(category = 'all') {
+            let url = PROJ_API;
+            if (category && category !== 'all') {
+                url += `?category=${encodeURIComponent(category)}`;
+            }
+            fetch(url)
+                .then(res => res.json())
+                .then(data => renderProjects(data))
+                .catch(() => {
+                    projectsTableBody.innerHTML = '<tr><td colspan="6">Failed to load projects.</td></tr>';
+                });
+        }
+
+        addProjectForm.onsubmit = function(e) {
+            e.preventDefault();
+            const formData = new FormData(addProjectForm);
+            const proj = {};
+            formData.forEach((v, k) => proj[k] = v);
+            fetch(PROJ_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(proj)
+            })
+            .then(res => res.json())
+            .then(data => {
+                projectFormStatus.textContent = 'Project added successfully!';
+                addProjectForm.reset();
+                fetchProjects();
+                setTimeout(() => { projectFormStatus.textContent = ''; }, 2000);
+            })
+            .catch(() => {
+                projectFormStatus.textContent = 'Failed to add project.';
+            });
+        };
+
+        function editProject(id) {
+            // Find project data from current table
+            const row = document.querySelector(`button.edit-proj-btn[data-id='${id}']`).closest('tr');
+            const cells = row.querySelectorAll('td');
+            const proj = {
+                id,
+                titleEn: cells[0].textContent,
+                titleAr: cells[1].textContent,
+                descriptionEn: cells[2].textContent,
+                descriptionAr: cells[3].textContent,
+                imageUrl: cells[4].querySelector('img') ? cells[4].querySelector('img').src : ''
+            };
+            // Simple prompt for editing
+            const newTitleEn = prompt('Edit Title (EN):', proj.titleEn);
+            if (newTitleEn === null) return;
+            const newTitleAr = prompt('Edit Title (AR):', proj.titleAr);
+            if (newTitleAr === null) return;
+            const newDescEn = prompt('Edit Description (EN):', proj.descriptionEn);
+            if (newDescEn === null) return;
+            const newDescAr = prompt('Edit Description (AR):', proj.descriptionAr);
+            if (newDescAr === null) return;
+            const newImageUrl = prompt('Edit Image URL:', proj.imageUrl);
+            if (newImageUrl === null) return;
+            // Update project
+            const updatedProj = {
+                titleEn: newTitleEn,
+                titleAr: newTitleAr,
+                descriptionEn: newDescEn,
+                descriptionAr: newDescAr,
+                imageUrl: newImageUrl
+            };
+            fetch(`${PROJ_API}/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedProj)
+            })
+            .then(res => res.json())
+            .then(() => {
+                fetchProjects();
+            });
+        }
+
+        function deleteProject(id) {
+            if (!confirm('Are you sure you want to delete this project?')) return;
+            fetch(`${PROJ_API}/${id}`, {
+                method: 'DELETE'
+            })
+            .then(() => {
+                fetchProjects();
+            });
+        }
+        // Default: show dashboard welcome
+        dashboardTitle.textContent = 'Welcome to Admin Dashboard';
+        dashboardDesc.textContent = 'Select a section from the sidebar.';
+        dashboardDesc.style.display = 'block';
+        contactsSection.style.display = 'none';
+
+        // CRUD and Search logic
+        function renderContacts(contacts) {
+            contactsTableBody.innerHTML = '';
+            if (!contacts || contacts.length === 0) {
+                contactsTableBody.innerHTML = '<tr><td colspan="6" style="padding:16px; text-align:center;">No contacts found.</td></tr>';
+                return;
+            }
+            // Reverse the array to show newest messages first
+            const reversedContacts = [...contacts].reverse();
+            reversedContacts.forEach(contact => {
+                const row = document.createElement('tr');
+                row.style.borderBottom = '2px solid #e3eaf7';
+                row.innerHTML = `
+                    <td style="padding:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${contact.name || ''}</td>
+                    <td style="padding:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${contact.email || ''}</td>
+                    <td style="padding:16px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${contact.phone_number || ''}</td>
+                    <td style="padding:16px; max-width:300px; word-wrap:break-word; white-space:normal;">${contact.service || ''}</td>
+                    <td style="padding:16px; max-width:250px; word-wrap:break-word; white-space:normal;">${contact.messages || ''}</td>
+                    <td style="padding:16px; white-space:nowrap;">
+                        <button class="edit-btn" data-id="${contact.id}" style="margin-right:8px; padding:6px 12px; border-radius:4px; background:#ffc107; color:#23355d; border:none; cursor:pointer; font-weight:500;">Edit</button>
+                        <button class="delete-btn" data-id="${contact.id}" style="padding:6px 12px; border-radius:4px; background:#dc3545; color:#fff; border:none; cursor:pointer; font-weight:500;">Delete</button>
+                    </td>
+                `;
+                contactsTableBody.appendChild(row);
+            });
+            // Add spacer row at the end
+            const spacerRow = document.createElement('tr');
+            spacerRow.innerHTML = '<td colspan="6" style="height:30px; border:none;"></td>';
+            contactsTableBody.appendChild(spacerRow);
+            // Add event listeners for edit/delete
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.onclick = function() { editContact(btn.dataset.id); };
+            });
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.onclick = function() { deleteContact(btn.dataset.id); };
+            });
+        }
+
+        function fetchContacts() {
+            fetch(`${API_BASE}/allcontacts`)
+                .then(res => res.json())
+                .then(data => renderContacts(data))
+                .catch(() => {
+                    contactsTableBody.innerHTML = '<tr><td colspan="6">Failed to load contacts.</td></tr>';
+                });
+        }
+
+        searchBtn.onclick = function() {
+            const text = searchInput.value.trim();
+            if (!text) return;
+            fetch(`${API_BASE}/contacts/${encodeURIComponent(text)}`)
+                .then(res => res.json())
+                .then(data => renderContacts(data))
+                .catch(() => {
+                    contactsTableBody.innerHTML = '<tr><td colspan="6">Search failed.</td></tr>';
+                });
+        };
+        resetBtn.onclick = function() {
+            searchInput.value = '';
+            fetchContacts();
+        };
+
+        addContactForm.onsubmit = function(e) {
+            e.preventDefault();
+            const formData = new FormData(addContactForm);
+            const contact = {};
+            formData.forEach((v, k) => contact[k] = v);
+            fetch(`${API_BASE}/contacts`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(contact)
+            })
+            .then(res => res.json())
+            .then(data => {
+                formStatus.textContent = 'Contact added successfully!';
+                addContactForm.reset();
+                fetchContacts();
+                setTimeout(() => { formStatus.textContent = ''; }, 2000);
+            })
+            .catch(() => {
+                formStatus.textContent = 'Failed to add contact.';
+            });
+        };
+
+        // Delete All logic
+        document.getElementById('deleteAllBtn').onclick = function() {
+            if (!confirm('Are you sure you want to delete ALL contacts? This cannot be undone.')) return;
+            fetch(`${API_BASE}/allcontacts`, {
+                method: 'DELETE'
+            })
+            .then(() => {
+                fetchContacts();
+            });
+        };
+
+        // Export to Excel functionality
+        document.getElementById('exportExcelBtn').onclick = function() {
+            fetch(`${API_BASE}/allcontacts`)
+                .then(res => res.json())
+                .then(contacts => {
+                    if (!contacts || contacts.length === 0) {
+                        alert('No contacts to export.');
+                        return;
+                    }
+                    
+                    // Reverse to show newest first (same as table display)
+                    const reversedContacts = [...contacts].reverse();
+                    
+                    // Create CSV content
+                    let csv = 'Name,Email,Phone,Service,Message\n';
+                    reversedContacts.forEach(contact => {
+                        const name = (contact.name || '').replace(/"/g, '""');
+                        const email = (contact.email || '').replace(/"/g, '""');
+                        const phone = (contact.phone_number || '').replace(/"/g, '""');
+                        const service = (contact.service || '').replace(/"/g, '""');
+                        const message = (contact.messages || '').replace(/"/g, '""');
+                        csv += `"${name}","${email}","${phone}","${service}","${message}"\n`;
+                    });
+                    
+                    // Create download link
+                    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `messages_${new Date().toISOString().split('T')[0]}.csv`);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                })
+                .catch(() => {
+                    alert('Failed to export contacts.');
+                });
+        };
+
+        // Edit and Delete logic (Edit: simple prompt, Delete: API call)
+        function editContact(id) {
+            // Find contact data from current table
+            const row = document.querySelector(`button.edit-btn[data-id='${id}']`).closest('tr');
+            const cells = row.querySelectorAll('td');
+            const contact = {
+                id,
+                name: cells[0].textContent,
+                email: cells[1].textContent,
+                phone_number: cells[2].textContent,
+                service: cells[3].textContent,
+                messages: cells[4].textContent
+            };
+            // Simple prompt for editing
+            const newName = prompt('Edit Name:', contact.name);
+            if (newName === null) return;
+            const newEmail = prompt('Edit Email:', contact.email);
+            if (newEmail === null) return;
+            const newPhone = prompt('Edit Phone:', contact.phone_number);
+            if (newPhone === null) return;
+            const newService = prompt('Edit Service:', contact.service);
+            if (newService === null) return;
+            const newMessage = prompt('Edit Message:', contact.messages);
+            if (newMessage === null) return;
+            // Update contact
+            const updatedContact = {
+                id,
+                name: newName,
+                email: newEmail,
+                phone_number: newPhone,
+                service: newService,
+                messages: newMessage
+            };
+            fetch(`${API_BASE}/contacts`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedContact)
+            })
+            .then(res => res.json())
+            .then(() => {
+                fetchContacts();
+            });
+        }
+
+        function deleteContact(id) {
+            if (!confirm('Are you sure you want to delete this contact?')) return;
+            fetch(`${API_BASE}/contacts/${id}`, {
+                method: 'DELETE'
+            })
+            .then(() => {
+                fetchContacts();
+            });
+        }
+
+        // Employee CRUD logic
+        function renderEmployees(employees) {
+            employeesTableBody.innerHTML = '';
+            if (!employees || employees.length === 0) {
+                employeesTableBody.innerHTML = '<tr><td colspan="8">No employees found.</td></tr>';
+                return;
+            }
+            employees.forEach(emp => {
+                const row = document.createElement('tr');
+                row.style.borderBottom = '2px solid #e3eaf7';
+                row.innerHTML = `
+                    <td style="padding:16px; text-align:center;">
+                        ${emp.photoUrl ? `<img src="${emp.photoUrl}" alt="photo" style="width:48px; height:48px; border-radius:8px; object-fit:cover;">` : ''}
+                    </td>
+                    <td style="padding:16px;">${emp.nameEn || ''}</td>
+                    <td style="padding:16px;">${emp.nameAr || ''}</td>
+                    <td style="padding:16px;">${emp.roleEn || ''}</td>
+                    <td style="padding:16px;">${emp.roleAr || ''}</td>
+                    <td style="padding:16px;">${emp.descriptionEn || ''}</td>
+                    <td style="padding:16px;">${emp.descriptionAr || ''}</td>
+                    <td style="padding:16px;">
+                        <button class="edit-emp-btn" data-id="${emp.id}" style="margin-right:8px; padding:6px 12px; border-radius:4px; background:#ffc107; color:#23355d; border:none; cursor:pointer;">Edit</button>
+                        <button class="delete-emp-btn" data-id="${emp.id}" style="padding:6px 12px; border-radius:4px; background:#dc3545; color:#fff; border:none; cursor:pointer;">Delete</button>
+                    </td>
+                `;
+                employeesTableBody.appendChild(row);
+            });
+            // Add spacer row at the end
+            const spacerRow = document.createElement('tr');
+            spacerRow.innerHTML = '<td colspan="8" style="height:30px; border:none;"></td>';
+            employeesTableBody.appendChild(spacerRow);
+            // Edit/Delete listeners
+            document.querySelectorAll('.edit-emp-btn').forEach(btn => {
+                btn.onclick = function() { editEmployee(btn.dataset.id); };
+            });
+            document.querySelectorAll('.delete-emp-btn').forEach(btn => {
+                btn.onclick = function() { deleteEmployee(btn.dataset.id); };
+            });
+        }
+
+        function fetchEmployees() {
+            fetch(EMP_API)
+                .then(res => res.json())
+                .then(data => renderEmployees(data))
+                .catch(() => {
+                    employeesTableBody.innerHTML = '<tr><td colspan="8">Failed to load employees.</td></tr>';
+                });
+        }
+
+        addEmployeeForm.onsubmit = function(e) {
+            e.preventDefault();
+            const formData = new FormData(addEmployeeForm);
+            const emp = {};
+            formData.forEach((v, k) => emp[k] = v);
+            fetch(EMP_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(emp)
+            })
+            .then(res => res.json())
+            .then(data => {
+                employeeFormStatus.textContent = 'Employee added successfully!';
+                addEmployeeForm.reset();
+                fetchEmployees();
+                setTimeout(() => { employeeFormStatus.textContent = ''; }, 2000);
+            })
+            .catch(() => {
+                employeeFormStatus.textContent = 'Failed to add employee.';
+            });
+        };
+
+        function editEmployee(id) {
+            // Find employee data from current table
+            const row = document.querySelector(`button.edit-emp-btn[data-id='${id}']`).closest('tr');
+            const cells = row.querySelectorAll('td');
+            const emp = {
+                id,
+                nameEn: cells[1].textContent,
+                nameAr: cells[2].textContent,
+                roleEn: cells[3].textContent,
+                roleAr: cells[4].textContent,
+                descriptionEn: cells[5].textContent,
+                descriptionAr: cells[6].textContent,
+                photoUrl: cells[0].querySelector('img') ? cells[0].querySelector('img').src : ''
+            };
+            // Simple prompt for editing
+            const newNameEn = prompt('Edit Name (EN):', emp.nameEn);
+            if (newNameEn === null) return;
+            const newNameAr = prompt('Edit Name (AR):', emp.nameAr);
+            if (newNameAr === null) return;
+            const newRoleEn = prompt('Edit Role (EN):', emp.roleEn);
+            if (newRoleEn === null) return;
+            const newRoleAr = prompt('Edit Role (AR):', emp.roleAr);
+            if (newRoleAr === null) return;
+            const newDescEn = prompt('Edit Description (EN):', emp.descriptionEn);
+            if (newDescEn === null) return;
+            const newDescAr = prompt('Edit Description (AR):', emp.descriptionAr);
+            if (newDescAr === null) return;
+            const newPhotoUrl = prompt('Edit Photo URL:', emp.photoUrl);
+            if (newPhotoUrl === null) return;
+            // Update employee
+            const updatedEmp = {
+                nameEn: newNameEn,
+                nameAr: newNameAr,
+                roleEn: newRoleEn,
+                roleAr: newRoleAr,
+                descriptionEn: newDescEn,
+                descriptionAr: newDescAr,
+                photoUrl: newPhotoUrl
+            };
+            fetch(`${EMP_API}/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedEmp)
+            })
+            .then(res => res.json())
+            .then(() => {
+                fetchEmployees();
+            });
+        }
+
+        function deleteEmployee(id) {
+            if (!confirm('Are you sure you want to delete this employee?')) return;
+            fetch(`${EMP_API}/${id}`, {
+                method: 'DELETE'
+            })
+            .then(() => {
+                fetchEmployees();
+            });
+        }
+
+        // Analytics Functions
+        function loadAnalytics() {
+            fetch(`${API_BASE}/allcontacts`)
+                .then(res => res.json())
+                .then(contacts => {
+                    analyzeData(contacts);
+                })
+                .catch(() => {
+                    console.error('Failed to load analytics data');
+                });
+        }
+
+        function analyzeData(contacts) {
+            if (!contacts || contacts.length === 0) {
+                document.getElementById('total-messages').textContent = '0';
+                return;
+            }
+
+            // Total Messages
+            document.getElementById('total-messages').textContent = contacts.length;
+
+            // Categorize orders by type
+            let serviceCount = 0;
+            let bundleCount = 0;
+            let customCount = 0;
+            const countryMap = {};
+            const serviceMap = {};
+
+            contacts.forEach(contact => {
+                const service = (contact.service || '').toLowerCase();
+                const originalService = contact.service || '';
+                
+                // Categorize order type
+                // Custom orders contain detailed breakdowns with commas and colons (e.g., "Content Posts: 8, Page Stories: 8...")
+                if (service.includes(':') && service.includes(',')) {
+                    customCount++;
+                } else if (service.includes('bundle')) {
+                    bundleCount++;
+                } else if (service && service !== '') {
+                    serviceCount++;
+                }
+
+                // Count services
+                if (originalService && originalService.trim() !== '') {
+                    // For custom orders, use "Custom Bundle" as the service name
+                    let serviceName = originalService.split('-')[0].trim();
+                    if (service.includes(':') && service.includes(',')) {
+                        serviceName = 'Custom Bundle';
+                    }
+                    serviceMap[serviceName] = (serviceMap[serviceName] || 0) + 1;
+                }
+
+                // Analyze country by phone code
+                const phone = contact.phone_number || '';
+                let country = 'Unknown';
+                
+                if (phone.startsWith('01') || phone.startsWith('+201')) {
+                    country = 'Egypt 🇪🇬';
+                } else if (phone.startsWith('05') || phone.startsWith('+9665')) {
+                    country = 'Saudi Arabia 🇸🇦';
+                } else if (phone.startsWith('971') || phone.startsWith('+971')) {
+                    country = 'UAE 🇦🇪';
+                } else if (phone.startsWith('962') || phone.startsWith('+962')) {
+                    country = 'Jordan 🇯🇴';
+                } else if (phone.startsWith('965') || phone.startsWith('+965')) {
+                    country = 'Kuwait 🇰🇼';
+                } else if (phone.startsWith('974') || phone.startsWith('+974')) {
+                    country = 'Qatar 🇶🇦';
+                } else if (phone.startsWith('973') || phone.startsWith('+973')) {
+                    country = 'Bahrain 🇧🇭';
+                } else if (phone.startsWith('968') || phone.startsWith('+968')) {
+                    country = 'Oman 🇴🇲';
+                } else if (phone.startsWith('961') || phone.startsWith('+961')) {
+                    country = 'Lebanon 🇱🇧';
+                }
+                
+                countryMap[country] = (countryMap[country] || 0) + 1;
+            });
+
+            // Update summary cards
+            document.getElementById('service-orders').textContent = serviceCount;
+            document.getElementById('bundle-orders').textContent = bundleCount;
+            document.getElementById('custom-orders').textContent = customCount;
+
+            // Render charts
+            renderCountryChart(countryMap);
+            renderServicesChart(serviceMap);
+            renderOrderTypesChart(serviceCount, bundleCount, customCount);
+            renderRecentActivity(contacts);
+        }
+
+        function renderCountryChart(countryMap) {
+            const chart = document.getElementById('country-chart');
+            const total = Object.values(countryMap).reduce((a, b) => a + b, 0);
+            const sortedCountries = Object.entries(countryMap).sort((a, b) => b[1] - a[1]);
+
+            chart.innerHTML = sortedCountries.map(([country, count]) => {
+                const percentage = ((count / total) * 100).toFixed(1);
+                return `
+                    <div style="margin-bottom:12px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                            <span style="font-weight:500; color:#23355d;">${country}</span>
+                            <span style="color:#666;">${count} (${percentage}%)</span>
+                        </div>
+                        <div style="background:#e3eaf7; border-radius:4px; height:24px; position:relative; overflow:hidden;">
+                            <div style="background:linear-gradient(90deg, #FF6B35, #FFA500); height:100%; width:${percentage}%; border-radius:4px; transition:width 0.3s;"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderServicesChart(serviceMap) {
+            const chart = document.getElementById('services-chart');
+            const total = Object.values(serviceMap).reduce((a, b) => a + b, 0);
+            const sortedServices = Object.entries(serviceMap).sort((a, b) => b[1] - a[1]).slice(0, 10);
+
+            chart.innerHTML = sortedServices.map(([service, count]) => {
+                const percentage = ((count / total) * 100).toFixed(1);
+                return `
+                    <div style="margin-bottom:12px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                            <span style="font-weight:500; color:#23355d; font-size:0.9rem;">${service}</span>
+                            <span style="color:#666;">${count}</span>
+                        </div>
+                        <div style="background:#e3eaf7; border-radius:4px; height:20px; position:relative; overflow:hidden;">
+                            <div style="background:linear-gradient(90deg, #28a745, #20c997); height:100%; width:${percentage}%; border-radius:4px;"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderOrderTypesChart(services, bundles, custom) {
+            const chart = document.getElementById('order-types-chart');
+            const total = services + bundles + custom;
+
+            const data = [
+                { label: 'Service Orders', count: services, color: '#28a745', percentage: ((services / total) * 100).toFixed(1) },
+                { label: 'Bundle Orders', count: bundles, color: '#007bff', percentage: ((bundles / total) * 100).toFixed(1) },
+                { label: 'Custom Orders', count: custom, color: '#ffc107', percentage: ((custom / total) * 100).toFixed(1) }
+            ];
+
+            chart.innerHTML = data.map(item => `
+                <div style="text-align:center;">
+                    <div style="width:120px; height:120px; border-radius:50%; border:12px solid ${item.color}; display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 12px;">
+                        <div style="font-size:1.8rem; font-weight:700; color:${item.color};">${item.count}</div>
+                        <div style="font-size:0.9rem; color:#666;">${item.percentage}%</div>
+                    </div>
+                    <div style="font-weight:500; color:#23355d;">${item.label}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderRecentActivity(contacts) {
+            const chart = document.getElementById('recent-activity');
+            const recent = contacts.slice(-7).reverse(); // Last 7 messages
+
+            chart.innerHTML = `
+                <table style="width:100%; border-collapse:collapse;">
+                    <thead style="background:#f8f9fa;">
+                        <tr>
+                            <th style="padding:12px; text-align:left; color:#23355d; font-weight:600;">Name</th>
+                            <th style="padding:12px; text-align:left; color:#23355d; font-weight:600;">Service</th>
+                            <th style="padding:12px; text-align:left; color:#23355d; font-weight:600;">Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${recent.map(contact => `
+                            <tr style="border-bottom:1px solid #e3eaf7;">
+                                <td style="padding:12px;">${contact.name || ''}</td>
+                                <td style="padding:12px;">${(contact.service || '').substring(0, 30)}${contact.service && contact.service.length > 30 ? '...' : ''}</td>
+                                <td style="padding:12px;">${(contact.messages || '').substring(0, 40)}${contact.messages && contact.messages.length > 40 ? '...' : ''}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+    // Blog Posts CRUD Functions
+    function fetchBlogPosts() {
+        fetch(BLOG_API)
+            .then(res => res.json())
+            .then(posts => renderBlogPosts(posts))
+            .catch(() => {
+                blogPostsList.innerHTML = '<div style="padding:40px; text-align:center; color:#666;">Failed to load blog posts.</div>';
+            });
+    }
+
+    function renderBlogPosts(posts) {
+        blogPostsList.innerHTML = '';
+        if (!posts || posts.length === 0) {
+            blogPostsList.innerHTML = '<div style="padding:40px; text-align:center; color:#666;">No blog posts found.</div>';
+            return;
+        }
+        
+        blogPostsList.innerHTML = posts.map(post => `
+            <div style="background:#f8f9fa; padding:20px; border-radius:8px; margin-bottom:16px; display:flex; gap:20px; align-items:start;">
+                ${post.photoUrl ? `
+                    <img src="${post.photoUrl}" alt="post" style="width:120px; height:120px; border-radius:8px; object-fit:cover; flex-shrink:0;">
+                ` : '<div style="width:120px; height:120px; border-radius:8px; background:#ddd; flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#666;">No Image</div>'}
+                <div style="flex:1;">
+                    <h3 style="margin:0 0 12px 0; color:#23355d;">${post.title || ''}</h3>
+                    <div style="margin-bottom:8px;">
+                        <strong style="color:#666;">English:</strong>
+                        <p style="margin:4px 0; color:#666;">${post.descriptionEn || ''}</p>
+                    </div>
+                    <div style="margin-bottom:12px;">
+                        <strong style="color:#666;">Arabic:</strong>
+                        <p style="margin:4px 0; color:#666; direction:rtl;">${post.descriptionAr || ''}</p>
+                    </div>
+                    <div style="color:#999; font-size:0.9rem; margin-bottom:12px;">
+                        ${new Date(post.date).toLocaleDateString()}
+                    </div>
+                    <div>
+                        <button class="edit-blog-btn" data-id="${post.id}" style="margin-right:8px; padding:8px 16px; border-radius:6px; background:#ffc107; color:#23355d; border:none; cursor:pointer; font-weight:600;">Edit</button>
+                        <button class="delete-blog-btn" data-id="${post.id}" style="padding:8px 16px; border-radius:6px; background:#dc3545; color:#fff; border:none; cursor:pointer; font-weight:600;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // Add event listeners
+        document.querySelectorAll('.edit-blog-btn').forEach(btn => {
+            btn.onclick = function() { editBlogPost(btn.dataset.id); };
+        });
+        document.querySelectorAll('.delete-blog-btn').forEach(btn => {
+            btn.onclick = function() { deleteBlogPost(btn.dataset.id); };
+        });
+    }
+
+    addBlogPostBtn.onclick = function() {
+        editingBlogPostId = null;
+        document.getElementById('blog-modal-title').textContent = 'Add New Blog Post';
+        blogPostForm.reset();
+        document.getElementById('blog-image-preview').style.display = 'none';
+        blogPostModal.style.display = 'flex';
+    };
+
+    closeBlogModalBtn.onclick = function() {
+        blogPostModal.style.display = 'none';
+    };
+
+    // Image preview handlers
+    const blogPhotoFile = document.getElementById('blog-photoFile');
+    const blogPhotoUrl = document.getElementById('blog-photoUrl');
+    const blogImagePreview = document.getElementById('blog-image-preview');
+    const blogPreviewImg = document.getElementById('blog-preview-img');
+
+    blogPhotoFile.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                blogPreviewImg.src = e.target.result;
+                blogImagePreview.style.display = 'block';
+                blogPhotoUrl.value = ''; // Clear URL input
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
+    blogPhotoUrl.oninput = function() {
+        if (this.value) {
+            blogPreviewImg.src = this.value;
+            blogImagePreview.style.display = 'block';
+            blogPhotoFile.value = ''; // Clear file input
+        }
+    };
+
+    blogPostForm.onsubmit = async function(e) {
+        e.preventDefault();
+        
+        let photoUrl = document.getElementById('blog-photoUrl').value;
+        
+        // Handle file upload if a file was selected
+        const photoFile = document.getElementById('blog-photoFile').files[0];
+        if (photoFile) {
+            // Convert image to base64
+            const reader = new FileReader();
+            const base64Promise = new Promise((resolve) => {
+                reader.onload = function(e) {
+                    resolve(e.target.result);
+                };
+                reader.readAsDataURL(photoFile);
+            });
+            photoUrl = await base64Promise;
+        }
+        
+        const postData = {
+            title: document.getElementById('blog-title').value,
+            descriptionEn: document.getElementById('blog-descriptionEn').value,
+            descriptionAr: document.getElementById('blog-descriptionAr').value,
+            photoUrl: photoUrl
+        };
+
+        const url = editingBlogPostId ? `${BLOG_API}/${editingBlogPostId}` : BLOG_API;
+        const method = editingBlogPostId ? 'PUT' : 'POST';
+
+        fetch(url, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(postData)
+        })
+        .then(res => res.json())
+        .then(() => {
+            blogPostModal.style.display = 'none';
+            fetchBlogPosts();
+            alert(editingBlogPostId ? 'Post updated successfully!' : 'Post added successfully!');
+        })
+        .catch(() => {
+            alert('Failed to save blog post.');
+        });
+    };
+
+    function editBlogPost(id) {
+        fetch(`${BLOG_API}/${id}`)
+            .then(res => res.json())
+            .then(post => {
+                editingBlogPostId = id;
+                document.getElementById('blog-modal-title').textContent = 'Edit Blog Post';
+                document.getElementById('blog-title').value = post.title;
+                document.getElementById('blog-descriptionEn').value = post.descriptionEn;
+                document.getElementById('blog-descriptionAr').value = post.descriptionAr;
+                document.getElementById('blog-photoUrl').value = post.photoUrl || '';
+                
+                // Show image preview if there's a URL
+                if (post.photoUrl) {
+                    document.getElementById('blog-preview-img').src = post.photoUrl;
+                    document.getElementById('blog-image-preview').style.display = 'block';
+                }
+                
+                blogPostModal.style.display = 'flex';
+            })
+            .catch(() => {
+                alert('Failed to load blog post.');
+            });
+    }
+
+    function deleteBlogPost(id) {
+        if (!confirm('Are you sure you want to delete this blog post?')) return;
+        
+        fetch(`${BLOG_API}/${id}`, { method: 'DELETE' })
+            .then(() => {
+                fetchBlogPosts();
+                alert('Post deleted successfully!');
+            })
+            .catch(() => {
+                alert('Failed to delete blog post.');
+            });
+    }
+
+    deleteAllBlogPostsBtn.onclick = function() {
+        if (!confirm('Are you sure you want to DELETE ALL blog posts? This cannot be undone!')) return;
+        
+        fetch(BLOG_API, { method: 'DELETE' })
+            .then(() => {
+                fetchBlogPosts();
+                alert('All blog posts deleted successfully!');
+            })
+            .catch(() => {
+                alert('Failed to delete all blog posts.');
+            });
+    };
+    
+    }); // End DOMContentLoaded
+    </script>
+</body>
+</html>

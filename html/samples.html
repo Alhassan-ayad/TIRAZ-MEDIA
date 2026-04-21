@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALT MATE - Samples</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            document.documentElement.lang = savedLang;
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    <style>
+        html.lang-ready { visibility: visible !important; }
+    </style>
+</head>
+<body class="samples-page">
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open Menu">
+        <img src="../images/hamburger-menu.png" alt="Menu" style="width: 28px; height: 28px;">
+    </button>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height: 48px;">
+            <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="home.html" class="active" data-translate="home">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10L10 3L17 10V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="aboutus.html" data-translate="aboutUs">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="missions.html" data-translate="missions">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 13L15 18.5L10 15.5L5 18.5L6 13L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Missions
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html" data-translate="ourServices">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4V16C12 16.5304 11.7893 17.0391 11.4142 17.4142C11.0391 17.7893 10.5304 18 10 18C9.46957 18 8.96086 17.7893 8.58579 17.4142C8.21071 17.0391 8 16.5304 8 16V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Our Services
+                    </a>
+                </li>
+                <li>
+                    <a href="bundles.html" data-translate="bundles">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h4v4H4V4zm6 0h6v4h-6V4zM4 10h4v6H4v-6zm6 0h6v6h-6v-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Bundles
+                    </a>
+                </li>
+                <li>
+                    <a href="samples.html" data-translate="samples">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Samples
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html" data-translate="blog">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="currentColor"/>
+                        </svg>
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="contact.html" class="sidebar-contact-btn" data-translate="contactInfo">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6.5A2 2 0 0 1 5 4.5h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contact Info
+            </a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher-container">
+                <button class="language-toggle" aria-label="Switch Language">
+                    <span class="lang-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12H22M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="lang-text">العربية</span>
+                </button>
+            </div>
+            
+            <div class="sidebar-social-icons">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Header (Hidden on Mobile) -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+        </div>
+        <div class="header-right">
+            <div class="desktop-language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="ar">ع</button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" data-translate="home">Home</a></li>
+                    <li><a href="aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="missions.html" data-translate="missions">Missions</a></li>
+                    <li><a href="services.html" data-translate="ourServices">Our Services</a></li>
+                    <li><a href="bundles.html" data-translate="bundles">Bundles</a></li>
+                    <li><a href="samples.html" class="active" data-translate="samples">Samples</a></li>
+                    <li><a href="blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="contact.html" class="contact-btn" data-translate="contactInfo">Contact Info</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="samples-banner">
+        <div class="banner-image">
+            <img src="../images/samples banner.jpg" alt="Creative Samples Banner">
+        </div>
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1 class="banner-title">
+                <span class="title-line" data-translate="ourCreative">Our Creative</span>
+                <span class="title-highlight" data-translate="masterpieces">Masterpieces</span>
+            </h1>
+            <p class="banner-subtitle" data-translate="browseDiversePortfolio">Browse through our diverse portfolio of successful projects</p>
+            <div class="banner-cta">
+                <button class="cta-primary" onclick="document.querySelector('.samples-tabs').scrollIntoView({behavior: 'smooth'})">
+                    <span data-translate="explorePortfolio">Explore Portfolio</span>
+                    <i class="arrow-down">↓</i>
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Samples Section -->
+    <section class="samples-section">
+        <div class="container">
+            <!-- Statistics Section -->
+            <div class="work-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">0+</div>
+                    <div class="stat-label" data-translate="projects">PROJECTS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0+</div>
+                    <div class="stat-label" data-translate="innovativeSolutions">INNOVATIVE SOLUTIONS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="5">0+</div>
+                    <div class="stat-label" data-translate="yearsExperience">YEARS EXPERIENCE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0+</div>
+                    <div class="stat-label" data-translate="teamMembers">TEAM MEMBERS</div>
+                </div>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-title" data-translate="exploreOurWork">Explore Our Work</h2>
+                <p class="section-subtitle" data-translate="browseDiversePortfolio">Browse through our diverse portfolio of successful projects</p>
+            </div>
+
+            <!-- Category Selection Tabs -->
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="websites" onclick="showCategory('websites')">
+                    <span class="tab-icon"><img src="../images/samples icons/websites and applications.png" alt="Websites" style="width: 24px; height: 24px;"></span>
+                    <span class="tab-text" data-translate="websitesApplications">Websites & Applications</span>
+                </button>
+                <button class="tab-btn" data-category="advertising" onclick="showCategory('advertising')">
+                    <span class="tab-icon"><img src="../images/samples icons/advertising.png" alt="Advertising" style="width: 24px; height: 24px;"></span>
+                    <span class="tab-text" data-translate="advertisingCampaignsGraphic">Advertising Campaigns & Graphic Designs</span>
+                </button>
+                <button class="tab-btn" data-category="results" onclick="showCategory('results')">
+                    <span class="tab-icon"><img src="../images/samples icons/ads results.png" alt="Results" style="width: 24px; height: 24px;"></span>
+                    <span class="tab-text" data-translate="advertisingResults">Advertising Results</span>
+                </button>
+                <button class="tab-btn" data-category="photography" onclick="showCategory('photography')">
+                    <span class="tab-icon"><img src="../images/samples icons/photography.png" alt="Photography" style="width: 24px; height: 24px;"></span>
+                    <span class="tab-text" data-translate="photography">Photography</span>
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="samples-content">
+                
+                <!-- Websites and Applications Content -->
+                <div class="category-content active" id="websites-content">
+                    <div class="samples-grid">
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/websites and applications/dimensions .jpg" alt="Dimensions Project">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openWebsitePreview('https://dimensions-project-a73d.vercel.app/', 'Dimensions Project')" data-translate="viewProject">View Project</button>
+                                </div>
+                            </div>
+                            <div class="sample-details">
+                                <h4>Dimensions Project</h4>
+                                
+                            </div>
+                        </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/samples website/yosr.png" alt="Elyosr Sports">
+                                    <div class="overlay">
+                                        <a class="view-btn" href="https://www.elyosr-sports.com/" target="_blank" rel="noopener" data-translate="viewProject">View Project</a>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                    <h4>Elyosr Sports</h4>
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/samples website/mamlaket elsheikh.png" alt="Mamlaket Elsheikh">
+                                    <div class="overlay">
+                                        <a class="view-btn" href="https://mamlaketelsheikh.com/ar" target="_blank" rel="noopener" data-translate="viewProject">View Project</a>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                    <h4>Mamlaket Elsheikh</h4>
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/samples website/takamol.png" alt="Takamol">
+                                    <div class="overlay">
+                                        <a class="view-btn" href="https://takamoltbs.com.sa/" target="_blank" rel="noopener" data-translate="viewProject">View Project</a>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                    <h4>Takamol</h4>
+                                </div>
+                            </div>
+
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/websites and applications/egyptian italian retreading company .jpg" alt="Egyptian Italian Company">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openWebsitePreview('https://egyptian-italian-kljt.vercel.app/', 'Egyptian Italian Retreading Company')" data-translate="viewProject">View Project</button>
+                                </div>
+                            </div>
+                            <div class="sample-details">
+                                <h4>Egyptian Italian Retreading Company</h4>
+                            </div>
+                        </div>
+
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/websites and applications/al forsan triangle .jpg" alt="Elforsan Triangle">
+                                <div class="overlay">
+                                    <a class="view-btn" href="https://www.elforsan-triangle.com/" target="_blank" rel="noopener" data-translate="viewProject">View Project</a>
+                                </div>
+                            </div>
+                            <div class="sample-details">
+                                <h4>Elforsan Triangle</h4>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <!-- Advertising Campaigns and Graphic Designs Content -->
+                <div class="category-content" id="advertising-content">
+                    <!-- Sub-category Tabs for Advertising -->
+                    <div class="sub-category-tabs">
+                        <button class="sub-tab-btn active" data-subcategory="food" onclick="showSubCategory('food')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/restaurant.png" alt="Food" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryFood">Food</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="furniture" onclick="showSubCategory('furniture')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/furniture.png" alt="Furniture" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryFurniture">Furniture</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="healthcare" onclick="showSubCategory('healthcare')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/healthcare.png" alt="Healthcare" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryHealthcare">Healthcare</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="services" onclick="showSubCategory('services')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/services.png" alt="Services" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryServices">Services</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="sports" onclick="showSubCategory('sports')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/sport.png" alt="Sports" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categorySports">Sports</span>
+                        </button>
+                    </div>
+
+                    <!-- Food Subcategory Content -->
+                    <div class="subcategory-content active" id="food-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of IMG-20250713-WA0074.jpg" alt="Food Design 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of IMG-20250713-WA0074.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of IMG-20250821-WA0033.jpg" alt="Food Design 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of IMG-20250821-WA0033.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of photo_5879467674973620185_y.jpg" alt="Food Design 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of photo_5879467674973620185_y.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of photo_5879467674973620227_y.jpg" alt="Food Design 4">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of photo_5879467674973620227_y.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of photo_5888698968441997492_y.jpg" alt="Food Design 5">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of photo_5888698968441997492_y.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_347420582_938758377359615_2117247660324748418_n.jpg" alt="Food Design 6">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_347420582_938758377359615_2117247660324748418_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_347448126_207690348397905_3022047919920143190_n.jpg" alt="Food Design 7">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_347448126_207690348397905_3022047919920143190_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_454508451_807082828081420_6897205147154791792_n.jpg" alt="Food Design 8">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_454508451_807082828081420_6897205147154791792_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_457613907_18245252122258306_1541272271468904978_n.jpg" alt="Food Design 9">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_457613907_18245252122258306_1541272271468904978_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_469158314_18124165045396177_545614107779128132_n.jpg" alt="Food Design 10">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_469158314_18124165045396177_545614107779128132_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_470898809_469273272862307_4992282130942610487_n.jpg" alt="Food Design 11">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_470898809_469273272862307_4992282130942610487_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_471962115_959634405494225_6109649676065519679_n.jpg" alt="Food Design 12">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_471962115_959634405494225_6109649676065519679_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                    <h4>Ethnic Restaurant Design</h4>
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_481732596_18265679083258306_4901353730436284767_n.jpg" alt="Food Design 13">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of SaveFree.app_481732596_18265679083258306_4901353730436284767_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of Copy of نسخة من photo_12_2024-04-06_12-49-29.jpg" alt="Food Design 14">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of Copy of نسخة من photo_12_2024-04-06_12-49-29.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250708-WA0015.jpg" alt="Food Design 15">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250708-WA0015.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250803-WA0031.jpg" alt="Food Design 16">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250803-WA0031.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250818-WA0004.jpg" alt="Food Design 17">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250818-WA0004.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250819-WA0021.jpg" alt="Food Design 18">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250819-WA0021.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250827-WA0043.jpg" alt="Food Design 19">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/Copy of IMG-20250827-WA0043.jpg', 'Wine & Dine Branding')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/IMG-20250831-WA0103.jpg" alt="Food Design 20">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/IMG-20250831-WA0103.jpg', 'Food Market Campaign', 'Marketing campaign for farmers market and local food marketplace.')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/IMG-20250831-WA0150.jpg" alt="Food Design 21">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/IMG-20250831-WA0150.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/food/WhatsApp Image 2025-08-31 at 11.03.10 AM.jpeg" alt="Food Design 22">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/food/WhatsApp Image 2025-08-31 at 11.03.10 AM.jpeg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Furniture Subcategory Content -->
+                    <div class="subcategory-content" id="furniture-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of photo_5879467674973620181_y.jpg" alt="Furniture Design 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of photo_5879467674973620181_y.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of SaveFree.app_469432005_122102369216659012_4944247964457234541_n.jpg" alt="Furniture Design 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of SaveFree.app_469432005_122102369216659012_4944247964457234541_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of SaveFree.app_475923491_18056113949297527_7097569876876394458_n.jpg" alt="Furniture Design 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of SaveFree.app_475923491_18056113949297527_7097569876876394458_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of WhatsApp Image 2024-11-02 at 1.27.45 PM.jpeg" alt="Furniture Design 4">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of Copy of WhatsApp Image 2024-11-02 at 1.27.45 PM.jpeg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of IMG-20250726-WA0051.jpg" alt="Furniture Design 5">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of IMG-20250726-WA0051.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of IMG-20250728-WA0033.jpg" alt="Furniture Design 6">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of IMG-20250728-WA0033.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/furniture/Copy of IMG-20250728-WA0035.jpg" alt="Furniture Design 7">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/furniture/Copy of IMG-20250728-WA0035.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare Subcategory Content -->
+                    <div class="subcategory-content" id="healthcare-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of Copy of SaveFree.app_469043102_549358854744091_4195027714138416073_n.jpg" alt="Healthcare Design 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of Copy of SaveFree.app_469043102_549358854744091_4195027714138416073_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of Copy of SaveFree.app_480552671_1003182941864819_3288406063328367609_n.jpg" alt="Healthcare Design 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of Copy of SaveFree.app_480552671_1003182941864819_3288406063328367609_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250714-WA0043.jpg" alt="Healthcare Design 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250714-WA0043.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250802-WA0026.jpg" alt="Healthcare Design 4">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250802-WA0026.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250806-WA0062.jpg" alt="Healthcare Design 5">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250806-WA0062.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250806-WA0077.jpg" alt="Healthcare Design 6">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250806-WA0077.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250828-WA0026.jpg" alt="Healthcare Design 7">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/Copy of IMG-20250828-WA0026.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/IMG-20250831-WA0079.jpg" alt="Healthcare Design 8">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/IMG-20250831-WA0079.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/IMG-20250831-WA0093.jpg" alt="Healthcare Design 9">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/IMG-20250831-WA0093.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/IMG-20250831-WA0111.jpg" alt="Healthcare Design 10">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/IMG-20250831-WA0111.jpg', 'Healthcare Startup Branding', 'Complete branding package for innovative healthcare startup company.')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/healthcare/WhatsApp Image 2025-08-31 at 11.03.19 AM.jpeg" alt="Healthcare Design 11">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/healthcare/WhatsApp Image 2025-08-31 at 11.03.19 AM.jpeg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services Subcategory Content -->
+                    <div class="subcategory-content" id="services-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/services/Copy of Copy of SaveFree.app_465420940_17931980252955147_2172496043045319675_n.jpg" alt="Services Design 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/services/Copy of Copy of SaveFree.app_465420940_17931980252955147_2172496043045319675_n.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/services/Copy of IMG-20250627-WA0016.jpg" alt="Services Design 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/services/Copy of IMG-20250627-WA0016.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/services/Copy of IMG-20250807-WA0060.jpg" alt="Services Design 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/services/Copy of IMG-20250807-WA0060.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sports Subcategory Content -->
+                    <div class="subcategory-content" id="sports-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/sports/Copy of IMG-20250713-WA0064.jpg" alt="Sports Design 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/sports/Copy of IMG-20250713-WA0064.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/sports/IMG-20250831-WA0087.jpg" alt="Sports Design 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/sports/IMG-20250831-WA0087.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/designs-20250906T114153Z-1-001/sports/IMG-20250831-WA0110.jpg" alt="Sports Design 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/designs-20250906T114153Z-1-001/sports/IMG-20250831-WA0110.jpg')">View Project</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertising Results Content -->
+                <div class="category-content" id="results-content">
+                    <div class="samples-grid">
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/1.jpg" alt="Advertising Result 1">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/1.jpg', 'Advertising Result 1', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/2.jpg" alt="Advertising Result 2">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/2.jpg', 'Advertising Result 2', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/3.jpg" alt="Advertising Result 3">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/3.jpg', 'Advertising Result 3', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/4.jpg" alt="Advertising Result 4">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/4.jpg', 'Advertising Result 4', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/5.jpg" alt="Advertising Result 5">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/5.jpg', 'Advertising Result 5', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/6.jpg" alt="Advertising Result 6">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/6.jpg', 'Advertising Result 6', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sample-item">
+                            <div class="sample-image">
+                                <img src="../images/advertising results/7.jpg" alt="Advertising Result 7">
+                                <div class="overlay">
+                                    <button class="view-btn" onclick="openImagePreview('../images/advertising results/7.jpg', 'Advertising Result 7', '')">View Result</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Content -->
+                <div class="category-content" id="photography-content">
+                    <!-- Sub-category Tabs for Photography -->
+                    <div class="sub-category-tabs">
+                        <button class="sub-tab-btn active" data-subcategory="photo-food" onclick="showSubCategory('photo-food')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/restaurant.png" alt="Food" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryFood">Food</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="photo-fragrances" onclick="showSubCategory('photo-fragrances')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/fragnances.png" alt="Fragrances" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryFragrances">Fragrances</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="photo-furniture" onclick="showSubCategory('photo-furniture')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/furniture.png" alt="Furniture" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryFurniture">Furniture</span>
+                        </button>
+                        <button class="sub-tab-btn" data-subcategory="photo-jewelry" onclick="showSubCategory('photo-jewelry')">
+                            <span class="sub-tab-icon"><img src="../images/samples icons/inside advetising campaigns/jewlery.png" alt="Jewelry" style="width: 20px; height: 20px;"></span>
+                            <span class="sub-tab-text" data-translate="categoryJewelry">Jewelry</span>
+                        </button>
+                    </div>
+
+                    <!-- Food Photography Subcategory Content -->
+                    <div class="subcategory-content active" id="photo-food-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of 01d2d88698fe66834e4edc9c38b179ed.JPG" alt="Food Photography 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/food/Copy of 01d2d88698fe66834e4edc9c38b179ed.JPG')">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of 2025_03_24_10_37_IMG_1582.JPG" alt="Food Photography 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/food/Copy of 2025_03_24_10_37_IMG_1582.JPG')">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_1961.JPG" alt="Food Photography 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_1961.JPG')">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3731.JPG" alt="Food Photography 4">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3731.JPG')">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3773 copy.jpg" alt="Food Photography 5">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3775 copy.jpg" alt="Food Photography 6">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3779 copy.jpg" alt="Food Photography 7">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3796 copy.jpg" alt="Food Photography 8">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3825 copy.jpg" alt="Food Photography 9">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3827 copy.jpg" alt="Food Photography 10">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3830 copy.jpg" alt="Food Photography 11">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/food/Copy of IMG_3837 copy.jpg" alt="Food Photography 12">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fragrances Photography Subcategory Content -->
+                    <div class="subcategory-content" id="photo-fragrances-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/fragnances/Copy of SaveFree.app_420147968_367937092520059_8645339149099287222_n.jpg" alt="Fragrance Photography 1">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/fragnances/Copy of SaveFree.app_420175925_1121369705973023_3516390666577233254_n.jpg" alt="Fragrance Photography 2">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/fragnances/Copy of SaveFree.app_420515105_7019673864788938_3666898751054596347_n.jpg" alt="Fragrance Photography 3">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/fragnances/Copy of SaveFree.app_420649078_347810664721092_2182962493398292057_n (1).jpg" alt="Fragrance Photography 4">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Furniture Photography Subcategory Content -->
+                    <div class="subcategory-content" id="photo-furniture-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558705.jpg" alt="Furniture Photography 1">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558705.jpg', 'Furniture Photography 1', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558706.jpg" alt="Furniture Photography 2">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558706.jpg', 'Furniture Photography 2', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558707.jpg" alt="Furniture Photography 3">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558707.jpg', 'Furniture Photography 3', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558708.jpg" alt="Furniture Photography 4">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558708.jpg', 'Furniture Photography 4', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558709.jpg" alt="Furniture Photography 5">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558709.jpg', 'Furniture Photography 5', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558710.jpg" alt="Furniture Photography 6">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558710.jpg', 'Furniture Photography 6', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558711.jpg" alt="Furniture Photography 7">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558711.jpg', 'Furniture Photography 7', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558713.jpg" alt="Furniture Photography 8">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558713.jpg', 'Furniture Photography 8', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558714.jpg" alt="Furniture Photography 9">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of 5906952768428558714.jpg', 'Furniture Photography 9', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_3912 copy.jpg" alt="Furniture Photography 10">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_3912 copy.jpg', 'Furniture Photography 10', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_4492.JPG" alt="Furniture Photography 11">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_4492.JPG', 'Furniture Photography 11', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_4825 copy.jpg" alt="Furniture Photography 12">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_4825 copy.jpg', 'Furniture Photography 12', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_4826 copy.jpg" alt="Furniture Photography 13">
+                                    <div class="overlay">
+                                        <button class="view-btn" onclick="openImagePreview('../images/images-20250906T130956Z-1-001/images/furniture/Copy of IMG_4826 copy.jpg', 'Furniture Photography 13', '')">View Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jewelry Photography Subcategory Content -->
+                    <div class="subcategory-content" id="photo-jewelry-subcontent">
+                        <div class="samples-grid">
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/jewlery/Copy of DSCF2274.jpg" alt="Jewelry Photography 1">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/jewlery/Copy of IMG_5785.jpg" alt="Jewelry Photography 2">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/jewlery/Copy of صورة واتساب بتاريخ 2024-12-10 في 01.15.09_0ee94b48.jpg" alt="Jewelry Photography 3">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/jewlery/Copy of صورة واتساب بتاريخ 2024-12-10 في 01.15.11_03290f34.jpg" alt="Jewelry Photography 4">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+
+                            <div class="sample-item">
+                                <div class="sample-image">
+                                    <img src="../images/images-20250906T130956Z-1-001/images/jewlery/Copy of صورة واتساب بتاريخ 2024-12-10 في 01.15.21_7f8ba9c3.jpg" alt="Jewelry Photography 5">
+                                    <div class="overlay">
+                                        <button class="view-btn">View Photo</button>
+                                    </div>
+                                </div>
+                                <div class="sample-details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">ALTMATE</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركه التميت لتقنيات الاعمال(Alt Mate)<br>جميع الحقوق محفوظة</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="companyFooter">Company</h4>
+                <ul>
+                    <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
+                    <li><a href="missions.html" data-translate="whyAltMate">Why AltMate?</a></li>
+                    <li><a href="team.html" data-translate="meetTheTeam">Meet the team</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="servicesFooter">Services</h4>
+                <ul>
+                    <li><a href="services.html" data-translate="digitalMediaFooter">Digital Media</a></li>
+                    <li><a href="services.html" data-translate="strategyFooter">Strategy</a></li>
+                    <li><a href="services.html" data-translate="developmentFooter">Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="getUpdates">Get our updates</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="email-input" data-translate="yourEmailPlaceholder">
+                    <button type="submit" class="submit-btn">→</button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFrbWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../images/x-icon.png" alt="X"></a>
+                    <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../images/tiktok-icon.png" alt="TikTok"></a>
+                    <a href="https://wa.me/message/EMHIZ5YFEYR6F1" target="_blank"><img src="../images/whatsapp-icon.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Website Preview Modal -->
+    <div class="website-modal" id="websiteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Website Preview</h3>
+                <div class="modal-controls">
+                    <button class="open-new-tab" id="openNewTab" title="Open in New Tab">
+                        <span>🗗</span>
+                    </button>
+                    <button class="close-modal" onclick="closeWebsitePreview()">
+                        <span>✕</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe id="websiteFrame" src="" frameborder="0"></iframe>
+                <div class="loading-spinner" id="loadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Loading website...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Preview Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-content">
+            <div class="image-modal-header">
+                <h3 id="imageModalTitle">Image Preview</h3>
+                <div class="image-modal-controls">
+                    <button class="download-image" id="downloadImage" title="Download Image">
+                        <span>📥</span>
+                    </button>
+                    <button class="close-modal" onclick="closeImagePreview()">
+                        <span>✕</span>
+                    </button>
+                </div>
+            </div>
+            <div class="image-modal-body">
+                <img id="previewImage" src="" alt="Preview Image">
+                <div class="image-loading-spinner" id="imageLoadingSpinner">
+                    <div class="spinner"></div>
+                    <p>Loading image...</p>
+                </div>
+            </div>
+            <div class="image-modal-footer">
+                <p id="imageDescription">Image description</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../java/main.js"></script>
+    <script src="../java/language-switcher.js"></script>
+</body>
+</html>

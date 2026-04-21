@@ -1,0 +1,23 @@
+<svg id="north-africa-asia-map" viewBox="0 0 900 400" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" style="background:#f4f8fb;">
+  <!-- Simplified map background (for demo, use a real SVG map for production) -->
+  <rect x="0" y="0" width="900" height="400" fill="#e0e7ef" />
+  <!-- Example landmass shapes (replace with real map paths for accuracy) -->
+  <ellipse cx="250" cy="200" rx="200" ry="120" fill="#b7d6e8" opacity="0.7" /> <!-- North Africa -->
+  <ellipse cx="650" cy="180" rx="220" ry="140" fill="#b7d6e8" opacity="0.7" /> <!-- Asia -->
+  <!-- Pins -->
+  <!-- Egypt (approximate) -->
+  <g>
+    <circle cx="320" cy="220" r="12" fill="#ff4358" stroke="#fff" stroke-width="4" />
+    <text x="320" y="250" font-size="18" text-anchor="middle" fill="#192F59">Egypt</text>
+  </g>
+  <!-- Jordan (approximate) -->
+  <g>
+    <circle cx="410" cy="200" r="12" fill="#ff4358" stroke="#fff" stroke-width="4" />
+    <text x="410" y="230" font-size="18" text-anchor="middle" fill="#192F59">Jordan</text>
+  </g>
+  <!-- UAE (approximate) -->
+  <g>
+    <circle cx="570" cy="260" r="12" fill="#ff4358" stroke="#fff" stroke-width="4" />
+    <text x="570" y="290" font-size="18" text-anchor="middle" fill="#192F59">UAE</text>
+  </g>
+</svg>

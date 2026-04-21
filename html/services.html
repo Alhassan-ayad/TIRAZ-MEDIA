@@ -1,0 +1,2948 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALT MATE - Services</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Prevent FOUC (Flash of Unstyled Content) by setting language before page renders -->
+    <script>
+        // This runs immediately before the page renders
+        (function() {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            document.documentElement.lang = savedLang;
+            // Hide body until translations are applied
+            document.documentElement.style.visibility = 'hidden';
+        })();
+    </script>
+    <style>
+        /* Ensure body is visible after JS loads */
+        html.lang-ready {
+            visibility: visible !important;
+        }
+    </style>
+    
+    <style>
+        /* Service Bundle Section Styles */
+        .service-bundles-section {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FF6B35 100%);
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .bundles-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .bundles-title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .bundles-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .bundle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .bundle-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .bundle-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #FF6B35;
+            border-color: white;
+        }
+        
+        .service-cards-container {
+            min-height: 300px;
+        }
+        
+        .bundle-cards {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+        
+        .bundle-cards.active {
+            display: grid;
+        }
+        
+        .service-card-small {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 300px;
+            width: 100%;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            position: relative;
+        }
+        
+        .best-selling-card {
+            border: 2px solid #e53e3e;
+            box-shadow: 0 10px 30px rgba(229, 62, 62, 0.2);
+        }
+        
+        .best-selling-strip {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+            z-index: 10;
+        }
+        
+        .customize-card-wide {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 80%;
+            width: 100%;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px auto 0 auto;
+            border: 4px solid #1A2F59;
+        }
+        
+        .customize-card-wide:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            border-color: #2A4A7A;
+        }
+        
+        .customize-card-wide .card-icon {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+        
+        .customize-content {
+            text-align: center;
+        }
+        
+        .customize-content h4 {
+            color: #1A2F59;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+        
+        .customize-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        /* Customize Modal Styles */
+        .customize-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .customize-modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1200px;
+            max-height: 90vh;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .customize-modal-header {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FF6B35 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .customize-modal-header h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .close-modal {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Service Type Toggle Buttons */
+        .service-type-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px 40px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .service-type-btn {
+            background: white;
+            color: #666;
+            border: 2px solid #ddd;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-type-btn:hover {
+            border-color: #FF6B35;
+            color: #FF6B35;
+        }
+        
+        .service-type-btn.active {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+            border-color: #FF6B35;
+        }
+        
+        .service-type-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .customize-options {
+            padding: 30px 40px 20px 40px;
+            overflow-y: auto;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .customize-option {
+            display: none;
+            text-align: center;
+            padding: 0;
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            min-height: 0;
+        }
+        
+        .customize-option.active {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        /* Multi-option grid layout (for category selection) */
+        .customize-options.grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 30px 40px;
+        }
+        
+        .customize-options.grid-layout .customize-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            border: 3px solid #f0f0f0;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: auto;
+            min-height: 300px;
+        }
+        
+        .customize-options.grid-layout .customize-option:hover {
+            border-color: #FF6B35;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+        
+        .customize-options.grid-layout .option-icon {
+            display: flex;
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: white;
+        }
+        
+        .customize-option h4 {
+            color: #1A2F59;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 0 0 25px 0;
+            text-align: center;
+        }
+        
+        .option-icon {
+            display: none;
+        }
+        
+        .customize-option h4 {
+            color: #1A2F59;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+        }
+        
+        .customize-option p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+        }
+        
+        .modal-footer {
+            background: white;
+            padding: 25px 40px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0 20px 20px;
+            flex-shrink: 0;
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .option-btn {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .option-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Services Form Styles */
+        .services-form {
+            max-height: none;
+            overflow-y: visible;
+            padding-right: 10px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            padding-bottom: 20px;
+        }
+        
+        .services-form-container {
+            overflow-y: visible;
+            padding-right: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .service-item {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .service-item label {
+            font-weight: 600;
+            color: #1A2F59;
+            font-size: 0.9rem;
+            text-align: left;
+            margin: 0;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .service-item-full-width {
+            grid-column: 1 / -1;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 15px !important;
+        }
+        
+        .service-item-full-width label {
+            user-select: none;
+            flex: 1 1 auto;
+            margin: 0;
+            min-width: 0;
+            white-space: nowrap;
+        }
+        
+        .service-item-full-width .multi-select-dropdown {
+            width: 220px !important;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+        
+        .counter-input {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        
+        .counter-input button {
+            background: #FF6B35;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .counter-input button:hover {
+            background: #e55a2b;
+        }
+        
+        .counter-input input {
+            width: 60px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        
+        /* Hide number input spinners/arrows */
+        .counter-input input::-webkit-outer-spin-button,
+        .counter-input input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .counter-input .unit {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .service-item select {
+            width: 220px;
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .service-item select:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+        
+        /* Modal Buttons Styles */
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .option-btn.secondary {
+            background: #666;
+            border: 2px solid #666;
+        }
+        
+        .option-btn.secondary:hover {
+            background: #555;
+            border-color: #555;
+        }
+        
+        /* Multi-Select Dropdown Styles */
+        .multi-select-dropdown {
+            position: relative;
+            width: 220px;
+            flex-shrink: 0;
+        }
+        
+        .multi-select-display {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 20px;
+            transition: border-color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .multi-select-display:hover {
+            border-color: #FF6B35;
+        }
+        
+        .multi-select-display:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+        
+        .dropdown-arrow {
+            font-size: 12px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+        
+        .multi-select-dropdown.open .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .multi-select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #FF6B35;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+            margin: 0;
+            font-size: 14px;
+            font-weight: normal;
+            user-select: none;
+        }
+        
+        .checkbox-option:last-child {
+            border-bottom: none;
+        }
+        
+        .checkbox-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .checkbox-option input[type="checkbox"] {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            accent-color: #FF6B35;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        /* Scrollbar Styling */
+        .services-form::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .services-form::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .services-form::-webkit-scrollbar-thumb {
+            background: #FF6B35;
+            border-radius: 10px;
+        }
+        
+        .services-form::-webkit-scrollbar-thumb:hover {
+            background: #e55a2b;
+        }
+        
+        /* Responsive Modal */
+        @media (max-width: 768px) {
+            .customize-options {
+                padding: 20px 15px;
+                padding-bottom: 80px;
+            }
+            
+            .customize-modal-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .services-form-container {
+                max-height: 45vh;
+            }
+            
+            .services-form {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .option-btn {
+                width: calc(100% - 30px);
+                bottom: 15px;
+            }
+            
+            .service-type-toggle {
+                flex-direction: column;
+                padding: 15px 20px;
+                gap: 10px;
+            }
+            
+            .service-type-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            
+            .service-item-full-width {
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 15px !important;
+            }
+            
+            .service-item label {
+                text-align: left;
+            }
+            
+            .counter-input {
+                justify-content: center;
+            }
+            
+            .service-item select {
+                width: 100%;
+            }
+            
+            .multi-select-dropdown {
+                width: 100%;
+            }
+            
+            .service-item-full-width .multi-select-dropdown {
+                width: 220px !important;
+            }
+
+            /* Make the customize wide card more prominent on tablet/mobile */
+            .customize-card-wide {
+                max-width: 95% !important;
+                padding: 20px 22px !important;
+                height: auto !important;
+                min-height: 140px;
+                border-width: 3px !important;
+            }
+
+            .customize-card-wide .card-icon {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+        
+        .service-card-small:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-icon {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: white;
+        }
+        
+        .service-card-small h4 {
+            color: #1A2F59;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+        }
+        
+        .service-card-small p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bundles-title {
+                font-size: 2rem;
+            }
+            
+            .bundles-container {
+                justify-content: center;
+            }
+            
+            .bundle-btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            
+            .bundle-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-card-small {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .service-bundles-section {
+                padding: 40px 15px;
+            }
+            
+            .bundles-title {
+                font-size: 1.8rem;
+            }
+            
+            .bundle-btn {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+
+            /* Mobile: enlarge and center the customize button */
+            .customize-card-wide {
+                max-width: 92% !important;
+                padding: 18px 18px !important;
+                min-height: 160px;
+                border-width: 3px !important;
+                margin: 18px auto !important;
+                /* nudge slightly left on small screens */
+                transform: translateX(-3%) !important;
+            }
+
+            .customize-card-wide .card-icon {
+                width: 72px !important;
+                height: 72px !important;
+            }
+
+            .customize-content h4 { font-size: 1.15rem !important; }
+            .customize-content p { font-size: 0.95rem !important; }
+        }
+
+        /* Promo strip styles */
+        .promo-strip {
+            background: #1A2F59; /* dark blue */
+            padding: 28px 0; /* increased height */
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+        }
+
+        .promo-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .promo-text h3 {
+            color: #fff;
+            margin: 0 0 8px 0;
+            font-size: 1.35rem; /* larger headline */
+            font-weight: 800;
+        }
+
+        .promo-text p {
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .promo-btn {
+            display: inline-block;
+            background: linear-gradient(135deg,#FF6B35,#F7931E);
+            color: #fff;
+            padding: 12px 22px; /* slightly larger button */
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(25,47,89,0.25);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .promo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(25,47,89,0.32);
+        }
+
+        @media (max-width: 768px) {
+            .promo-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body class="services-page-bg">
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open Menu">
+        <img src="../images/hamburger-menu.png" alt="Menu" style="width: 28px; height: 28px;">
+    </button>
+
+    <!-- Mobile Sidebar Navigation -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height: 48px;">
+            <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="home.html" class="active" data-translate="home">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 10L10 3L17 10V17C17 17.5304 16.7893 18.0391 16.4142 18.4142C16.0391 18.7893 15.5304 19 15 19H5C4.46957 19 3.96086 18.7893 3.58579 18.4142C3.21071 18.0391 3 17.5304 3 17V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="aboutus.html" data-translate="aboutUs">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="missions.html" data-translate="missions">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2L12.5 7.5L18 8.5L14 13L15 18.5L10 15.5L5 18.5L6 13L2 8.5L7.5 7.5L10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Missions
+                    </a>
+                </li>
+                <li>
+                    <a href="services.html" data-translate="ourServices">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4V16C12 16.5304 11.7893 17.0391 11.4142 17.4142C11.0391 17.7893 10.5304 18 10 18C9.46957 18 8.96086 17.7893 8.58579 17.4142C8.21071 17.0391 8 16.5304 8 16V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Our Services
+                    </a>
+                </li>
+                <li>
+                    <a href="bundles.html" data-translate="bundles">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h4v4H4V4zm6 0h6v4h-6V4zM4 10h4v6H4v-6zm6 0h6v6h-6v-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Bundles
+                    </a>
+                </li>
+                <li>
+                    <a href="samples.html" data-translate="samples">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="3" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                            <rect x="11" y="11" width="6" height="6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Samples
+                    </a>
+                </li>
+                <li>
+                    <a href="blog.html" data-translate="blog">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h12v2H4V4zm0 5h12v2H4V9zm0 5h8v2H4v-2z" fill="currentColor"/>
+                        </svg>
+                        Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="contact.html" class="sidebar-contact-btn" data-translate="contactInfo">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6.5A2 2 0 0 1 5 4.5h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contact Info
+            </a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher-container">
+                <button class="language-toggle" aria-label="Switch Language">
+                    <span class="lang-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12H22M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="lang-text">العربية</span>
+                </button>
+            </div>
+            
+            <div class="sidebar-social-icons">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop Header (Hidden on Mobile) -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+        </div>
+        <div class="header-right">
+            <!-- Language Switcher (Next to Home) -->
+            <div class="desktop-language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="ar">ع</button>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html" data-translate="home">Home</a></li>
+                    <li><a href="aboutus.html" data-translate="aboutUs">About Us</a></li>
+                    <li><a href="missions.html" data-translate="missions">Missions</a></li>
+                    <li><a href="services.html" class="active" data-translate="ourServices">Our Services</a></li>
+                    <li><a href="bundles.html" data-translate="bundles">Bundles</a></li>
+                    <li><a href="samples.html" data-translate="samples">Samples</a></li>
+                    <li><a href="blog.html" data-translate="blog">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="contact.html" class="contact-btn" data-translate="contactInfo">Contact Info</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Services Hero Banner Section -->
+    <section class="services-hero-banner">
+    </section>
+
+                        
+                        <!-- Website & Applications Bundle Cards -->
+                        <div class="bundle-cards" id="website-apps-cards">
+                            <div class="service-card-small" onclick="openBundleModal('websiteStarterModal')" style="cursor:pointer;">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h4 data-translate="package1WebsiteStarter">Package 1 – Website Starter</h4>
+                                <p data-translate="pkg1Desc">Perfect for launching your professional website.</p>
+                            </div>
+                            <div class="service-card-small" onclick="openBundleModal('businessAppModal')" style="cursor:pointer;">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h4 data-translate="package2BusinessAppWebsite">Package 2 – Business App + Website</h4>
+                                <p data-translate="pkg2Desc">Website and mobile app for your business.</p>
+                            </div>
+                            <div class="service-card-small" onclick="openBundleModal('ecommerceProModal')" style="cursor:pointer;">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h4 data-translate="package3EcommercePro">Package 3 – E-Commerce Pro</h4>
+                                <p data-translate="pkg3Desc">Advanced online store and mobile app.</p>
+                            </div>
+                        <!-- Website Starter Modal -->
+                        <div id="websiteStarterModal" class="customize-modal bundle-modal">
+                            <div class="customize-modal-content bundle-modal-flex">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="package1WebsiteStarter">Package 1 – Website Starter</h3>
+                                    <span class="close-modal" onclick="closeBundleModal('websiteStarterModal')">&times;</span>
+                                </div>
+                                <div class="bundle-features">
+                                    <div class="feature-box">1 professional website (responsive design)</div>
+                                    <div class="feature-box">Basic SEO setup</div>
+                                    <div class="feature-box">Contact form & social media links</div>
+                                    <div class="feature-box">1 month of technical support</div>
+                                </div>
+                                <a href="request-service.html?service=Package%201%20Website%20Starter" class="order-bundle-btn" data-translate="orderThisPackage">Order This Package</a>
+                            </div>
+                        </div>
+                        <!-- Business App + Website Modal -->
+                        <div id="businessAppModal" class="customize-modal bundle-modal">
+                            <div class="customize-modal-content bundle-modal-flex">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="package2BusinessAppWebsite">Package 2 – Business App + Website</h3>
+                                    <span class="close-modal" onclick="closeBundleModal('businessAppModal')">&times;</span>
+                                </div>
+                                <div class="bundle-features">
+                                    <div class="feature-box">1 professional website (advanced features)</div>
+                                    <div class="feature-box">1 mobile application (iOS & Android)</div>
+                                    <div class="feature-box">Custom branding & design</div>
+                                    <div class="feature-box">Integration with social media & notifications</div>
+                                    <div class="feature-box">2 months of technical support</div>
+                                </div>
+                                <a href="request-service.html?service=Package%202%20Business%20App%20Website" class="order-bundle-btn" data-translate="orderThisPackage">Order This Package</a>
+                            </div>
+                        </div>
+                        <!-- E-Commerce Pro Modal -->
+                        <div id="ecommerceProModal" class="customize-modal bundle-modal">
+                            <div class="customize-modal-content bundle-modal-flex">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="package3EcommercePro">Package 3 – E-Commerce Pro</h3>
+                                    <span class="close-modal" onclick="closeBundleModal('ecommerceProModal')">&times;</span>
+                                </div>
+                                <div class="bundle-features">
+                                    <div class="feature-box">1 WooCommerce online store (full setup)</div>
+                                    <div class="feature-box">Product catalog & payment gateway integration</div>
+                                    <div class="feature-box">1 mobile application linked to the store</div>
+                                    <div class="feature-box">Advanced analytics dashboard</div>
+                                    <div class="feature-box">3 months of technical support</div>
+                                </div>
+                                <a href="request-service.html?service=Package%203%20E-Commerce%20Pro" class="order-bundle-btn" data-translate="orderThisPackage">Order This Package</a>
+                            </div>
+                        </div>
+                            
+                            <!-- Customize Bundle - Full Width Below -->
+                            <div class="customize-card-wide" onclick="openWebsiteAppsCustomizeModal()">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="customize-content">
+                                    <h4 data-translate="customizeYourBundle">Customize Your Own Bundle</h4>
+                                    <p data-translate="customizeBundleDesc">Create a personalized website and application package tailored to your specific business needs</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Websites & Applications Customize Modal -->
+                        <div id="websiteAppsCustomizeModal" class="customize-modal">
+                            <div class="customize-modal-content">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="customizeWebsiteAppsBundle">Customize Your Website & Application Bundle</h3>
+                                    <span class="close-modal" onclick="closeWebsiteAppsCustomizeModal()">&times;</span>
+                                </div>
+                                
+                                <!-- Category Selection Step -->
+                                <div id="category-selection" class="customize-options grid-layout">
+                                    <div class="customize-option" onclick="selectCategory('website')">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M2 12h20" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4 data-translate="website">Website</h4>
+                                        <p data-translate="websiteDesc">Professional website development with custom features</p>
+                                        <button class="option-btn" data-translate="selectWebsite">Select Website</button>
+                                    </div>
+                                    
+                                    <div class="customize-option" onclick="selectCategory('ecommerce')">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                                <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4 data-translate="ecommerceStore">E-commerce Store</h4>
+                                        <p data-translate="ecommerceDesc">Online store with payment processing and inventory</p>
+                                        <button class="option-btn" data-translate="selectEcommerce">Select E-commerce</button>
+                                    </div>
+                                    
+                                    <div class="customize-option" onclick="selectCategory('mobile')">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                                <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4 data-translate="mobileApplication">Mobile Application</h4>
+                                        <p data-translate="mobileAppDesc">Native mobile app for iOS and/or Android</p>
+                                        <button class="option-btn" data-translate="selectMobileApp">Select Mobile App</button>
+                                    </div>
+                                    
+                                    <div class="customize-option" onclick="selectCategory('hybrid')">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4 data-translate="mixMatchHybrid">Mix & Match (Hybrid Package)</h4>
+                                        <p data-translate="mixMatchDesc">Combine multiple platforms for a complete solution</p>
+                                        <button class="option-btn" data-translate="selectHybrid">Select Hybrid</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Website Services Step -->
+                                <div id="website-services" class="customize-options" style="display: none;">
+                                    <div class="customize-option active">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M2 12h20" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Website Services</h4>
+                                        <div class="services-form">
+                                            <div class="service-item">
+                                                <label>Number of Websites (minimum 1)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('web-num-websites')">-</button>
+                                                    <input type="number" id="web-num-websites" min="1" value="1">
+                                                    <button type="button" onclick="increaseValue('web-num-websites')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Number of Pages (minimum 1)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('web-num-pages')">-</button>
+                                                    <input type="number" id="web-num-pages" min="1" value="1">
+                                                    <button type="button" onclick="increaseValue('web-num-pages')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>User Authentication</label>
+                                                <select id="web-auth" required>
+                                                    <option value="social-login">Social login</option>
+                                                    <option value="email-login">Email login</option>
+                                                    <option value="custom-login">Custom login</option>
+                                                    <option value="none">None</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Hosting Option</label>
+                                                <select id="web-hosting" required>
+                                                    <option value="shared">Shared</option>
+                                                    <option value="cloud">Cloud</option>
+                                                    <option value="dedicated">Dedicated</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>SEO Optimization</label>
+                                                <select id="web-seo" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Multilingual Support</label>
+                                                <select id="web-multilingual" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Technical Support</label>
+                                                <select id="web-support" required>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="quarterly">Quarterly</option>
+                                                    <option value="yearly">Yearly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-buttons">
+                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
+                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('website')">Select Website Services</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- E-commerce Services Step -->
+                                <div id="ecommerce-services" class="customize-options" style="display: none;">
+                                    <div class="customize-option active">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                                <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4>E-commerce Store Services</h4>
+                                        <div class="services-form">
+                                            <div class="service-item">
+                                                <label>Number of Stores (minimum 1)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('ecom-num-stores')">-</button>
+                                                    <input type="number" id="ecom-num-stores" min="1" value="1">
+                                                    <button type="button" onclick="increaseValue('ecom-num-stores')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Platform</label>
+                                                <select id="ecom-platform" required>
+                                                    <option value="woocommerce">WooCommerce</option>
+                                                    <option value="shopify">Shopify</option>
+                                                    <option value="custom">Custom</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Number of Product Pages (minimum 1)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('ecom-num-products')">-</button>
+                                                    <input type="number" id="ecom-num-products" min="1" value="1">
+                                                    <button type="button" onclick="increaseValue('ecom-num-products')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Payment Gateway</label>
+                                                <select id="ecom-payment" required>
+                                                    <option value="paypal">PayPal</option>
+                                                    <option value="stripe">Stripe</option>
+                                                    <option value="local-bank">Local Bank</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>User Authentication</label>
+                                                <select id="ecom-auth" required>
+                                                    <option value="social-login">Social login</option>
+                                                    <option value="email-login">Email login</option>
+                                                    <option value="custom-login">Custom login</option>
+                                                    <option value="guest-checkout">Guest checkout</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Hosting Option</label>
+                                                <select id="ecom-hosting" required>
+                                                    <option value="shared">Shared</option>
+                                                    <option value="cloud">Cloud</option>
+                                                    <option value="dedicated">Dedicated</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Inventory Management Integration</label>
+                                                <select id="ecom-inventory" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Technical Support</label>
+                                                <select id="ecom-support" required>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="quarterly">Quarterly</option>
+                                                    <option value="yearly">Yearly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-buttons">
+                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
+                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('ecommerce')">Select E-commerce Services</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mobile App Services Step -->
+                                <div id="mobile-services" class="customize-options" style="display: none;">
+                                    <div class="customize-option active">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                                <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Mobile Application Services</h4>
+                                        <div class="services-form">
+                                            <div class="service-item">
+                                                <label>Number of Applications (minimum 1)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('mobile-num-apps')">-</button>
+                                                    <input type="number" id="mobile-num-apps" min="1" value="1">
+                                                    <button type="button" onclick="increaseValue('mobile-num-apps')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Platform</label>
+                                                <select id="mobile-platform" required>
+                                                    <option value="ios">iOS</option>
+                                                    <option value="android">Android</option>
+                                                    <option value="both">Both</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Number of Screens/Pages (minimum 1)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('mobile-num-screens')">-</button>
+                                                    <input type="number" id="mobile-num-screens" min="1" value="1">
+                                                    <button type="button" onclick="increaseValue('mobile-num-screens')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>User Authentication</label>
+                                                <select id="mobile-auth" required>
+                                                    <option value="social-login">Social login</option>
+                                                    <option value="email-login">Email login</option>
+                                                    <option value="custom-login">Custom login</option>
+                                                    <option value="none">None</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Payment Gateway (if applicable)</label>
+                                                <select id="mobile-payment" required>
+                                                    <option value="paypal">PayPal</option>
+                                                    <option value="stripe">Stripe</option>
+                                                    <option value="local-bank">Local Bank</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Push Notifications</label>
+                                                <select id="mobile-push" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Hosting / Backend Server</label>
+                                                <select id="mobile-hosting" required>
+                                                    <option value="shared">Shared</option>
+                                                    <option value="cloud">Cloud</option>
+                                                    <option value="dedicated">Dedicated</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Technical Support</label>
+                                                <select id="mobile-support" required>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="quarterly">Quarterly</option>
+                                                    <option value="yearly">Yearly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-buttons">
+                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
+                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('mobile')">Select Mobile App Services</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hybrid/Mix & Match Services Step -->
+                                <div id="hybrid-services" class="customize-options" style="display: none;">
+                                    <div class="customize-option active">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Mix & Match (Hybrid Package)</h4>
+                                        <div class="services-form">
+                                            <div class="service-item">
+                                                <label>Choose Components</label>
+                                                <select id="hybrid-components" required>
+                                                    <option value="website">Website</option>
+                                                    <option value="ecommerce">E-commerce Store</option>
+                                                    <option value="mobile">Mobile Application</option>
+                                                    <option value="website+ecommerce">Website + E-commerce Store</option>
+                                                    <option value="website+mobile">Website + Mobile Application</option>
+                                                    <option value="ecommerce+mobile">E-commerce Store + Mobile Application</option>
+                                                    <option value="all">All (Website + E-commerce + Mobile)</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Number of Platforms Selected (minimum 2, maximum 3)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('hybrid-num-platforms')">-</button>
+                                                    <input type="number" id="hybrid-num-platforms" min="2" max="3" value="2">
+                                                    <button type="button" onclick="increaseValue('hybrid-num-platforms')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Shared Authentication Across Platforms</label>
+                                                <select id="hybrid-shared-auth" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Shared Database / ERP Integration</label>
+                                                <select id="hybrid-shared-db" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Cross-Platform Sync</label>
+                                                <select id="hybrid-cross-sync" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Technical Support</label>
+                                                <select id="hybrid-support" required>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="quarterly">Quarterly</option>
+                                                    <option value="yearly">Yearly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-buttons">
+                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
+                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('hybrid')">Select Hybrid Services</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ERP Systems Bundle Cards -->
+                        <div class="bundle-cards" id="erp-systems-cards">
+                            <div class="service-card-small" onclick="openBundleModal('erpSystemsModal')" style="cursor:pointer;">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h4 data-translate="erpSystemsSuite">ERP Systems Suite</h4>
+                                <p data-translate="erpSuiteDesc">All-in-one ERP implementation, training, and support</p>
+                            </div>
+                        <!-- ERP Systems Modal -->
+                        <div id="erpSystemsModal" class="customize-modal bundle-modal">
+                            <div class="customize-modal-content bundle-modal-flex" style="max-width:900px;width:90vw;">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="erpSystemsSuite">ERP Systems Suite</h3>
+                                    <span class="close-modal" onclick="closeBundleModal('erpSystemsModal')">&times;</span>
+                                </div>
+                                <div class="bundle-features" style="max-height:600px;overflow-y:auto;display:block;">
+                                    <ul class="feature-list" style="list-style: none; padding: 0; margin: 0;">
+                                        <li class="feature-box" style="list-style: none;">Accounting</li>
+                                        <li class="feature-box" style="list-style: none;">Accounts Management</li>
+                                        <li class="feature-box" style="list-style: none;">Sales &amp; CRM</li>
+                                        <li class="feature-box" style="list-style: none;">Purchasing</li>
+                                        <li class="feature-box" style="list-style: none;">Inventory Management</li>
+                                    </ul>
+                                </div>
+                                <a href="request-service.html?service=ERP%20Systems%20Suite" class="order-bundle-btn" data-translate="orderThisSuite">Order This Suite</a>
+                            </div>
+                        </div>
+                            
+                            <!-- Customize Bundle - Full Width Below -->
+                            <div class="customize-card-wide" onclick="openErpCustomizeModal()">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="customize-content">
+                                    <h4 data-translate="customizeYourBundle">Customize Your Own Bundle</h4>
+                                    <p data-translate="customizeErpDesc">Create a personalized ERP systems package tailored to your specific business needs</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ERP Systems Customize Modal -->
+                        <div id="erpCustomizeModal" class="customize-modal">
+                            <div class="customize-modal-content">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="customizeErpBundle">Customize Your ERP Systems Bundle</h3>
+                                    <span class="close-modal" onclick="closeErpCustomizeModal()">&times;</span>
+                                </div>
+                                <div class="customize-options">
+                                    <div class="customize-option active">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4 data-translate="erpModules">ERP Systems Modules</h4>
+                                        <div class="services-form">
+                                            <div class="service-item">
+                                                <label>General Accounting</label>
+                                                <select id="erp-general-accounting" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Inventory Management</label>
+                                                <select id="erp-inventory-management" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Suppliers & Purchases</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('erp-suppliers-purchases')">-</button>
+                                                    <input type="number" id="erp-suppliers-purchases" min="0" max="1" value="0">
+                                                    <button type="button" onclick="increaseValue('erp-suppliers-purchases')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Sales & Invoicing</label>
+                                                <select id="erp-sales-invoicing" required>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>CRM (Customer Relationship Management)</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('erp-crm')">-</button>
+                                                    <input type="number" id="erp-crm" min="0" max="1" value="0">
+                                                    <button type="button" onclick="increaseValue('erp-crm')">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="option-btn" onclick="selectErpServiceType('erp-systems')">Select ERP Systems</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Agent Services Bundle Cards -->
+                        <div class="bundle-cards" id="ai-agent-cards">
+                            <div class="service-card-small" onclick="openBundleModal('aiAgentStarterModal')" style="cursor:pointer;">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M13 8H7" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M17 12H7" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h4 data-translate="aiBundle1Starter">AI Agent Bundle 1 – Starter</h4>
+                                <p data-translate="aiBundle1Desc">For businesses taking their first step into AI automation.</p>
+                            </div>
+                            <div class="service-card-small" onclick="openBundleModal('aiAgentProModal')" style="cursor:pointer;">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h4 data-translate="aiBundle2Pro">AI Agent Bundle 2 – Pro</h4>
+                                <p data-translate="aiBundle2Desc">For businesses that need advanced automation and customer engagement.</p>
+                            </div>
+                        <!-- AI Agent Bundle 1 – Starter Modal -->
+                        <div id="aiAgentStarterModal" class="customize-modal bundle-modal">
+                            <div class="customize-modal-content bundle-modal-flex">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="aiBundle1Starter">AI Agent Bundle 1 – Starter</h3>
+                                    <span class="close-modal" onclick="closeBundleModal('aiAgentStarterModal')">&times;</span>
+                                </div>
+                                <div class="bundle-features">
+                                    <div class="feature-box">For businesses taking their first step into AI automation.</div>
+                                    <div class="feature-box">AI chatbot (24/7 response handling)</div>
+                                    <div class="feature-box">Up to 2 communication channels (e.g., website & WhatsApp)</div>
+                                    <div class="feature-box">Predefined conversation flows</div>
+                                    <div class="feature-box">Basic FAQ automation</div>
+                                    <div class="feature-box">Monthly performance report</div>
+                                    <div class="feature-box">Email support</div>
+                                </div>
+                                <a href="request-service.html?service=AI%20Agent%20Bundle%201%20Starter" class="order-bundle-btn" data-translate="orderThisBundle">Order This Bundle</a>
+                            </div>
+                        </div>
+                        <!-- AI Agent Bundle 2 – Pro Modal -->
+                        <div id="aiAgentProModal" class="customize-modal bundle-modal">
+                            <div class="customize-modal-content bundle-modal-flex">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="aiBundle2Pro">AI Agent Bundle 2 – Pro</h3>
+                                    <span class="close-modal" onclick="closeBundleModal('aiAgentProModal')">&times;</span>
+                                </div>
+                                <div class="bundle-features">
+                                    <div class="feature-box">For businesses that need advanced automation and customer engagement.</div>
+                                    <div class="feature-box">AI chatbot (24/7 response handling)</div>
+                                    <div class="feature-box">Up to 5 communication channels (e.g., website, WhatsApp, Facebook, Instagram, Telegram)</div>
+                                    <div class="feature-box">Custom conversation flows with AI learning</div>
+                                    <div class="feature-box">Smart lead capture & CRM integration</div>
+                                    <div class="feature-box">Voice agent support (optional)</div>
+                                    <div class="feature-box">Ad campaign integration (AI-assisted responses for leads)</div>
+                                    <div class="feature-box">Detailed analytics dashboard</div>
+                                    <div class="feature-box">Priority support</div>
+                                </div>
+                                <a href="request-service.html?service=AI%20Agent%20Bundle%202%20Pro" class="order-bundle-btn" data-translate="orderThisBundle">Order This Bundle</a>
+                            </div>
+                        </div>
+                            
+                            <!-- Customize Bundle - Full Width Below -->
+                            <div class="customize-card-wide" onclick="openAiAgentCustomizeModal()">
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="customize-content">
+                                    <h4 data-translate="customizeYourBundle">Customize Your Own Bundle</h4>
+                                    <p data-translate="customizeAiDesc">Create a personalized AI agent services package tailored to your specific business needs</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Agent Services Customize Modal -->
+                        <div id="aiAgentCustomizeModal" class="customize-modal">
+                            <div class="customize-modal-content">
+                                <div class="customize-modal-header">
+                                    <h3 data-translate="customizeAiBundle">Customize Your AI Agent Services Bundle</h3>
+                                    <span class="close-modal" onclick="closeAiAgentCustomizeModal()">&times;</span>
+                                </div>
+                                <div class="customize-options">
+                                    <div class="customize-option active">
+                                        <div class="option-icon">
+                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4 data-translate="aiAgentServices">AI Agent Services</h4>
+                                        <div class="services-form">
+                                            <div class="service-item">
+                                                <label>Number of AI Agents</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('ai-number-of-agents')">-</button>
+                                                    <input type="number" id="ai-number-of-agents" min="1" value="1" data-min-required="1">
+                                                    <button type="button" onclick="increaseValue('ai-number-of-agents')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Agent Type</label>
+                                                <select id="ai-agent-type" required>
+                                                    <option value="chatbot">Chatbot</option>
+                                                    <option value="voice-assistant">Voice Assistant</option>
+                                                    <option value="customer-support">Customer Support</option>
+                                                    <option value="sales-assistant">Sales Assistant</option>
+                                                    <option value="custom">Custom</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Integration Platform</label>
+                                                <select id="ai-integration-platform" required>
+                                                    <option value="website">Website</option>
+                                                    <option value="mobile-app">Mobile App</option>
+                                                    <option value="whatsapp">WhatsApp</option>
+                                                    <option value="messenger">Messenger</option>
+                                                    <option value="slack">Slack</option>
+                                                    <option value="custom-api">Custom API</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Knowledge Base Source</label>
+                                                <select id="ai-knowledge-base" required>
+                                                    <option value="uploaded-docs">Uploaded Docs</option>
+                                                    <option value="website-crawling">Website Crawling</option>
+                                                    <option value="database">Database</option>
+                                                    <option value="erp">ERP</option>
+                                                    <option value="custom">Custom</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Languages Supported</label>
+                                                <select id="ai-languages" required>
+                                                    <option value="single">Single Language</option>
+                                                    <option value="multi">Multi-language</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Response Style</label>
+                                                <select id="ai-response-style" required>
+                                                    <option value="formal">Formal</option>
+                                                    <option value="friendly">Friendly</option>
+                                                    <option value="professional">Professional</option>
+                                                    <option value="custom">Custom</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Training Data Size</label>
+                                                <div class="counter-input">
+                                                    <button type="button" onclick="decreaseValue('ai-training-data')">-</button>
+                                                    <input type="number" id="ai-training-data" min="100" value="100" data-min-required="100">
+                                                    <button type="button" onclick="increaseValue('ai-training-data')">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>User Authentication (if needed)</label>
+                                                <select id="ai-user-auth" required>
+                                                    <option value="social-login">Social login</option>
+                                                    <option value="email-login">Email login</option>
+                                                    <option value="none">None</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="service-item">
+                                                <label>Technical Support</label>
+                                                <select id="ai-technical-support" required>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="quarterly">Quarterly</option>
+                                                    <option value="yearly">Yearly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="option-btn" onclick="selectAiAgentServiceType('ai-agent-services')">Select AI Agent Services</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                <!-- End Service Bundle Selection Section -->
+                
+                <!-- White Box Container for Services Grid -->
+                <div class="services-grid-container">
+                    <h2 class="portfolio-title"><span data-translate="comprehensiveSolutions">Comprehensive digital solutions</span><br><span data-translate="tailoredElevate">tailored to elevate your brand.</span></h2>
+                    
+                    <style>
+                        .service-card {
+                            cursor: pointer;
+                        }
+                    </style>
+                    <div class="portfolio-grid">
+    <!-- Removed duplicate hero text beside first block -->
+                                <!-- Row 1: 3 squares -->
+                                <a href="services/web-development.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/web development.jpg" alt="Web Development" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="websiteApplication">Website and Application</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/e-stores.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/creating and developing e stores.jpg" alt="E-Commerce Development" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="creatingEstores">Creating and Developing E-stores</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/seo.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/seo.jpg" alt="SEO" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="seoTitle">SEO</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <!-- Row 2: 3 squares -->
+                                <a href="services/sem.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/search engine marketing.jpg" alt="Search Engine Marketing" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="sem">SEM</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/social-media-campaigns.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/socialmediacampaign.jpg" alt="Social Media Campaign" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="socialMediaCampaigns">Social Media Campaigns</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/advertising-campaigns.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/advertising campaigns.jpg" alt="Advertising Campaigns" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="advertisingCampaigns">Advertising Campaigns</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <!-- Row 3: 3 squares -->
+                                <a href="services/whatsapp-campaigns.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/WhatsApp-Advertising-Campaign-Guide-1.png" alt="WhatsApp Marketing" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="whatsappCampaigns">WhatsApp Campaigns</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/organic-campaigns.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/organic reach campaigns.png" alt="Organic Reach Campaigns" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="organicCampaigns">Organic Rich Campaigns</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/branding-plan.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/creating and Managing Business Development Consulting.jpeg" alt="Business Development Consulting" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="brandingPlan">Branding Plan</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <!-- Row 4: 3 squares -->
+                                <a href="services/erp-systems.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/erp systems.jpg" alt="ERP Systems" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="erpSystemsTitle">(ERP) Systems</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/automated-response.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/automated responce system.webp" alt="Automated Response System" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="automatedResponse">Automated Response System</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/managing-comments.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/managing comments and messages.jpg" alt="Managing Comments and Messages" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="managingComments">Managing Comments and Messages</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <!-- Row 5: 3 squares -->
+                                <a href="services/marketing-content.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/writing marketing content.jpg" alt="Writing Marketing Content" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="marketingContent">Writing Marketing Content</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/video-reels.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/video reel .png" alt="Video Reel" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="videoReels">Video Reels</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/motion-graphics.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/motion graphics.jpeg" alt="Motion Graphics" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="motionGraphics">Motion Graphic Video</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <!-- Row 6: 3 squares -->
+                                <a href="services/graphic-design.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/graphic design .jpg" alt="Graphic Design" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="graphicDesign">Graphic Design</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/photography.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/photography.jpg" alt="Photography" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="photography">Professional Photography</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <a href="services/promo-voice-over.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/promovoice over.jpg" alt="Promo Voice Over" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="promoVoiceOver">Promo Voice Over</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                                <!-- Row 7: 1 square -->
+                                <a href="services/erp-training.html" style="text-decoration:none;color:inherit;">
+                                    <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
+                                            <img src="../images/services page/Creating, Training and Maintaining Enterprise Resource Planning.jpg" alt="Enterprise Resource Planning" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="erpSystems">Creating, Training and Maintaining Enterprise Resource Planning</h4>
+                                            </div>
+                                    </div>
+                                </a>
+                    </div> <!-- End portfolio-grid -->
+                </div> <!-- End services-grid-container -->
+            </div> <!-- End portfolio-header -->
+        </div> <!-- End portfolio-container -->
+    </section>
+    
+    <!-- Promo strip: thin dark-blue rectangle with CTA to samples -->
+    <section class="promo-strip" aria-label="Explore our bundles">
+        <div id="promo-container-ar" class="promo-container" style="display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 20px;">
+            <div class="promo-text" style="text-align: right; direction: rtl; max-width: 600px;">
+                <h3 style="margin-bottom: 10px;">تبحث عن حل جاهز؟</h3>
+                <p style="margin: 0;">استكشف باقاتنا الجاهزة  مجموعات من الخدمات مصممة لتطلق عملك بسرعة.</p>
+            </div>
+            <div>
+                <a href="bundles.html" class="promo-btn" style="float: left;">عرض الباقات</a>
+            </div>
+        </div>
+        <div id="promo-container-en" class="promo-container" style="display: none; flex-direction: row; align-items: center; justify-content: space-between; gap: 20px;">
+            <div class="promo-text" style="text-align: left; direction: ltr; max-width: 600px;">
+                <h3 style="margin-bottom: 10px;">Looking for a packaged solution?</h3>
+                <p style="margin: 0;">Explore our ready-made bundles  curated combinations of services designed to get your business moving fast.</p>
+            </div>
+            <div>
+                <a href="bundles.html" class="promo-btn" style="float: right;">See Bundles</a>
+            </div>
+        </div>
+        <script>
+        // Switch promo strip based on language, and update on language change
+        function updatePromoStrip() {
+            var lang = document.documentElement.lang || 'ar';
+            var ar = document.getElementById('promo-container-ar');
+            var en = document.getElementById('promo-container-en');
+            if(lang.startsWith('ar')) {
+                ar.style.display = 'flex';
+                en.style.display = 'none';
+            } else {
+                ar.style.display = 'none';
+                en.style.display = 'flex';
+            }
+        }
+        updatePromoStrip();
+        // Listen for language changes (if language switcher updates lang attribute)
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+                    updatePromoStrip();
+                }
+            });
+        });
+        observer.observe(document.documentElement, { attributes: true });
+        </script>
+        </script>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">ALTMATE</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركه التميت لتقنيات الاعمال(Alt Mate)<br>جميع الحقوق محفوظة</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="companyFooter">Company</h4>
+                <ul>
+                    <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
+                    <li><a href="missions.html" data-translate="whyAltMate">Why AltMate?</a></li>
+                    <li><a href="team.html" data-translate="meetTheTeam">Meet the team</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="servicesFooter">Services</h4>
+                <ul>
+                    <li><a href="services.html" data-translate="digitalMediaFooter">Digital Media</a></li>
+                    <li><a href="services.html" data-translate="strategyFooter">Strategy</a></li>
+                    <li><a href="services.html" data-translate="developmentFooter">Development</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="getUpdates">Get our updates</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" class="email-input" data-translate="yourEmailPlaceholder">
+                    <button type="submit" class="submit-btn">→</button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFrbWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../images/x-icon.png" alt="X"></a>
+                    <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../images/tiktok-icon.png" alt="TikTok"></a>
+                    <a href="https://wa.me/message/EMHIZ5YFEYR6F1" target="_blank"><img src="../images/whatsapp-icon.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../java/main.js"></script>
+    
+    <!-- Service Bundle JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const bundleButtons = document.querySelectorAll('.bundle-btn');
+        const bundleCards = document.querySelectorAll('.bundle-cards');
+        
+        bundleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                bundleButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all bundle cards
+                bundleCards.forEach(cards => cards.classList.remove('active'));
+                
+                // Show corresponding bundle cards
+                const bundle = this.getAttribute('data-bundle');
+                const targetCards = document.getElementById(bundle + '-cards');
+                if (targetCards) {
+                    targetCards.classList.add('active');
+                }
+            });
+        });
+    });
+    
+    // Customize Modal Functions
+    function openCustomizeModal() {
+        document.getElementById('customizeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Update both service sections based on current selections
+        setTimeout(updateBothServiceSections, 100);
+    }
+    
+    function closeCustomizeModal() {
+        document.getElementById('customizeModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Toggle between Individual and Administrative Services
+    function toggleServiceType(type) {
+        // Update button states
+        const buttons = document.querySelectorAll('.service-type-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.closest('.service-type-btn').classList.add('active');
+        
+        // Update content visibility
+        const individualSection = document.getElementById('individual-services');
+        const administrativeSection = document.getElementById('administrative-services');
+        
+        if (type === 'individual') {
+            individualSection.classList.add('active');
+            administrativeSection.classList.remove('active');
+        } else {
+            administrativeSection.classList.add('active');
+            individualSection.classList.remove('active');
+        }
+    }
+    
+    // Bundle Modal Functions (for preset bundles)
+    function openBundleModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeBundleModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Media Production Customize Modal Functions
+    function openMediaCustomizeModal() {
+        document.getElementById('mediaCustomizeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeMediaCustomizeModal() {
+        document.getElementById('mediaCustomizeModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Platform Multi-Select Functions
+    function togglePlatformDropdown() {
+        const dropdown = document.querySelector('.multi-select-dropdown');
+        const options = document.getElementById('platform-options');
+        
+        if (options.style.display === 'none') {
+            options.style.display = 'block';
+            dropdown.classList.add('open');
+        } else {
+            options.style.display = 'none';
+            dropdown.classList.remove('open');
+        }
+    }
+    
+    function updatePlatformSelection() {
+        const checkboxes = document.querySelectorAll('#platform-options input[type="checkbox"]');
+        const display = document.getElementById('platform-display');
+        const allCheckbox = document.querySelector('#platform-options input[value="all"]');
+        const otherCheckboxes = document.querySelectorAll('#platform-options input[type="checkbox"]:not([value="all"])');
+        
+        // Handle "All Platforms" logic
+        if (allCheckbox.checked) {
+            // If "All Platforms" is checked, uncheck all others
+            otherCheckboxes.forEach(cb => cb.checked = false);
+            display.textContent = 'All Platforms';
+        } else {
+            // If any other platform is checked, uncheck "All Platforms"
+            let selectedPlatforms = [];
+            otherCheckboxes.forEach(cb => {
+                if (cb.checked) {
+                    const labelText = cb.parentElement.textContent.trim();
+                    selectedPlatforms.push(labelText);
+                }
+            });
+            
+            if (selectedPlatforms.length === 0) {
+                // If nothing is selected, default back to "All Platforms"
+                allCheckbox.checked = true;
+                display.textContent = 'All Platforms';
+            } else if (selectedPlatforms.length === 1) {
+                display.textContent = selectedPlatforms[0];
+            } else {
+                display.textContent = `${selectedPlatforms.length} platforms selected`;
+            }
+        }
+    }
+    
+    // Handle checkbox clicks - prevent event bubbling
+    function handleCheckboxClick(event) {
+        event.stopPropagation();
+        const checkbox = event.target;
+        const allCheckbox = document.querySelector('#platform-options input[value="all"]');
+        const otherCheckboxes = document.querySelectorAll('#platform-options input[type="checkbox"]:not([value="all"])');
+        
+        if (checkbox.value === 'all') {
+            if (checkbox.checked) {
+                // Uncheck all other checkboxes when "All Platforms" is selected
+                otherCheckboxes.forEach(cb => cb.checked = false);
+            }
+        } else {
+            if (checkbox.checked) {
+                // Uncheck "All Platforms" when any specific platform is selected
+                allCheckbox.checked = false;
+            }
+        }
+        
+        updatePlatformSelection();
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const dropdown = document.querySelector('.multi-select-dropdown');
+        if (dropdown && !dropdown.contains(event.target)) {
+            const options = document.getElementById('platform-options');
+            if (options) {
+                options.style.display = 'none';
+                dropdown.classList.remove('open');
+            }
+        }
+    });
+    
+    function selectServiceType(type) {
+        if (type === 'unique') {
+            // Collect all form values
+            const formData = {
+                contentPosts: document.getElementById('content-posts').value,
+                pageStories: document.getElementById('page-stories').value,
+                moderation: document.getElementById('moderation').value,
+                socialDesigns: document.getElementById('social-designs').value,
+                identityDesign: document.getElementById('identity-design').value,
+                photoSession: document.getElementById('photo-session').value,
+                stylistSession: document.getElementById('stylist-session').value,
+                creativeReels: document.getElementById('creative-reels').value,
+                masterVideo: document.getElementById('master-video').value,
+                gifVideo: document.getElementById('gif-video').value,
+                aiReplyBot: document.getElementById('ai-reply-bot').value,
+                advertisingCampaigns: document.getElementById('advertising-campaigns').value,
+                motionGraphics: document.getElementById('motion-graphics').value,
+                studyAnalysis: document.getElementById('study-analysis').value
+            };
+            
+            console.log('Individual Services Selected:', formData);
+            // Forward to request form with summary
+            forwardToRequest(formData, 'Individual Services Bundle');
+            
+        } else if (type === 'administrative') {
+            // Collect all administrative form values
+            const platformCheckboxes = document.querySelectorAll('#platform-options input[type="checkbox"]:checked');
+            const selectedPlatforms = Array.from(platformCheckboxes).map(checkbox => checkbox.value);
+            
+            const formData = {
+                strategyPlan: document.getElementById('admin-strategy-plan').value,
+                platformManagement: selectedPlatforms,
+                followupSupervision: document.getElementById('admin-followup-supervision').value,
+                monthlyReport: document.getElementById('admin-monthly-report').value,
+                contentPosts: document.getElementById('admin-content-posts').value,
+                pageStories: document.getElementById('admin-page-stories').value,
+                moderation: document.getElementById('admin-moderation').value,
+                socialDesigns: document.getElementById('admin-social-designs').value,
+                identityDesign: document.getElementById('admin-identity-design').value,
+                photoSession: document.getElementById('admin-photo-session').value,
+                stylistSession: document.getElementById('admin-stylist-session').value,
+                creativeReels: document.getElementById('admin-creative-reels').value,
+                masterVideo: document.getElementById('admin-master-video').value,
+                gifVideo: document.getElementById('admin-gif-video').value,
+                aiReplyBot: document.getElementById('admin-ai-reply-bot').value,
+                advertisingCampaigns: document.getElementById('admin-advertising-campaigns').value,
+                motionGraphics: document.getElementById('admin-motion-graphics').value,
+                studyAnalysis: document.getElementById('admin-study-analysis').value
+            };
+            
+            console.log('Administrative Services Selected:', formData);
+            forwardToRequest(formData, 'Administrative Services Bundle');
+        }
+        closeCustomizeModal();
+    }
+    
+    function selectMediaServiceType(type) {
+        if (type === 'media-production') {
+            // Collect all media production form values
+            const formData = {
+                photoSession: document.getElementById('media-photo-session').value,
+                stylistSession: document.getElementById('media-stylist-session').value,
+                socialReels: document.getElementById('media-social-reels').value,
+                masterVideo: document.getElementById('media-master-video').value,
+                podcast: document.getElementById('media-podcast').value,
+                actingVideo: document.getElementById('media-acting-video').value,
+                shortFilm: document.getElementById('media-short-film').value,
+                gifVideo: document.getElementById('media-gif-video').value,
+                motionGraphics: document.getElementById('media-motion-graphics').value,
+                videoEditing: document.getElementById('media-video-editing').value,
+                voiceOver: document.getElementById('media-voice-over').value,
+                professionalModel: document.getElementById('media-professional-model').value,
+                aiGeneratedVideo: document.getElementById('media-ai-generated-video').value
+            };
+            
+            console.log('Media Production Services Selected:', formData);
+            forwardToRequest(formData, 'Media Production');
+        }
+        closeMediaCustomizeModal();
+    }
+    
+    function selectAiAgentServiceType(type) {
+        if (type === 'ai-agent-services') {
+            // Collect all AI agent services form values
+            const formData = {
+                numberOfAgents: document.getElementById('ai-number-of-agents').value,
+                agentType: document.getElementById('ai-agent-type').value,
+                integrationPlatform: document.getElementById('ai-integration-platform').value,
+                knowledgeBase: document.getElementById('ai-knowledge-base').value,
+                languages: document.getElementById('ai-languages').value,
+                responseStyle: document.getElementById('ai-response-style').value,
+                trainingData: document.getElementById('ai-training-data').value,
+                userAuth: document.getElementById('ai-user-auth').value,
+                technicalSupport: document.getElementById('ai-technical-support').value
+            };
+            
+            console.log('AI Agent Services Selected:', formData);
+            forwardToRequest(formData, 'AI Agent Services');
+        }
+        closeAiAgentCustomizeModal();
+    }
+    
+    function selectErpServiceType(type) {
+        if (type === 'erp-systems') {
+            // Collect all ERP systems form values
+            const formData = {
+                generalAccounting: document.getElementById('erp-general-accounting').value,
+                inventoryManagement: document.getElementById('erp-inventory-management').value,
+                suppliersPurchases: document.getElementById('erp-suppliers-purchases').value,
+                salesInvoicing: document.getElementById('erp-sales-invoicing').value,
+                crm: document.getElementById('erp-crm').value
+            };
+            
+            console.log('ERP Systems Selected:', formData);
+            forwardToRequest(formData, 'ERP Systems');
+        }
+        closeErpCustomizeModal();
+    }
+    
+    // Websites & Applications Customize Modal Functions
+    function openWebsiteAppsCustomizeModal() {
+        document.getElementById('websiteAppsCustomizeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        // Show category selection by default
+        showCategorySelection();
+    }
+    
+    function closeWebsiteAppsCustomizeModal() {
+        document.getElementById('websiteAppsCustomizeModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    function selectCategory(category) {
+        // Hide all service forms and remove grid-layout class
+        const categorySelection = document.getElementById('category-selection');
+        categorySelection.style.display = 'none';
+        categorySelection.classList.remove('grid-layout');
+        
+        document.getElementById('website-services').style.display = 'none';
+        document.getElementById('ecommerce-services').style.display = 'none';
+        document.getElementById('mobile-services').style.display = 'none';
+        document.getElementById('hybrid-services').style.display = 'none';
+        
+        // Show selected category services
+        if (category === 'website') {
+            document.getElementById('website-services').style.display = 'block';
+        } else if (category === 'ecommerce') {
+            document.getElementById('ecommerce-services').style.display = 'block';
+        } else if (category === 'mobile') {
+            document.getElementById('mobile-services').style.display = 'block';
+        } else if (category === 'hybrid') {
+            document.getElementById('hybrid-services').style.display = 'block';
+        }
+    }
+    
+    function backToCategories() {
+        // Hide all service forms
+        document.getElementById('website-services').style.display = 'none';
+        document.getElementById('ecommerce-services').style.display = 'none';
+        document.getElementById('mobile-services').style.display = 'none';
+        document.getElementById('hybrid-services').style.display = 'none';
+        
+        // Show category selection and add grid-layout class
+        const categorySelection = document.getElementById('category-selection');
+        categorySelection.style.display = 'block';
+        categorySelection.classList.add('grid-layout');
+    }
+    
+    function showCategorySelection() {
+        // Hide all service forms
+        document.getElementById('website-services').style.display = 'none';
+        document.getElementById('ecommerce-services').style.display = 'none';
+        document.getElementById('mobile-services').style.display = 'none';
+        document.getElementById('hybrid-services').style.display = 'none';
+        
+        // Show category selection
+        document.getElementById('category-selection').style.display = 'grid';
+    }
+    
+    function selectWebsiteAppsServiceType(type) {
+        if (type === 'website') {
+            // Collect all website form values
+            const formData = {
+                category: 'website',
+                numWebsites: document.getElementById('web-num-websites').value,
+                numPages: document.getElementById('web-num-pages').value,
+                userAuth: document.getElementById('web-auth').value,
+                hosting: document.getElementById('web-hosting').value,
+                seo: document.getElementById('web-seo').value,
+                multilingual: document.getElementById('web-multilingual').value,
+                support: document.getElementById('web-support').value
+            };
+            
+            console.log('Website Services Selected:', formData);
+            forwardToRequest(formData, 'Website & Applications - Website');
+            
+        } else if (type === 'ecommerce') {
+            // Collect all e-commerce form values
+            const formData = {
+                category: 'ecommerce',
+                numStores: document.getElementById('ecom-num-stores').value,
+                platform: document.getElementById('ecom-platform').value,
+                numProducts: document.getElementById('ecom-num-products').value,
+                payment: document.getElementById('ecom-payment').value,
+                userAuth: document.getElementById('ecom-auth').value,
+                hosting: document.getElementById('ecom-hosting').value,
+                inventory: document.getElementById('ecom-inventory').value,
+                support: document.getElementById('ecom-support').value
+            };
+            
+            console.log('E-commerce Services Selected:', formData);
+            forwardToRequest(formData, 'Website & Applications - E-commerce');
+            
+        } else if (type === 'mobile') {
+            // Collect all mobile app form values
+            const formData = {
+                category: 'mobile',
+                numApps: document.getElementById('mobile-num-apps').value,
+                platform: document.getElementById('mobile-platform').value,
+                numScreens: document.getElementById('mobile-num-screens').value,
+                userAuth: document.getElementById('mobile-auth').value,
+                payment: document.getElementById('mobile-payment').value,
+                pushNotifications: document.getElementById('mobile-push').value,
+                hosting: document.getElementById('mobile-hosting').value,
+                support: document.getElementById('mobile-support').value
+            };
+            
+            console.log('Mobile App Services Selected:', formData);
+            forwardToRequest(formData, 'Website & Applications - Mobile App');
+            
+        } else if (type === 'hybrid') {
+            // Collect all hybrid form values
+            const formData = {
+                category: 'hybrid',
+                components: document.getElementById('hybrid-components').value,
+                numPlatforms: document.getElementById('hybrid-num-platforms').value,
+                sharedAuth: document.getElementById('hybrid-shared-auth').value,
+                sharedDb: document.getElementById('hybrid-shared-db').value,
+                crossSync: document.getElementById('hybrid-cross-sync').value,
+                support: document.getElementById('hybrid-support').value
+            };
+            
+            console.log('Hybrid Services Selected:', formData);
+            forwardToRequest(formData, 'Website & Applications - Hybrid');
+        }
+        closeWebsiteAppsCustomizeModal();
+    }
+
+    // Helper: encode a compact summary and navigate to request form
+    function encodeSummary(obj) {
+        try {
+            // Build a compact string: key:val pairs, skip empty/none
+            const parts = [];
+            
+            // Define readable labels for the keys
+            const labelMap = {
+                'contentPosts': 'Content Posts',
+                'pageStories': 'Page Stories',
+                'moderation': 'Moderation',
+                'socialDesigns': 'Social Designs',
+                'identityDesign': 'Identity Design',
+                'photoSession': 'Photo Session',
+                'stylistSession': 'Stylist Session',
+                'creativeReels': 'Creative Reels',
+                'masterVideo': 'Master Video',
+                'gifVideo': 'GIF Video',
+                'aiReplyBot': 'AI Reply Bot',
+                'advertisingCampaigns': 'Advertising Campaigns',
+                'motionGraphics': 'Motion Graphics',
+                'studyAnalysis': 'Study & Analysis',
+                'strategyPlan': 'Strategy Plan',
+                'platformManagement': 'Platform Management',
+                'followupSupervision': 'Follow-up & Supervision',
+                'monthlyReport': 'Monthly Report'
+            };
+            
+            for (const k in obj) {
+                if (!obj.hasOwnProperty(k)) continue;
+                const v = obj[k];
+                if (v === '' || v === null || v === undefined) continue;
+                // Skip default 'none' or '0' or '0' like values
+                if (typeof v === 'string' && (v.toLowerCase() === 'none' || v === '0')) continue;
+                if (typeof v === 'number' && v === 0) continue;
+                
+                const label = labelMap[k] || k;
+                parts.push(`${encodeURIComponent(label)}:${encodeURIComponent(String(v))}`);
+            }
+            return parts.join('|');
+        } catch (e) {
+            return encodeURIComponent(JSON.stringify(obj));
+        }
+    }
+
+    function forwardToRequest(formDataObj, title) {
+        const summary = encodeSummary(formDataObj);
+        const params = new URLSearchParams();
+        if (title) params.set('service', title);
+        if (summary) params.set('summary', summary);
+
+        // Navigate to request-service.html in same folder
+        window.location.href = 'request-service.html?' + params.toString();
+    }
+    
+    // ERP Systems Customize Modal Functions
+    function openErpCustomizeModal() {
+        document.getElementById('erpCustomizeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeErpCustomizeModal() {
+        document.getElementById('erpCustomizeModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // AI Agent Services Customize Modal Functions
+    function openAiAgentCustomizeModal() {
+        document.getElementById('aiAgentCustomizeModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeAiAgentCustomizeModal() {
+        document.getElementById('aiAgentCustomizeModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Mapping between individual service IDs and their administrative counterparts
+    const serviceFieldMapping = {
+        'content-posts': 'admin-content-posts',
+        'page-stories': 'admin-page-stories',
+        'moderation': 'admin-moderation',
+        'social-designs': 'admin-social-designs',
+        'identity-design': 'admin-identity-design',
+        'photo-session': 'admin-photo-session',
+        'stylist-session': 'admin-stylist-session',
+        'creative-reels': 'admin-creative-reels',
+        'master-video': 'admin-master-video',
+        'gif-video': 'admin-gif-video',
+        'ai-reply-bot': 'admin-ai-reply-bot',
+        'advertising-campaigns': 'admin-advertising-campaigns',
+        'motion-graphics': 'admin-motion-graphics',
+        'study-analysis': 'admin-study-analysis'
+    };
+
+    // Function to check if a field has a value selected
+    function isFieldSelected(field) {
+        if (!field) return false;
+        
+        if (field.tagName === 'SELECT') {
+            // For dropdowns, check if value is not 'none'
+            return field.value !== 'none';
+        } else if (field.type === 'number') {
+            // For number inputs, check if value is greater than 0
+            return parseInt(field.value) > 0;
+        }
+        return false;
+    }
+
+    // Function to update administrative services based on individual services selection
+    function updateAdministrativeServices() {
+        // Loop through all mapped fields
+        for (const [individualId, adminId] of Object.entries(serviceFieldMapping)) {
+            const individualField = document.getElementById(individualId);
+            const adminField = document.getElementById(adminId);
+            const adminServiceItem = adminField?.closest('.service-item');
+            
+            if (!individualField || !adminField || !adminServiceItem) continue;
+            
+            // Check if individual service has a value selected
+            const isIndividualSelected = isFieldSelected(individualField);
+            
+            // Hide/show and disable/enable administrative field based on individual selection
+            if (isIndividualSelected) {
+                adminServiceItem.style.display = 'none';
+                adminField.disabled = true;
+                // Reset the admin field value
+                if (adminField.tagName === 'SELECT') {
+                    adminField.value = 'none';
+                } else if (adminField.type === 'number') {
+                    adminField.value = 0;
+                }
+            } else {
+                adminServiceItem.style.display = 'flex';
+                adminField.disabled = false;
+            }
+        }
+    }
+
+    // Function to update individual services based on administrative services selection
+    function updateIndividualServices() {
+        // Loop through all mapped fields
+        for (const [individualId, adminId] of Object.entries(serviceFieldMapping)) {
+            const individualField = document.getElementById(individualId);
+            const adminField = document.getElementById(adminId);
+            const individualServiceItem = individualField?.closest('.service-item');
+            
+            if (!individualField || !adminField || !individualServiceItem) continue;
+            
+            // Check if administrative service has a value selected
+            const isAdminSelected = isFieldSelected(adminField);
+            
+            // Hide/show and disable/enable individual field based on administrative selection
+            if (isAdminSelected) {
+                individualServiceItem.style.display = 'none';
+                individualField.disabled = true;
+                // Reset the individual field value
+                if (individualField.tagName === 'SELECT') {
+                    individualField.value = 'none';
+                } else if (individualField.type === 'number') {
+                    individualField.value = 0;
+                }
+            } else {
+                individualServiceItem.style.display = 'flex';
+                individualField.disabled = false;
+            }
+        }
+    }
+
+    // Function to update both sections (call this when any field changes)
+    function updateBothServiceSections() {
+        updateAdministrativeServices();
+        updateIndividualServices();
+    }
+
+    // Counter Functions
+    function increaseValue(inputId) {
+        const input = document.getElementById(inputId);
+        const currentValue = parseInt(input.value);
+        const minRequired = parseInt(input.getAttribute('data-min-required'));
+        
+        if (currentValue === 0) {
+            // Jump directly to minimum required value
+            input.value = minRequired;
+        } else {
+            // Normal increment
+            input.value = currentValue + 1;
+        }
+        
+        // Remove any error styling
+        input.style.borderColor = '#ddd';
+        removeErrorMessage(input);
+        
+        // Update both service sections if this is a mapped field
+        const individualFields = Object.keys(serviceFieldMapping);
+        const adminFields = Object.values(serviceFieldMapping);
+        
+        if (individualFields.includes(inputId) || adminFields.includes(inputId)) {
+            updateBothServiceSections();
+        }
+    }
+    
+    function decreaseValue(inputId) {
+        const input = document.getElementById(inputId);
+        const currentValue = parseInt(input.value);
+        const minRequired = parseInt(input.getAttribute('data-min-required'));
+        
+        if (currentValue <= minRequired) {
+            // Jump directly to 0
+            input.value = 0;
+        } else {
+            // Normal decrement
+            input.value = currentValue - 1;
+        }
+        
+        // Remove any error styling
+        input.style.borderColor = '#ddd';
+        removeErrorMessage(input);
+        
+        // Update both service sections if this is a mapped field
+        const individualFields = Object.keys(serviceFieldMapping);
+        const adminFields = Object.values(serviceFieldMapping);
+        
+        if (individualFields.includes(inputId) || adminFields.includes(inputId)) {
+            updateBothServiceSections();
+        }
+    }
+    
+    // Add input validation to prevent manual entry below minimum
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add input event listeners for all number inputs
+        const numberInputs = document.querySelectorAll('input[type="number"]');
+        numberInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                enforceValidRange(this);
+            });
+            
+            input.addEventListener('blur', function() {
+                enforceValidRange(this);
+            });
+            
+            input.addEventListener('keydown', function(e) {
+                // Allow navigation keys, backspace, delete, etc.
+                const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'Home', 'End', 'ArrowLeft', 'ArrowRight'];
+                if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+                    return;
+                }
+                
+                // Prevent non-numeric input
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                    return;
+                }
+            });
+        });
+        
+        // Add change event listeners for individual service dropdowns
+        const individualDropdowns = ['identity-design', 'ai-reply-bot', 'advertising-campaigns', 'study-analysis'];
+        individualDropdowns.forEach(dropdownId => {
+            const dropdown = document.getElementById(dropdownId);
+            if (dropdown) {
+                dropdown.addEventListener('change', function() {
+                    updateBothServiceSections();
+                });
+            }
+        });
+        
+        // Add change event listeners for administrative service dropdowns
+        const adminDropdowns = ['admin-identity-design', 'admin-ai-reply-bot', 'admin-advertising-campaigns', 'admin-study-analysis'];
+        adminDropdowns.forEach(dropdownId => {
+            const dropdown = document.getElementById(dropdownId);
+            if (dropdown) {
+                dropdown.addEventListener('change', function() {
+                    updateBothServiceSections();
+                });
+            }
+        });
+        
+        // Initialize services visibility on modal open
+        const customizeButtons = document.querySelectorAll('[onclick*="openCustomizeModal"]');
+        customizeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                setTimeout(updateBothServiceSections, 100); // Small delay to ensure modal is rendered
+            });
+        });
+    });
+    
+    function enforceValidRange(input) {
+        const minRequired = parseInt(input.getAttribute('data-min-required'));
+        let currentValue = parseInt(input.value);
+        const maxAttr = input.getAttribute('max');
+        const maxValue = maxAttr !== null ? parseInt(maxAttr) : null;
+        const fieldName = input.getAttribute('id').replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+        
+        // Remove any existing error messages
+        removeErrorMessage(input);
+        
+        if (isNaN(currentValue) || input.value === '') {
+            input.value = 0;
+            input.style.borderColor = '#ddd';
+            return;
+        }
+        
+        if (currentValue < 0) {
+            input.value = 0;
+            input.style.borderColor = '#ddd';
+            return;
+        }
+        // If max is set, ensure value is not greater than max
+        if (maxValue !== null && currentValue > maxValue) {
+            // Keep the user's value but show an error explaining the allowed range
+            showErrorMessage(input, `Value out of range. Allowed: 0 or up to ${maxValue}.`);
+            input.style.borderColor = '#e53e3e';
+            return;
+        }
+
+        // Check if value is in invalid range (greater than 0 but less than minimum required)
+        if (!isNaN(minRequired) && currentValue > 0 && currentValue < minRequired) {
+            // Force to nearest valid value (0) and show error
+            input.value = 0; // Reset to 0 as it's the closest valid option
+            showErrorMessage(input, `Please choose between the eligible range: 0 or ${minRequired}+`);
+            input.style.borderColor = '#e53e3e';
+            return;
+        }
+
+        input.style.borderColor = '#ddd';
+    }
+    
+    function showErrorMessage(input, message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        errorDiv.style.cssText = `
+            color: #e53e3e;
+            font-size: 1rem;
+            margin-top: 8px;
+            font-weight: 700;
+            position: absolute;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(229, 62, 62, 0.4);
+            border: 2px solid #e53e3e;
+            z-index: 1000;
+            white-space: nowrap;
+            min-width: 220px;
+            text-align: center;
+            top: 0;
+        `;
+
+        input.parentElement.style.position = 'relative';
+        input.parentElement.appendChild(errorDiv);
+
+        // Position the error box to the LEFT of the input
+        const parentRect = input.parentElement.getBoundingClientRect();
+        const errorRect = errorDiv.getBoundingClientRect();
+
+    // Compute desired left position relative to parent: input left minus error width minus gap
+    // Use a single constant for fine tuning the horizontal shift so it's easy to adjust globally
+    const ERROR_BOX_SHIFT_PX = 80; // tweak this value (px) to move all error boxes right/left
+    let leftPos = input.offsetLeft - errorRect.width - 12 + ERROR_BOX_SHIFT_PX;
+
+        // If placing to the left would push the box off-screen (too far left), clamp it
+        const absoluteLeft = parentRect.left + leftPos;
+        if (absoluteLeft < 8) {
+            // Shift into view but keep some padding
+            leftPos = 8 - parentRect.left;
+        }
+
+        errorDiv.style.left = leftPos + 'px';
+        
+        // Auto-hide after 4 seconds (increased from 3)
+        setTimeout(() => {
+            removeErrorMessage(input);
+        }, 4000);
+    }
+    
+    function removeErrorMessage(input) {
+        const existingError = input.parentElement.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('customizeModal');
+        if (event.target == modal) {
+            closeCustomizeModal();
+        }
+    }
+    </script>
+    <script src="../java/language-switcher.js"></script>
+</body>
+</html>
+
+
