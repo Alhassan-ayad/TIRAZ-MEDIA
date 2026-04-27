@@ -1,4 +1,4 @@
-// Translation system for ALT MATE website
+// Translation system for TIRAZ MEDIA website
 window.translations = {
     en: {
         // Navigation
@@ -17,16 +17,16 @@ window.translations = {
         splashSucceed: "succeed",
         
         // Home Page
-        homeTitle: "Welcome to ALT MATE - Your Digital Media Partner",
+        homeTitle: "Welcome to TIRAZ MEDIA - Your Digital Media Partner",
         homeDescription: "We provide comprehensive digital media solutions, strategic planning, and innovative development services to help your business thrive in the digital world.",
         
         // About Us Page
-        aboutTitle: "About ALT MATE",
-        aboutDescription: "ALT MATE is a leading digital media company dedicated to providing innovative solutions and exceptional service to our clients worldwide.",
+        aboutTitle: "About TIRAZ MEDIA",
+        aboutDescription: "TIRAZ MEDIA is a leading digital media company dedicated to providing innovative solutions and exceptional service to our clients worldwide.",
         
         // Missions Page
         missionsTitle: "Our Missions",
-        missionsDescription: "At ALT MATE, our mission is to revolutionize digital media through innovative technology, creative excellence, and unwavering commitment to client success.",
+        missionsDescription: "At TIRAZ MEDIA, our mission is to revolutionize digital media through innovative technology, creative excellence, and unwavering commitment to client success.",
         
         // Services Page
         servicesTitle: "Our Services",
@@ -38,15 +38,15 @@ window.translations = {
         
         // Team Page
         teamTitle: "Our Team",
-        teamDescription: "Meet the talented professionals behind ALT MATE who bring expertise, creativity, and dedication to every project we undertake.",
+        teamDescription: "Meet the talented professionals behind TIRAZ MEDIA who bring expertise, creativity, and dedication to every project we undertake.",
         
         // Locations Page
         locationsTitle: "Our Locations",
-        locationsDescription: "Find ALT MATE offices and service centers around the world, bringing digital excellence to your doorstep.",
+        locationsDescription: "Find TIRAZ MEDIA offices and service centers around the world, bringing digital excellence to your doorstep.",
         
         // Contact Page
         contactTitle: "Contact Us",
-        contactDescription: "Get in touch with ALT MATE for all your digital media needs. We're here to help you succeed.",
+        contactDescription: "Get in touch with TIRAZ MEDIA for all your digital media needs. We're here to help you succeed.",
         
         // Footer
         footerCompany: "Company",
@@ -54,13 +54,13 @@ window.translations = {
         footerUpdates: "Get our updates",
         footerEmailPlaceholder: "Your Email",
         footerAboutUs: "About us",
-        footerWhyAltMate: "Why AltMate?",
+        footerWhyAltMate: "Why TIRAZ MEDIA?",
         footerMeetTeam: "Meet the team",
         footerDigitalMedia: "Digital Media",
         footerStrategy: "Strategy", 
         footerDevelopment: "Development",
         footerRights: "All rights reserved.",
-        footerDesigned: "Designed & Developed by AltMate",
+        footerDesigned: "Designed & Developed by TIRAZ MEDIA",
         
         // Bundles Page
         bundles: "Bundles",
@@ -158,7 +158,7 @@ window.translations = {
         // Privacy Policy Modal Content
         privacyPolicyFull: "Privacy Policy",
         privacyIntroTitle: "Introduction",
-        privacyIntroText: "At ALT MATE, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.",
+        privacyIntroText: "At TIRAZ MEDIA, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.",
         privacyCollectionTitle: "Information We Collect",
         privacyCollectionText: "We collect information that you provide directly to us, including name, email address, phone number, and business details when you contact us or use our services.",
         privacyUseTitle: "How We Use Your Information",
@@ -213,7 +213,7 @@ window.translations = {
         splashSucceed: "انجح",
         
         // Home Page
-        homeTitle: "مرحباً بك في ALT MATE - شريكك في الوسائط الرقمية",
+        homeTitle: "مرحباً بك في تيراز ميديا - شريكك في الوسائط الرقمية",
         homeDescription: "نحن نقدم حلول الوسائط الرقمية الشاملة والتخطيط الاستراتيجي وخدمات التطوير المبتكرة لمساعدة عملك على الازدهار في العالم الرقمي.",
             strategyPlan: "الخطة الاستراتيجية",
             basicStrategyPlan: "خطة استراتيجية أساسية",
@@ -221,12 +221,12 @@ window.translations = {
             allPlatforms: "كل المنصات",
         
         // About Us Page
-        aboutTitle: "عن ALT MATE",
-        aboutDescription: "ALT MATE هي شركة رائدة في مجال الوسائط الرقمية مكرسة لتقديم حلول مبتكرة وخدمة استثنائية لعملائنا في جميع أنحاء العالم.",
+        aboutTitle: "عن تيراز ميديا",
+        aboutDescription: "تيراز ميديا هي شركة رائدة في مجال الوسائط الرقمية مكرسة لتقديم حلول مبتكرة وخدمة استثنائية لعملائنا في جميع أنحاء العالم.",
         
         // Missions Page
         missionsTitle: "مهامنا",
-        missionsDescription: "في ALT MATE، مهمتنا هي إحداث ثورة في الوسائط الرقمية من خلال التكنولوجيا المبتكرة والتميز الإبداعي والالتزام الثابت بنجاح العملاء.",
+        missionsDescription: "في تيراز ميديا، مهمتنا هي إحداث ثورة في الوسائط الرقمية من خلال التكنولوجيا المبتكرة والتميز الإبداعي والالتزام الثابت بنجاح العملاء.",
         
         // Services Page
         servicesTitle: "خدماتنا",
@@ -238,15 +238,15 @@ window.translations = {
         
         // Team Page
         teamTitle: "فريقنا",
-        teamDescription: "تعرف على المهنيين الموهوبين وراء ALT MATE الذين يجلبون الخبرة والإبداع والتفاني لكل مشروع نقوم به.",
+        teamDescription: "تعرف على المهنيين الموهوبين وراء تيراز ميديا الذين يجلبون الخبرة والإبداع والتفاني لكل مشروع نقوم به.",
         
         // Locations Page
         locationsTitle: "مواقعنا",
-        locationsDescription: "اعثر على مكاتب ALT MATE ومراكز الخدمة حول العالم، نجلب التميز الرقمي إلى عتبة داركم.",
+        locationsDescription: "اعثر على مكاتب تيراز ميديا ومراكز الخدمة حول العالم، نجلب التميز الرقمي إلى عتبة داركم.",
         
         // Contact Page
         contactTitle: "اتصل بنا",
-        contactDescription: "تواصل مع ALT MATE لجميع احتياجاتك من الوسائط الرقمية. نحن هنا لمساعدتك على النجاح.",
+        contactDescription: "تواصل مع تيراز ميديا لجميع احتياجاتك من الوسائط الرقمية. نحن هنا لمساعدتك على النجاح.",
         
         // Footer
         footerCompany: "الشركة",
@@ -254,13 +254,13 @@ window.translations = {
         footerUpdates: "احصل على التحديثات",
         footerEmailPlaceholder: "بريدك الإلكتروني",
         footerAboutUs: "من نحن",
-        footerWhyAltMate: "لماذا AltMate؟",
+        footerWhyAltMate: "لماذا تيراز ميديا؟",
         footerMeetTeam: "تعرف على الفريق",
         footerDigitalMedia: "الوسائط الرقمية",
         footerStrategy: "الاستراتيجية",
         footerDevelopment: "التطوير",
         footerRights: "جميع الحقوق محفوظة.",
-        footerDesigned: "تم التصميم والتطوير بواسطة AltMate",
+        footerDesigned: "تم التصميم والتطوير بواسطة TIRAZ MEDIA",
         
         // Bundles Page
         bundles: "الباقات",
@@ -358,7 +358,7 @@ window.translations = {
         // Privacy Policy Modal Content
         privacyPolicyFull: "سياسة الخصوصية",
         privacyIntroTitle: "مقدمة",
-        privacyIntroText: "في Alt Mate، نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك الشخصية بشكل آمن وشفاف، توضح سياسة الخصوصية هذه كيفية جمع معلوماتك واستخدامها وتخزينها وحمايتها",
+        privacyIntroText: "في تيراز ميديا، نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك الشخصية بشكل آمن وشفاف، توضح سياسة الخصوصية هذه كيفية جمع معلوماتك واستخدامها وتخزينها وحمايتها",
         privacyCollectionTitle: "المعلومات التي نجمعها",
         privacyCollectionText: "نجمع المعلومات التي تقدمها لنا مباشرة، بما في ذلك الاسم وعنوان البريد الإلكتروني ورقم الهاتف وتفاصيل العمل عند الاتصال بنا أو استخدام خدماتنا",
         privacyUseTitle: "كيف نستخدم معلوماتك",

@@ -1,4 +1,4 @@
-# ALT MATE Blog Page
+# TIRAZ MEDIA Blog Page
 
 ## Overview
 A modern, fully-responsive blog page inspired by Hostinger's blog design. The page is structured with multiple categories and is ready for backend integration. The blog focuses on informative articles covering marketing, business, web development, and design topics.
@@ -120,7 +120,7 @@ The blog page includes ready-to-use functions:
 ## Customization
 
 ### Colors
-The blog uses the existing ALT MATE color scheme:
+The blog uses the existing TIRAZ MEDIA color scheme:
 - Primary: `#192f59` (Navy Blue)
 - Accent: `#ff8800` (Orange)
 - Background: `#f8f9fa` (Light Gray)
@@ -273,6 +273,6 @@ This document includes:
 
 ---
 
-**Created by**: ALT MATE Development Team  
+**Created by**: TIRAZ MEDIA Development Team  
 **Last Updated**: October 17, 2025  
 **Status**: Ready for Backend Integration

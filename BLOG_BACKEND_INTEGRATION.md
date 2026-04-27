@@ -335,7 +335,7 @@ Add to each blog post page:
   },
   "publisher": {
     "@type": "Organization",
-    "name": "ALT MATE",
+    "name": "TIRAZ MEDIA",
     "logo": {
       "@type": "ImageObject",
       "url": "Logo URL"

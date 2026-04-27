@@ -6,7 +6,7 @@
 - **Location**: Blog header section at the top of the page
 - **Image**: `banner-laptop-female-hands-copyspace-grey-color-background-banner-laptop-female-hands-copyspace-grey-125446009.webp`
 - **Path**: `images/blogs images/`
-- **Effect**: Beautiful background image with dark overlay behind the "ALT MATE Blog" title
+- **Effect**: Beautiful background image with dark overlay behind the "TIRAZ MEDIA Blog" title
 
 ### ✅ 2. Updated CSS Styling
 **Changes to `css/blog.css`:**
@@ -55,7 +55,7 @@
     </div>
     <div class="blog-header-overlay"></div>
     <div class="blog-header-content">
-        <h1>ALT MATE Blog</h1>
+        <h1>TIRAZ MEDIA Blog</h1>
         <p>Insights, Tips, and Stories...</p>
     </div>
 </section>
@@ -139,7 +139,7 @@ The blog is designed for text-based content including:
 - Matches professional services
 
 ### 2. **Better Brand Identity**
-- Reinforces ALT MATE's digital expertise
+- Reinforces TIRAZ MEDIA's digital expertise
 - Shows understanding of modern design
 - Creates memorable first impression
 

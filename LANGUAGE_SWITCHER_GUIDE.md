@@ -1,5 +1,5 @@
 # Language Switcher Implementation Guide
-## ALT MATE Website - Bilingual English/Arabic Support
+## TIRAZ MEDIA Website - Bilingual English/Arabic Support
 
 ### Overview
 This guide documents the complete language switcher system that allows users to toggle between English and Arabic while maintaining left-to-right layout for both languages (no RTL shifting).

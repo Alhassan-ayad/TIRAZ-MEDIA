@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -456,7 +456,7 @@
                     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:20px;">
                         <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                             <h3 style="color:#23355d; font-size:1rem; margin:0 0 8px 0;">Total Messages</h3>
-                            <p id="total-messages" style="font-size:2rem; font-weight:700; color:#FF6B35; margin:0;">0</p>
+                            <p id="total-messages" style="font-size:2rem; font-weight:700; color:#b09778; margin:0;">0</p>
                         </div>
                         <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
                             <h3 style="color:#23355d; font-size:1rem; margin:0 0 8px 0;">Service Orders</h3>
@@ -505,7 +505,7 @@
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
                         <h2 style="color:#fff; margin:0;">Blog Posts</h2>
                         <div style="display:flex; gap:12px;">
-                            <button id="addBlogPostBtn" style="background:#FF6B35; color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;">
+                            <button id="addBlogPostBtn" style="background:#b09778; color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;">
                                 + Add New Post
                             </button>
                             <button id="deleteAllBlogPostsBtn" style="background:#dc3545; color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-size:1rem; font-weight:600;">
@@ -1146,23 +1146,23 @@
                 let country = 'Unknown';
                 
                 if (phone.startsWith('01') || phone.startsWith('+201')) {
-                    country = 'Egypt 🇪🇬';
+                    country = 'Egypt';
                 } else if (phone.startsWith('05') || phone.startsWith('+9665')) {
-                    country = 'Saudi Arabia 🇸🇦';
+                    country = 'Saudi Arabia';
                 } else if (phone.startsWith('971') || phone.startsWith('+971')) {
-                    country = 'UAE 🇦🇪';
+                    country = 'UAE';
                 } else if (phone.startsWith('962') || phone.startsWith('+962')) {
-                    country = 'Jordan 🇯🇴';
+                    country = 'Jordan';
                 } else if (phone.startsWith('965') || phone.startsWith('+965')) {
-                    country = 'Kuwait 🇰🇼';
+                    country = 'Kuwait';
                 } else if (phone.startsWith('974') || phone.startsWith('+974')) {
-                    country = 'Qatar 🇶🇦';
+                    country = 'Qatar';
                 } else if (phone.startsWith('973') || phone.startsWith('+973')) {
-                    country = 'Bahrain 🇧🇭';
+                    country = 'Bahrain';
                 } else if (phone.startsWith('968') || phone.startsWith('+968')) {
-                    country = 'Oman 🇴🇲';
+                    country = 'Oman';
                 } else if (phone.startsWith('961') || phone.startsWith('+961')) {
-                    country = 'Lebanon 🇱🇧';
+                    country = 'Lebanon';
                 }
                 
                 countryMap[country] = (countryMap[country] || 0) + 1;
@@ -1194,7 +1194,7 @@
                             <span style="color:#666;">${count} (${percentage}%)</span>
                         </div>
                         <div style="background:#e3eaf7; border-radius:4px; height:24px; position:relative; overflow:hidden;">
-                            <div style="background:linear-gradient(90deg, #FF6B35, #FFA500); height:100%; width:${percentage}%; border-radius:4px; transition:width 0.3s;"></div>
+                            <div style="background:linear-gradient(90deg, #b09778, #FFA500); height:100%; width:${percentage}%; border-radius:4px; transition:width 0.3s;"></div>
                         </div>
                     </div>
                 `;
@@ -1459,3 +1459,4 @@
     </script>
 </body>
 </html>
+

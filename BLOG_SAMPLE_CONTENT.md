@@ -332,7 +332,7 @@ Understand how colors influence emotions and perceptions. Choose the perfect pal
 
 ## Call-to-Action Examples
 
-### For Service Business (Like ALT MATE)
+### For Service Business (Like TIRAZ MEDIA)
 
 **Soft CTAs**:
 - "Want to learn more? Download our free guide..."

@@ -58,7 +58,7 @@ $oldDesktopHeaderPattern = @'
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+            <img src="../../images/tiraz%20logo.png" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <nav class="main-nav">
@@ -84,7 +84,7 @@ $newDesktopHeader = @'
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+            <img src="../../images/tiraz%20logo.png" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <div class="desktop-language-switcher">

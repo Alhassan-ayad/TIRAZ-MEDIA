@@ -346,5 +346,5 @@ A complete, production-ready blog page has been created with:
 
 **Created**: October 17, 2025  
 **Version**: 1.0  
-**Developer**: ALT MATE Team  
+**Developer**: TIRAZ MEDIA Team  
 **Status**: ✅ Ready for Backend Integration

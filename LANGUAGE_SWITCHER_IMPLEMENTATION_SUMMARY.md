@@ -1,5 +1,5 @@
 # ✅ Language Switcher Implementation - COMPLETE
-## ALT MATE Website - Bilingual Support (English/Arabic)
+## TIRAZ MEDIA Website - Bilingual Support (English/Arabic)
 
 ---
 

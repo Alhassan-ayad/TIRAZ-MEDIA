@@ -26,7 +26,7 @@ function closeBundleModal(modalId) {
         document.body.style.overflow = 'auto';
     }
 }
-// main.js for ALT MATE website - English only
+// main.js for TIRAZ MEDIA website - English only
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Sidebar Navigation
@@ -133,16 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     bindLogoNavigation();
 
-    // Ensure browser tab icon uses the ALT MATE logo (favicon).
+    // Ensure browser tab icon uses the TIRAZ MEDIA logo (favicon).
     function getLogoAssetPath() {
         const path = window.location.pathname.replace(/\\/g, '/');
         if (path.includes('/html/services/')) {
-            return '../../images/logo.svg';
+            return '../../images/tiraz%20logo.png';
         }
         if (path.includes('/html/')) {
-            return '../images/logo.svg';
+            return '../images/tiraz%20logo.png';
         }
-        return 'images/logo.svg';
+        return 'images/tiraz%20logo.png';
     }
 
     function ensureFavicon() {
@@ -151,13 +151,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (existingIcon) {
             existingIcon.setAttribute('href', logoPath);
-            existingIcon.setAttribute('type', 'image/svg+xml');
+            existingIcon.setAttribute('type', 'image/png');
             return;
         }
 
         const iconLink = document.createElement('link');
         iconLink.setAttribute('rel', 'icon');
-        iconLink.setAttribute('type', 'image/svg+xml');
+        iconLink.setAttribute('type', 'image/png');
         iconLink.setAttribute('href', logoPath);
         document.head.appendChild(iconLink);
     }
@@ -586,7 +586,7 @@ function openWebsitePreview(url, title) {
     
     // Handle iframe error
     iframe.onerror = function() {
-        loadingSpinner.innerHTML = '<p style="color: #ff6b6b;">Failed to load website. <a href="' + url + '" target="_blank" style="color: #ff9800;">Open in new tab</a></p>';
+        loadingSpinner.innerHTML = '<p style="color: #ff6b6b;">Failed to load website. <a href="' + url + '" target="_blank" style="color: #b09778;">Open in new tab</a></p>';
     };
     
     // Set up "open in new tab" button
@@ -965,3 +965,4 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCarousel(false);
 });
 */
+

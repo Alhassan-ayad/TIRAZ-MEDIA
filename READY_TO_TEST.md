@@ -311,7 +311,7 @@ html[lang="ar"] body {
 ## 📞 What to Do Now?
 
 ### Step 1: TEST IT! 🧪
-Open `d:\ALT MATE\ALT MATE before backend\ALT-MATE-WEBSITE-PROJECT-\html\home.html` in your browser
+Open `d:\TIRAZ MEDIA\TIRAZ MEDIA before backend\ALT-MATE-WEBSITE-PROJECT-\html\home.html` in your browser
 
 ### Step 2: Give Feedback 💬
 Tell me:

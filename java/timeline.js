@@ -1,4 +1,4 @@
-// Animated Timeline JavaScript
+﻿// Animated Timeline JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     const timelineDots = document.querySelectorAll('.timeline-dot');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add dynamic glow effect
             content.style.boxShadow = `
                 0 30px 60px rgba(0, 0, 0, 0.25),
-                0 15px 35px rgba(242, 102, 34, 0.3),
+                0 15px 35px rgba(176, 151, 120, 0.3),
                 0 0 40px rgba(${getItemColor(index)}, 0.4)
             `;
         });
@@ -133,7 +133,7 @@ style.textContent = `
         }
         50% {
             transform: scale(1.05);
-            box-shadow: 0 30px 60px rgba(242, 102, 34, 0.4);
+            box-shadow: 0 30px 60px rgba(176, 151, 120, 0.4);
         }
     }
     
@@ -142,3 +142,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+

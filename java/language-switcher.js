@@ -80,7 +80,7 @@ const translations = {
         // Privacy Policy Modal Content
         privacyPolicyFull: "Privacy Policy",
         privacyIntroTitle: "Introduction",
-        privacyIntroText: "At ALT MATE, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.",
+        privacyIntroText: "At TIRAZ MEDIA, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.",
         privacyCollectionTitle: "Information We Collect",
         privacyCollectionText: "We collect information that you provide directly to us, including name, email address, phone number, and business details when you contact us or use our services.",
         privacyUseTitle: "How We Use Your Information",
@@ -109,18 +109,18 @@ const translations = {
         // MISSIONS PAGE
         // ======================
         missionsPageTitle: "MISSIONS",
-        missionStatement: "At ALT MATE, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.",
+        missionStatement: "At TIRAZ MEDIA, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.",
         visionMissionTitle: "VISION & MISSION",
         vision: "Vision",
         visionText: "We aim to be the top digital marketing agency by empowering businesses with creative strategies that achieve real results and set new standards for success in the digital world.",
         mission: "Mission",
-        missionText: "At ALT MATE, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.",
+        missionText: "At TIRAZ MEDIA, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.",
         
         // Goals Section (Missions)
         goalsTill2030: "GOALS TILL 2030",
         year2020: "2020",
         foundation: "Foundation",
-        foundationDesc: "ALT MATE as a digital marketing agency to support startups Business Development Agency",
+        foundationDesc: "TIRAZ MEDIA as a digital marketing agency to support startups Business Development Agency",
         year2024: "2024",
         majorAchievements: "Major Achievements",
         majorAchievementsDesc: "We've successfully implemented over 600 websites, 50+ applications, and 100 integrated systems, along with impactful advertising campaigns that have driven brand success in Egypt, the UAE, and Jordan.",
@@ -160,7 +160,7 @@ const translations = {
         customSolutionsDesc: "Tailored solutions for unique business needs",
     // About Us - Paragraphs (split into three keys to match page)
     aboutDescription1: "We provide strategic and innovative solutions to help businesses grow, expand, and achieve sustainable success. Our deep understanding of digital marketing strategies and proven track record enable us to deliver effective solutions that drive measurable success for our clients.",
-    aboutDescription2: "Over 5 years, ALT MATE is a leading full-service digital marketing agency dedicated to empowering both B2B and B2C companies to achieve their KPIs and maximize ROI.",
+    aboutDescription2: "Over 5 years, TIRAZ MEDIA is a leading full-service digital marketing agency dedicated to empowering both B2B and B2C companies to achieve their KPIs and maximize ROI.",
     aboutDescription3: "Our deep understanding of digital marketing strategies and proven track record enable us to deliver effective solutions that drive measurable success for our clients worldwide.",
     // About Us - Service list items
     googleAdsSeo: "Google Ads & SEO",
@@ -206,7 +206,7 @@ const translations = {
         letsTalk: "LET'S TALK !",
     // Team roles & descriptions (About Us)
     cofounderCeo: "Co-Founder & CEO",
-    ceoDesc: "Leading ALT MATE's vision and strategic direction with extensive experience in digital innovation and business growth.",
+    ceoDesc: "Leading TIRAZ MEDIA's vision and strategic direction with extensive experience in digital innovation and business growth.",
     chairman: "Chairman of the Board",
     chairmanDesc: "Overseeing corporate governance and providing strategic guidance to ensure long-term success and ethical practices.",
     creditControl: "Credit Control",
@@ -228,11 +228,11 @@ const translations = {
     joinTeamDesc: "We're always looking for talented people. Reach out and let's build something great together.",
     // Footer/common
     allRightsReserved: "All rights reserved.",
-    designedByAltMate: "Designed & Developed by AltMate",
+    designedByAltMate: "Designed & Developed by TIRAZ MEDIA",
     companyFooter: "Company",
     servicesFooter: "Services",
     getUpdates: "Get our updates",
-    whyAltMate: "Why AltMate?",
+    whyAltMate: "Why TIRAZ MEDIA?",
         
         // ======================
         // SERVICES PAGE
@@ -598,7 +598,7 @@ const translations = {
     // ======================
     // BLOG PAGE
     // ======================
-    altMateBlog: "ALT MATE Blog",
+    altMateBlog: "TIRAZ MEDIA Blog",
     blogSubtitle: "Insights, Tips, and Stories from the World of Digital Marketing",
     featuredStory: "FEATURED STORY",
     viewAll: "View all →",
@@ -923,13 +923,13 @@ const translations = {
         // ======================
         // FOOTER (All Pages)
         // ======================
-        footerAltmate: "ALTMATE",
+        footerAltmate: "TIRAZ MEDIA",
         footerCopyright: "© 2025.",
         allRightsReserved: "All rights reserved.",
-        designedDeveloped: "Designed & Developed by AltMate",
+        designedDeveloped: "Designed & Developed by TIRAZ MEDIA",
         company: "Company",
         aboutUsFooter: "About us",
-        whyAltmate: "Why AltMate?",
+        whyAltmate: "Why TIRAZ MEDIA?",
         meetTheTeam: "Meet the team",
         servicesFooter: "Services",
         digitalMediaFooter: "Digital Media",
@@ -982,7 +982,7 @@ const translations = {
         egyptTitle: "Egypt",
         egypt1Title: "Egypt 1",
         egypt2Title: "Egypt 2",
-        egypt1CompanyName: "شركة التميت لتقنيات الأعمال",
+        egypt1CompanyName: "شركة تيراز ميديا",
         egypt1Address: "الاسكندرية سيدي جابر 53 شارع توت عنه امون - سموحة",
         jordanTitle: "Jordan",
         uaeTitle: "UAE",
@@ -1112,7 +1112,7 @@ const translations = {
         // Privacy Policy Modal Content
         privacyPolicyFull: "سياسة الخصوصية",
         privacyIntroTitle: "مقدمة",
-        privacyIntroText: "في Alt Mate، نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك الشخصية بشكل آمن وشفاف، توضح سياسة الخصوصية هذه كيفية جمع معلوماتك واستخدامها وتخزينها وحمايتها",
+        privacyIntroText: "في تيراز ميديا، نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك الشخصية بشكل آمن وشفاف، توضح سياسة الخصوصية هذه كيفية جمع معلوماتك واستخدامها وتخزينها وحمايتها",
         privacyCollectionTitle: "المعلومات التي نجمعها",
         privacyCollectionText: "نجمع المعلومات التي تقدمها لنا مباشرة، بما في ذلك الاسم وعنوان البريد الإلكتروني ورقم الهاتف وتفاصيل العمل عند الاتصال بنا أو استخدام خدماتنا",
         privacyUseTitle: "كيف نستخدم معلوماتك",
@@ -1141,18 +1141,18 @@ const translations = {
         // MISSIONS PAGE
         // ======================
         missionsPageTitle: "المهام",
-        missionStatement: "في ALT MATE، نحن ملتزمون بتحويل حلول التسويق الرقمي باستراتيجيات مبتكرة. نمكّن الشركات من النجاح عبر الإنترنت من خلال إنشاء روابط ذات مغزى بين عملائنا وجماهيرهم. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في العصر الرقمي.",
+        missionStatement: "في تيراز ميديا، نحن ملتزمون بتحويل حلول التسويق الرقمي باستراتيجيات مبتكرة. نمكّن الشركات من النجاح عبر الإنترنت من خلال إنشاء روابط ذات مغزى بين عملائنا وجماهيرهم. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في العصر الرقمي.",
         visionMissionTitle: "الرؤية والمهمة",
         vision: "الرؤية",
         visionText: "نهدف إلى أن نكون أفضل وكالة تسويق رقمي من خلال تمكين الشركات باستراتيجيات إبداعية تحقق نتائج حقيقية وتضع معايير جديدة للنجاح في العالم الرقمي.",
         mission: "المهمة",
-        missionText: "في ALT MATE، نحن ملتزمون بتحويل حلول التسويق الرقمي باستراتيجيات مبتكرة. نمكّن الشركات من النجاح عبر الإنترنت من خلال إنشاء روابط ذات مغزى بين عملائنا وجماهيرهم. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في العصر الرقمي.",
+        missionText: "في تيراز ميديا، نحن ملتزمون بتحويل حلول التسويق الرقمي باستراتيجيات مبتكرة. نمكّن الشركات من النجاح عبر الإنترنت من خلال إنشاء روابط ذات مغزى بين عملائنا وجماهيرهم. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في العصر الرقمي.",
         
         // Goals Section (Missions)
         goalsTill2030: "الأهداف حتى 2030",
         year2020: "2020",
         foundation: "التأسيس",
-        foundationDesc: "ALT MATE كوكالة تسويق رقمي لدعم وكالة تطوير أعمال الشركات الناشئة",
+        foundationDesc: "تيراز ميديا كوكالة تسويق رقمي لدعم وكالة تطوير أعمال الشركات الناشئة",
         year2024: "2024",
         majorAchievements: "الإنجازات الرئيسية",
         majorAchievementsDesc: "لقد نجحنا في تنفيذ أكثر من 600 موقع ويب و 50+ تطبيق و 100 نظام متكامل، إلى جانب حملات إعلانية مؤثرة دفعت نجاح العلامة التجارية في مصر والإمارات العربية المتحدة والأردن.",
@@ -1192,7 +1192,7 @@ const translations = {
         customSolutionsDesc: "حلول مصممة خصيصًا لاحتياجات الأعمال الفريدة",
         // About Us - Paragraphs (split into three keys to match page)
         aboutDescription1: "نقدم حلولًا استراتيجية ومبتكرة لمساعدة الشركات على النمو والتوسع وتحقيق النجاح المستدام. إن فهمنا العميق لاستراتيجيات التسويق الرقمي وسجلنا الحافل يمكننا من تقديم حلول فعّالة تقود إلى نجاح ملموس لعملائنا.",
-        aboutDescription2: "على مدار 5 سنوات، تُعد ALT MATE وكالة رائدة متكاملة الخدمات في التسويق الرقمي مكرّسة لتمكين كل من شركات B2B وB2C من تحقيق مؤشرات الأداء الرئيسية وزيادة العائد على الاستثمار.",
+        aboutDescription2: "على مدار 5 سنوات، تُعد تيراز ميديا وكالة رائدة متكاملة الخدمات في التسويق الرقمي مكرّسة لتمكين كل من شركات B2B وB2C من تحقيق مؤشرات الأداء الرئيسية وزيادة العائد على الاستثمار.",
         aboutDescription3: "فهمنا العميق لاستراتيجيات التسويق الرقمي وسجلنا الحافل يمكّننا من تقديم حلول فعّالة تقود إلى نجاح ملموس لعملائنا في جميع أنحاء العالم.",
     // About Us - Service list items
     googleAdsSeo: "إعلانات جوجل وتحسين محركات البحث",
@@ -1238,7 +1238,7 @@ const translations = {
         letsTalk: "لنتحدث !",
     // Team roles & descriptions (About Us)
     cofounderCeo: "الشريك المؤسس والرئيس التنفيذي",
-    ceoDesc: "قيادة رؤية ALT MATE والاتجاه الاستراتيجي بخبرة واسعة في الابتكار الرقمي ونمو الأعمال.",
+    ceoDesc: "قيادة رؤية تيراز ميديا والاتجاه الاستراتيجي بخبرة واسعة في الابتكار الرقمي ونمو الأعمال.",
     chairman: "رئيس مجلس الإدارة",
     chairmanDesc: "الإشراف على الحوكمة المؤسسية وتقديم التوجيه الاستراتيجي لضمان النجاح طويل الأجل والممارسات الأخلاقية.",
     creditControl: "التحكم الائتماني",
@@ -1260,11 +1260,11 @@ const translations = {
     joinTeamDesc: "نحن نبحث دائمًا عن المواهب. تواصل معنا ولنصنع شيئًا رائعًا معًا.",
     // Footer/common
     allRightsReserved: "جميع الحقوق محفوظة.",
-    designedByAltMate: "تصميم وتطوير ألتميت",
+    designedByAltMate: "تصميم وتطوير تيراز ميديا",
     companyFooter: "الشركة",
     servicesFooter: "الخدمات",
     getUpdates: "احصل على تحديثاتنا",
-    whyAltMate: "لماذا ألتميت؟",
+    whyAltMate: "لماذا تيراز ميديا؟",
         
         // ======================
         // SERVICES PAGE
@@ -1610,7 +1610,7 @@ const translations = {
     // ======================
     // BLOG PAGE
     // ======================
-    altMateBlog: "مدونة ألتميت",
+    altMateBlog: "مدونة تيراز ميديا",
     blogSubtitle: "رؤى ونصائح وقصص من عالم التسويق الرقمي",
     featuredStory: "قصة مميزة",
     viewAll: "عرض الكل →",
@@ -2043,13 +2043,13 @@ const translations = {
         // ======================
         // FOOTER (All Pages)
         // ======================
-        footerAltmate: "ALTMATE",
+        footerAltmate: "TIRAZ MEDIA",
         footerCopyright: "© 2025.",
         allRightsReserved: "جميع الحقوق محفوظة.",
-        designedDeveloped: "تصميم وتطوير AltMate",
+        designedDeveloped: "تصميم وتطوير تيراز ميديا",
         company: "الشركة",
         aboutUsFooter: "من نحن",
-        whyAltmate: "لماذا AltMate؟",
+        whyAltmate: "لماذا تيراز ميديا؟",
         meetTheTeam: "تعرف على الفريق",
         servicesFooter: "الخدمات",
         digitalMediaFooter: "الوسائط الرقمية",
@@ -2059,7 +2059,7 @@ const translations = {
         yourEmailPlaceholder: "بريدك الإلكتروني",
         quickLinks: "روابط سريعة",
         followUs: "تابعنا",
-        copyrightText: "© 2025 ALT MATE. جميع الحقوق محفوظة.",
+        copyrightText: "© 2025 تيراز ميديا. جميع الحقوق محفوظة.",
         privacyPolicy: "سياسة الخصوصية",
         termsOfService: "شروط الخدمة",
         
@@ -2102,7 +2102,7 @@ const translations = {
         egyptTitle: "مصر",
         egypt1Title: "مصر 1",
         egypt2Title: "مصر 2",
-        egypt1CompanyName: "شركة التميت لتقنيات الأعمال",
+        egypt1CompanyName: "شركة تيراز ميديا",
         egypt1Address: "الاسكندرية سيدي جابر 53 شارع توت عنه امون - سموحة",
         jordanTitle: "الأردن",
         uaeTitle: "الإمارات",

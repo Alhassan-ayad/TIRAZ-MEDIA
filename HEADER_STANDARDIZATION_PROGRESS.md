@@ -68,7 +68,7 @@ Use the service pages template from `HEADER_STANDARDIZATION_GUIDE.md` (lines 115
 ```html
     <header class="main-header">
         <div class="logo">
-            <img src="../../images/logo.svg" alt="ALT MATE Logo" style="height:54px;vertical-align:middle;">
+            <img src="../../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <nav class="main-nav">
@@ -174,11 +174,11 @@ A PowerShell script `update_service_headers.ps1` has been created but encountere
 ## Path Differences
 
 ### Main Pages (`html/` folder)
-- Use `../` for images, CSS: `../css/style.css`, `../images/logo.svg`
+- Use `../` for images, CSS: `../css/style.css`, `../images/tiraz%20logo.png`
 - Use relative links for pages: `home.html`, `aboutus.html`, `blog.html`
 
 ### Service Pages (`html/services/` folder)
-- Use `../../` for images, CSS: `../../css/style.css`, `../../images/logo.svg`
+- Use `../../` for images, CSS: `../../css/style.css`, `../../images/tiraz%20logo.png`
 - Use `../` for page links: `../home.html`, `../aboutus.html`, `../blog.html`
 
 ---
