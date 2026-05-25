@@ -5,20 +5,470 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIRAZ MEDIA - Missions</title>
     <link rel="stylesheet" href="../css/style.css">
-    <!-- Prevent FOUC (Flash of Unstyled Content) by setting language before page renders -->
+    <link rel="stylesheet" href="../css/theme.css">
     <script>
-        // This runs immediately before the page renders
         (function() {
             const savedLang = localStorage.getItem('language') || 'ar';
             document.documentElement.lang = savedLang;
-            // Hide body until translations are applied
             document.documentElement.style.visibility = 'hidden';
         })();
     </script>
     <style>
-        /* Ensure body is visible after JS loads */
-        html.lang-ready {
-            visibility: visible !important;
+        html.lang-ready { visibility: visible !important; }
+
+        /* ═══════════════════════════════════════════
+           MISSIONS — PAGE-SPECIFIC DARK/GOLD STYLES
+        ═══════════════════════════════════════════ */
+
+        /* ── Missions Hero — Split Layout ── */
+        .missions-hero {
+            background: #040410 !important;
+            position: relative !important;
+            overflow: hidden !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: 80px 0 !important;
+            border-bottom: 1px solid var(--dark-border) !important;
+        }
+        .missions-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+            background-size: 56px 56px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .missions-hero::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 30% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Inner flex row */
+        .missions-hero-inner {
+            position: relative; z-index: 2;
+            display: flex;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 70px;
+            gap: 70px;
+        }
+
+        /* Corner decorations */
+        .missions-hero-corner {
+            position: absolute;
+            width: 60px; height: 60px;
+            z-index: 3; opacity: 0.45;
+        }
+        .missions-hero-corner svg { width: 100%; height: 100%; }
+        .missions-hero-corner.tl { top: 30px; left: 30px; }
+        .missions-hero-corner.tr { top: 30px; right: 30px; transform: scaleX(-1); }
+        .missions-hero-corner.bl { bottom: 30px; left: 30px; transform: scaleY(-1); }
+        .missions-hero-corner.br { bottom: 30px; right: 30px; transform: scale(-1,-1); }
+
+        /* Left text column */
+        .missions-hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .missions-main-title {
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 5.5rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -2px !important;
+            line-height: 1 !important;
+            background: linear-gradient(135deg, #E8C97A 0%, #C9A84C 60%, #9A7A3A 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            margin-bottom: 28px !important;
+            animation: fadeInUp 0.7s ease both !important;
+        }
+
+        /* FIX: remove the white box from mission-statement */
+        .mission-statement {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        .mission-statement p {
+            color: rgba(255,255,255,0.6) !important;
+            font-size: 1.05rem !important;
+            line-height: 1.85 !important;
+            max-width: 520px;
+            margin: 0 0 40px !important;
+            animation: fadeInUp 0.9s 0.15s ease both !important;
+        }
+
+        /* Hero CTA button */
+        .missions-hero-cta {
+            display: inline-block;
+            padding: 14px 36px;
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s;
+            animation: fadeInUp 1s 0.3s ease both;
+        }
+        .missions-hero-cta:hover {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 28px var(--gold-glow);
+        }
+
+        /* Right image column */
+        .missions-char-col {
+            width: 420px;
+            flex-shrink: 0;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201,168,76,0.2);
+            box-shadow: 0 0 60px rgba(201,168,76,0.08), inset 0 0 30px rgba(201,168,76,0.03);
+        }
+        /* Left-edge fade blends image into dark bg */
+        .missions-char-col::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #040410 0%, rgba(4,4,16,0.5) 20%, transparent 50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        /* Gold line on right edge */
+        .missions-char-col::after {
+            content: '';
+            position: absolute;
+            top: 10%; bottom: 10%; right: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--gold), transparent);
+            z-index: 3;
+            opacity: 0.5;
+        }
+        /* Poster image — cropped to center-left where character stands */
+        .missions-char-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 35% center;
+            display: block;
+            filter: brightness(0.92) contrast(1.08) saturate(1.1);
+        }
+        /* Gold glow underneath image */
+        .missions-char-glow {
+            position: absolute;
+            bottom: -40px; left: 50%;
+            transform: translateX(-50%);
+            width: 240px; height: 100px;
+            background: radial-gradient(ellipse, rgba(201,168,76,0.35) 0%, transparent 70%);
+            z-index: 4; filter: blur(22px);
+        }
+
+        /* ── Vision & Mission ── */
+        .vision-section {
+            background: #060610 !important;
+            padding: 90px 50px !important;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--dark-border) !important;
+        }
+        .vision-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+            background-size: 50px 50px; pointer-events: none;
+        }
+        .vision-container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+        .vision-title {
+            color: #fff !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 2rem !important;
+            text-align: center !important;
+            letter-spacing: 3px !important;
+            margin-bottom: 50px !important;
+            position: relative;
+        }
+        .vision-title::after {
+            content: '';
+            display: block;
+            width: 50px; height: 3px;
+            background: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 12px rgba(201,168,76,0.5);
+        }
+        .vision-mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--dark-border);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .vision-part, .mission-part {
+            background: var(--dark-card);
+            padding: 50px 44px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+        .vision-part:hover, .mission-part:hover { background: #0f0f1c; }
+        .vision-part::before {
+            content: 'V';
+            position: absolute; top: -10px; right: 20px;
+            font-size: 9rem; font-weight: 900;
+            color: rgba(201,168,76,0.04);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1; pointer-events: none;
+        }
+        .mission-part::before {
+            content: 'M';
+            position: absolute; top: -10px; right: 20px;
+            font-size: 9rem; font-weight: 900;
+            color: rgba(201,168,76,0.04);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1; pointer-events: none;
+        }
+        .vision-part h3, .mission-part h3 {
+            color: var(--gold) !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 1.3rem !important;
+            letter-spacing: 3px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 20px !important;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .vision-part h3::before, .mission-part h3::before {
+            content: '';
+            display: inline-block;
+            width: 28px; height: 2px;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+        .vision-text, .mission-text {
+            color: var(--text-muted) !important;
+            font-size: 0.97rem !important;
+            line-height: 1.85 !important;
+        }
+        @media (max-width: 768px) {
+            .vision-mission-content { grid-template-columns: 1fr; gap: 1px; }
+            .vision-part, .mission-part { padding: 36px 24px; }
+        }
+
+        /* ── Goals Timeline ── */
+        .goals-section {
+            background: #040408 !important;
+            padding: 90px 50px !important;
+            position: relative; overflow: hidden;
+        }
+        .goals-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .goals-container { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .goals-title {
+            color: #fff !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 900 !important;
+            font-size: 2rem !important;
+            letter-spacing: 3px !important;
+            text-align: center !important;
+            margin-bottom: 70px !important;
+            position: relative;
+        }
+        .goals-title::after {
+            content: '';
+            display: block;
+            width: 50px; height: 3px;
+            background: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 12px rgba(201,168,76,0.5);
+        }
+
+        /* Vertical timeline overrides */
+        .goals-list {
+            display: block !important;
+            position: relative;
+        }
+        .goals-list::before {
+            content: '';
+            position: absolute;
+            left: 80px; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--gold) 10%, var(--gold) 90%, transparent);
+            opacity: 0.35;
+        }
+
+        .goal-card {
+            width: auto !important;
+            max-width: none !important;
+            flex-basis: auto !important;
+            margin: 0 0 32px 0 !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            position: relative;
+        }
+        .goal-card:last-child { margin-bottom: 0 !important; }
+
+        .goal-year {
+            flex-shrink: 0 !important;
+            width: 80px !important;
+            text-align: center !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 900 !important;
+            color: var(--gold) !important;
+            padding-top: 22px !important;
+            position: relative;
+        }
+        .goal-year::after {
+            content: '';
+            position: absolute;
+            right: -5px; top: 26px;
+            width: 10px; height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(201,168,76,0.7);
+        }
+        .goal-year::before {
+            content: '';
+            position: absolute;
+            right: 5px; top: 30px;
+            height: 2px; width: 24px;
+            background: rgba(201,168,76,0.35);
+        }
+
+        .goal-content {
+            flex: 1;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-left: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s;
+        }
+        .goal-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0; transition: opacity 0.35s;
+        }
+        .goal-card:hover .goal-content {
+            border-color: var(--dark-border-h);
+            box-shadow: 0 8px 30px rgba(201,168,76,0.12);
+            transform: translateX(4px);
+        }
+        .goal-card:hover .goal-content::before { opacity: 1; }
+        .goal-heading {
+            color: #fff !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 1.05rem !important;
+            margin: 0 0 10px !important;
+        }
+        .goal-description {
+            color: var(--text-muted) !important;
+            font-size: 0.9rem !important;
+            line-height: 1.75 !important;
+            margin: 0 !important;
+        }
+
+        /* ── Character Strip ── */
+        .char-strip {
+            background: #020208;
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+            position: relative;
+            overflow: hidden;
+            height: 260px;
+        }
+        .char-strip-img-wrap {
+            position: relative;
+            width: 100%; height: 100%;
+        }
+        .char-strip-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            filter: brightness(0.55) contrast(1.1) saturate(0.7) sepia(0.2);
+            display: block;
+        }
+        /* Dark fade from both sides + gold-tinted gradient */
+        .char-strip-overlay {
+            position: absolute; inset: 0;
+            background:
+                linear-gradient(90deg, #020208 0%, transparent 18%, transparent 82%, #020208 100%),
+                linear-gradient(180deg, #020208 0%, transparent 30%, transparent 70%, #020208 100%),
+                linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.08) 50%, transparent 100%);
+        }
+        .char-strip-label {
+            position: absolute;
+            bottom: 24px; left: 50%; transform: translateX(-50%);
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .missions-char-col { width: 360px; height: 500px; }
+            .missions-main-title { font-size: 4rem !important; }
+            .missions-hero-inner { padding: 0 40px; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .missions-hero { min-height: auto !important; padding: 100px 0 60px !important; }
+            .missions-hero-inner { flex-direction: column-reverse; padding: 0 24px; gap: 40px; }
+            .missions-hero-text { text-align: center; }
+            .mission-statement p { max-width: 100%; margin: 0 auto 32px !important; }
+            .missions-char-col { width: 100%; height: 280px; }
+            .missions-char-col::before {
+                background: linear-gradient(180deg, transparent 50%, #040410 100%);
+            }
+            .missions-main-title { font-size: 3rem !important; }
+            .vision-section, .goals-section { padding: 60px 20px !important; }
+            .goals-list::before { left: 60px; }
+            .goal-year { width: 60px !important; font-size: 0.8rem !important; }
+        }
+        @media (max-width: 480px) {
+            .missions-main-title { font-size: 2.2rem !important; }
         }
     </style>
 </head>
@@ -163,16 +613,42 @@
     
     <!-- Missions Hero Section -->
     <section class="missions-hero">
-        <div class="missions-hero-container">
-            <h1 class="missions-main-title" data-translate="missionsPageTitle">MISSIONS</h1>
-            <div class="mission-statement">
-                <p data-translate="missionStatement">At TIRAZ MEDIA, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.</p>
+        <!-- Corner decorations -->
+        <div class="missions-hero-corner tl">
+            <svg viewBox="0 0 60 60" fill="none"><path d="M2 58 V2 H58" stroke="#C9A84C" stroke-width="1.5"/></svg>
+        </div>
+        <div class="missions-hero-corner tr">
+            <svg viewBox="0 0 60 60" fill="none"><path d="M2 58 V2 H58" stroke="#C9A84C" stroke-width="1.5"/></svg>
+        </div>
+        <div class="missions-hero-corner bl">
+            <svg viewBox="0 0 60 60" fill="none"><path d="M2 58 V2 H58" stroke="#C9A84C" stroke-width="1.5"/></svg>
+        </div>
+        <div class="missions-hero-corner br">
+            <svg viewBox="0 0 60 60" fill="none"><path d="M2 58 V2 H58" stroke="#C9A84C" stroke-width="1.5"/></svg>
+        </div>
+
+        <div class="missions-hero-inner">
+            <!-- Left: Text Content -->
+            <div class="missions-hero-text">
+                <div class="pg-hero-eyebrow">TIRAZ MEDIA</div>
+                <h1 class="missions-main-title" data-translate="missionsPageTitle">MISSIONS</h1>
+                <div class="mission-statement">
+                    <p data-translate="missionStatement">At TIRAZ MEDIA, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.</p>
+                </div>
+                <a href="#vision" class="missions-hero-cta">Explore Our Vision ↓</a>
+            </div>
+
+            <!-- Right: Promotional Poster (character visible at center-left) -->
+            <div class="missions-char-col">
+                <img src="../images/character/5d790f98-6c82-47d7-8f90-8505622d9a6c.jpg"
+                     class="missions-char-img" alt="TIRAZ Business">
+                <div class="missions-char-glow"></div>
             </div>
         </div>
     </section>
     
     <!-- Vision & Mission Section -->
-    <section class="vision-section">
+    <section class="vision-section" id="vision">
         <div class="vision-container">
             <h2 class="vision-title" data-translate="visionMissionTitle">VISION & MISSION</h2>
             <div class="vision-mission-content">
@@ -188,6 +664,16 @@
         </div>
     </section>
     
+    <!-- Character Strip -->
+    <div class="char-strip">
+        <div class="char-strip-img-wrap">
+            <img src="../images/character/fac0627f-043a-4303-8e32-4f2e3fc5fa13.jpg"
+                 class="char-strip-img" alt="TIRAZ Character Views">
+            <div class="char-strip-overlay"></div>
+        </div>
+        <div class="char-strip-label">THE TIRAZ IDENTITY</div>
+    </div>
+
     <!-- Goals Section - New Design -->
     <section class="goals-section">
         <div class="goals-container">
