@@ -924,6 +924,211 @@
             .customize-content p { font-size: 0.95rem !important; }
         }
     </style>
+
+    <!-- ── Dark Gold Theme Overrides ── -->
+    <style>
+        /* ── Main bundles section ── */
+        .service-bundles-section {
+            background: #050505 !important;
+        }
+        .bundles-title {
+            color: var(--gold) !important;
+            text-shadow: 0 0 20px rgba(201,168,76,0.2) !important;
+        }
+
+        /* ── Tab buttons ── */
+        .bundle-btn {
+            background: rgba(201,168,76,0.06) !important;
+            color: #bbb !important;
+            border: 1.5px solid rgba(201,168,76,0.22) !important;
+        }
+        .bundle-btn:hover {
+            background: rgba(201,168,76,0.13) !important;
+            border-color: rgba(201,168,76,0.55) !important;
+            color: var(--gold) !important;
+        }
+        .bundle-btn.active {
+            background: var(--gold) !important;
+            color: #000 !important;
+            border-color: var(--gold) !important;
+        }
+
+        /* ── Service cards ── */
+        .service-card-small {
+            background: #0d0d14 !important;
+            border: 1px solid rgba(201,168,76,0.18) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+        }
+        .service-card-small:hover {
+            box-shadow: 0 15px 40px rgba(201,168,76,0.12) !important;
+            border-color: rgba(201,168,76,0.5) !important;
+        }
+        .service-card-small h4 { color: #fff !important; }
+        .service-card-small p  { color: #A0A0B0 !important; }
+
+        /* ── Best-selling ── */
+        .best-selling-card {
+            border: 2px solid var(--gold) !important;
+            box-shadow: 0 10px 30px rgba(201,168,76,0.18) !important;
+        }
+        .best-selling-strip {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
+            box-shadow: 0 4px 15px rgba(201,168,76,0.3) !important;
+            color: #000 !important;
+        }
+
+        /* ── Card icon ── */
+        .card-icon {
+            background: linear-gradient(135deg, rgba(201,168,76,0.22), rgba(201,168,76,0.08)) !important;
+            border: 1px solid rgba(201,168,76,0.3) !important;
+            color: var(--gold) !important;
+        }
+
+        /* ── Customize wide card ── */
+        .customize-card-wide {
+            background: #0d0d14 !important;
+            border: 2px solid rgba(201,168,76,0.38) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+        }
+        .customize-card-wide:hover {
+            border-color: var(--gold) !important;
+            box-shadow: 0 0 28px rgba(201,168,76,0.18) !important;
+        }
+        .customize-card-wide .card-icon {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold)) !important;
+            border: none !important;
+            color: #000 !important;
+        }
+        .customize-content h4 { color: var(--gold) !important; }
+        .customize-content p  { color: #A0A0B0 !important; }
+
+        /* ── Promo strip ── */
+        .promo-strip {
+            background: #06060a !important;
+            border-top: 1px solid rgba(201,168,76,0.15) !important;
+        }
+        .promo-text h3 { color: var(--gold) !important; }
+        .promo-text p  { color: rgba(255,255,255,0.7) !important; }
+
+        /* ── Modal backdrop & content ── */
+        .customize-modal-content {
+            background: #0d0d14 !important;
+            border: 1px solid rgba(201,168,76,0.28) !important;
+        }
+        .customize-modal-header {
+            background: linear-gradient(135deg, #0a0a14 0%, #111120 100%) !important;
+            border-bottom: 2px solid var(--gold) !important;
+        }
+        .modal-footer {
+            background: #0d0d14 !important;
+            border-top: 1px solid rgba(201,168,76,0.2) !important;
+        }
+
+        /* ── Service type toggle (customize modal) ── */
+        .service-type-toggle {
+            background: #08080f !important;
+            border-bottom-color: rgba(201,168,76,0.2) !important;
+        }
+        .service-type-btn {
+            background: #0d0d14 !important;
+            color: #bbb !important;
+            border-color: rgba(201,168,76,0.2) !important;
+        }
+        .service-type-btn:hover {
+            border-color: var(--gold) !important;
+            color: var(--gold) !important;
+        }
+        .service-type-btn.active {
+            background: var(--gold) !important;
+            color: #000 !important;
+            border-color: var(--gold) !important;
+        }
+
+        /* ── Feature boxes ── */
+        .feature-box {
+            background: #111120 !important;
+            border-color: rgba(201,168,76,0.3) !important;
+            color: #e0e0e0 !important;
+        }
+
+        /* ── Order button ── */
+        .order-bundle-btn {
+            background: var(--gold) !important;
+            color: #000 !important;
+        }
+        .order-bundle-btn:hover { background: var(--gold-light) !important; }
+
+        /* ── Bundle modal specific ── */
+        .bundle-modal .customize-modal-content {
+            background: #0d0d14 !important;
+        }
+        .bundle-modal .customize-modal-header {
+            background: linear-gradient(135deg, #0a0a14 0%, #111120 100%) !important;
+            border-bottom-color: var(--gold) !important;
+        }
+
+        /* ── Form inputs inside modal ── */
+        .service-item label { color: #bbb !important; }
+        .service-item select,
+        .counter-input input {
+            background: #111120 !important;
+            border-color: rgba(201,168,76,0.25) !important;
+            color: #fff !important;
+        }
+        .multi-select-display {
+            background: #111120 !important;
+            border-color: rgba(201,168,76,0.25) !important;
+            color: #fff !important;
+        }
+        .multi-select-options {
+            background: #0d0d14 !important;
+            border-color: var(--gold) !important;
+        }
+        .checkbox-option { color: #bbb !important; border-bottom-color: rgba(201,168,76,0.1) !important; }
+        .checkbox-option:hover { background-color: rgba(201,168,76,0.07) !important; }
+        .dropdown-arrow { color: var(--gold) !important; }
+        .counter-input button {
+            background: var(--gold-dark) !important;
+            color: #000 !important;
+        }
+        .counter-input button:hover { background: var(--gold) !important; }
+        .counter-input .unit { color: #A0A0B0 !important; }
+
+        /* ── Action buttons inside modal ── */
+        .option-btn {
+            background: var(--gold) !important;
+            color: #000 !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 15px rgba(201,168,76,0.25) !important;
+        }
+        .option-btn:hover { background: var(--gold-light) !important; transform: translateY(-2px) !important; }
+        .option-btn.secondary {
+            background: #1a1a28 !important;
+            border-color: rgba(201,168,76,0.3) !important;
+            color: #bbb !important;
+        }
+
+        /* ── Customize option text ── */
+        .customize-option h4 { color: var(--gold) !important; }
+        .customize-option p  { color: #A0A0B0 !important; }
+        .customize-options.grid-layout .customize-option {
+            background: #0d0d14 !important;
+            border-color: rgba(201,168,76,0.2) !important;
+        }
+        .customize-options.grid-layout .customize-option:hover {
+            border-color: var(--gold) !important;
+            box-shadow: 0 15px 40px rgba(201,168,76,0.12) !important;
+        }
+        .customize-options.grid-layout .option-icon {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold)) !important;
+        }
+
+        /* ── Scrollbar in dark modal ── */
+        .bundle-features::-webkit-scrollbar-track,
+        .services-form::-webkit-scrollbar-track { background: #111120 !important; }
+        .bundle-features::-webkit-scrollbar-thumb,
+        .services-form::-webkit-scrollbar-thumb { background: var(--gold-dark) !important; }
+    </style>
 </head>
 <body>
     <!-- Hamburger Menu Button (Mobile Only) -->
