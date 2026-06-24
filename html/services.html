@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIRAZ MEDIA - Services</title>
+    <title>TIRAZ BUSINESS - Services</title>
+    <meta property="og:title" content="TIRAZ BUSINESS - Services">
+    <meta property="og:description" content="TIRAZ BUSINESS - Business solutions, marketing, web/app, AI automation, ERP and consulting.">
+    <meta property="og:image" content="../images/tiraz%20logo.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/theme-light.css">
     <!-- Prevent FOUC (Flash of Unstyled Content) by setting language before page renders -->
     <script>
         // This runs immediately before the page renders
         (function() {
             const savedLang = localStorage.getItem('language') || 'ar';
             document.documentElement.lang = savedLang;
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('tiraz-theme') || 'dark');
             // Hide body until translations are applied
             document.documentElement.style.visibility = 'hidden';
         })();
@@ -907,7 +913,7 @@
     <!-- Mobile Sidebar Navigation -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="sidebar-header">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height: 48px;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
             <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -998,6 +1004,7 @@
                     <span class="lang-text">العربية</span>
                 </button>
             </div>
+            <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             
             <div class="sidebar-social-icons">
                 <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
@@ -1010,13 +1017,14 @@
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height:54px;vertical-align:middle;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <!-- Language Switcher (Next to Home) -->
             <div class="desktop-language-switcher">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="ar">ع</button>
+                <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             </div>
             
             <nav class="main-nav">
@@ -1040,822 +1048,9 @@
     <section class="services-hero-banner">
     </section>
 
-                        
-                        <!-- Website & Applications Bundle Cards -->
-                        <div class="bundle-cards" id="website-apps-cards">
-                            <div class="service-card-small" onclick="openBundleModal('websiteStarterModal')" style="cursor:pointer;">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4 data-translate="package1WebsiteStarter">Package 1 – Website Starter</h4>
-                                <p data-translate="pkg1Desc">Perfect for launching your professional website.</p>
-                            </div>
-                            <div class="service-card-small" onclick="openBundleModal('businessAppModal')" style="cursor:pointer;">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4 data-translate="package2BusinessAppWebsite">Package 2 – Business App + Website</h4>
-                                <p data-translate="pkg2Desc">Website and mobile app for your business.</p>
-                            </div>
-                            <div class="service-card-small" onclick="openBundleModal('ecommerceProModal')" style="cursor:pointer;">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4 data-translate="package3EcommercePro">Package 3 – E-Commerce Pro</h4>
-                                <p data-translate="pkg3Desc">Advanced online store and mobile app.</p>
-                            </div>
-                        <!-- Website Starter Modal -->
-                        <div id="websiteStarterModal" class="customize-modal bundle-modal">
-                            <div class="customize-modal-content bundle-modal-flex">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="package1WebsiteStarter">Package 1 – Website Starter</h3>
-                                    <span class="close-modal" onclick="closeBundleModal('websiteStarterModal')">&times;</span>
-                                </div>
-                                <div class="bundle-features">
-                                    <div class="feature-box">1 professional website (responsive design)</div>
-                                    <div class="feature-box">Basic SEO setup</div>
-                                    <div class="feature-box">Contact form & social media links</div>
-                                    <div class="feature-box">1 month of technical support</div>
-                                </div>
-                                <a href="request-service.html?service=Package%201%20Website%20Starter" class="order-bundle-btn" data-translate="orderThisPackage">Order This Package</a>
-                            </div>
-                        </div>
-                        <!-- Business App + Website Modal -->
-                        <div id="businessAppModal" class="customize-modal bundle-modal">
-                            <div class="customize-modal-content bundle-modal-flex">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="package2BusinessAppWebsite">Package 2 – Business App + Website</h3>
-                                    <span class="close-modal" onclick="closeBundleModal('businessAppModal')">&times;</span>
-                                </div>
-                                <div class="bundle-features">
-                                    <div class="feature-box">1 professional website (advanced features)</div>
-                                    <div class="feature-box">1 mobile application (iOS & Android)</div>
-                                    <div class="feature-box">Custom branding & design</div>
-                                    <div class="feature-box">Integration with social media & notifications</div>
-                                    <div class="feature-box">2 months of technical support</div>
-                                </div>
-                                <a href="request-service.html?service=Package%202%20Business%20App%20Website" class="order-bundle-btn" data-translate="orderThisPackage">Order This Package</a>
-                            </div>
-                        </div>
-                        <!-- E-Commerce Pro Modal -->
-                        <div id="ecommerceProModal" class="customize-modal bundle-modal">
-                            <div class="customize-modal-content bundle-modal-flex">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="package3EcommercePro">Package 3 – E-Commerce Pro</h3>
-                                    <span class="close-modal" onclick="closeBundleModal('ecommerceProModal')">&times;</span>
-                                </div>
-                                <div class="bundle-features">
-                                    <div class="feature-box">1 WooCommerce online store (full setup)</div>
-                                    <div class="feature-box">Product catalog & payment gateway integration</div>
-                                    <div class="feature-box">1 mobile application linked to the store</div>
-                                    <div class="feature-box">Advanced analytics dashboard</div>
-                                    <div class="feature-box">3 months of technical support</div>
-                                </div>
-                                <a href="request-service.html?service=Package%203%20E-Commerce%20Pro" class="order-bundle-btn" data-translate="orderThisPackage">Order This Package</a>
-                            </div>
-                        </div>
-                            
-                            <!-- Customize Bundle - Full Width Below -->
-                            <div class="customize-card-wide" onclick="openWebsiteAppsCustomizeModal()">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="customize-content">
-                                    <h4 data-translate="customizeYourBundle">Customize Your Own Bundle</h4>
-                                    <p data-translate="customizeBundleDesc">Create a personalized website and application package tailored to your specific business needs</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Websites & Applications Customize Modal -->
-                        <div id="websiteAppsCustomizeModal" class="customize-modal">
-                            <div class="customize-modal-content">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="customizeWebsiteAppsBundle">Customize Your Website & Application Bundle</h3>
-                                    <span class="close-modal" onclick="closeWebsiteAppsCustomizeModal()">&times;</span>
-                                </div>
-                                
-                                <!-- Category Selection Step -->
-                                <div id="category-selection" class="customize-options grid-layout">
-                                    <div class="customize-option" onclick="selectCategory('website')">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M2 12h20" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4 data-translate="website">Website</h4>
-                                        <p data-translate="websiteDesc">Professional website development with custom features</p>
-                                        <button class="option-btn" data-translate="selectWebsite">Select Website</button>
-                                    </div>
-                                    
-                                    <div class="customize-option" onclick="selectCategory('ecommerce')">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4 data-translate="ecommerceStore">E-commerce Store</h4>
-                                        <p data-translate="ecommerceDesc">Online store with payment processing and inventory</p>
-                                        <button class="option-btn" data-translate="selectEcommerce">Select E-commerce</button>
-                                    </div>
-                                    
-                                    <div class="customize-option" onclick="selectCategory('mobile')">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                                <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4 data-translate="mobileApplication">Mobile Application</h4>
-                                        <p data-translate="mobileAppDesc">Native mobile app for iOS and/or Android</p>
-                                        <button class="option-btn" data-translate="selectMobileApp">Select Mobile App</button>
-                                    </div>
-                                    
-                                    <div class="customize-option" onclick="selectCategory('hybrid')">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4 data-translate="mixMatchHybrid">Mix & Match (Hybrid Package)</h4>
-                                        <p data-translate="mixMatchDesc">Combine multiple platforms for a complete solution</p>
-                                        <button class="option-btn" data-translate="selectHybrid">Select Hybrid</button>
-                                    </div>
-                                </div>
-                                
-                                <!-- Website Services Step -->
-                                <div id="website-services" class="customize-options" style="display: none;">
-                                    <div class="customize-option active">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M2 12h20" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4>Website Services</h4>
-                                        <div class="services-form">
-                                            <div class="service-item">
-                                                <label>Number of Websites (minimum 1)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('web-num-websites')">-</button>
-                                                    <input type="number" id="web-num-websites" min="1" value="1">
-                                                    <button type="button" onclick="increaseValue('web-num-websites')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Number of Pages (minimum 1)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('web-num-pages')">-</button>
-                                                    <input type="number" id="web-num-pages" min="1" value="1">
-                                                    <button type="button" onclick="increaseValue('web-num-pages')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>User Authentication</label>
-                                                <select id="web-auth" required>
-                                                    <option value="social-login">Social login</option>
-                                                    <option value="email-login">Email login</option>
-                                                    <option value="custom-login">Custom login</option>
-                                                    <option value="none">None</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Hosting Option</label>
-                                                <select id="web-hosting" required>
-                                                    <option value="shared">Shared</option>
-                                                    <option value="cloud">Cloud</option>
-                                                    <option value="dedicated">Dedicated</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>SEO Optimization</label>
-                                                <select id="web-seo" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Multilingual Support</label>
-                                                <select id="web-multilingual" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Technical Support</label>
-                                                <select id="web-support" required>
-                                                    <option value="monthly">Monthly</option>
-                                                    <option value="quarterly">Quarterly</option>
-                                                    <option value="yearly">Yearly</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-buttons">
-                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
-                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('website')">Select Website Services</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- E-commerce Services Step -->
-                                <div id="ecommerce-services" class="customize-options" style="display: none;">
-                                    <div class="customize-option active">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4>E-commerce Store Services</h4>
-                                        <div class="services-form">
-                                            <div class="service-item">
-                                                <label>Number of Stores (minimum 1)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('ecom-num-stores')">-</button>
-                                                    <input type="number" id="ecom-num-stores" min="1" value="1">
-                                                    <button type="button" onclick="increaseValue('ecom-num-stores')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Platform</label>
-                                                <select id="ecom-platform" required>
-                                                    <option value="woocommerce">WooCommerce</option>
-                                                    <option value="shopify">Shopify</option>
-                                                    <option value="custom">Custom</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Number of Product Pages (minimum 1)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('ecom-num-products')">-</button>
-                                                    <input type="number" id="ecom-num-products" min="1" value="1">
-                                                    <button type="button" onclick="increaseValue('ecom-num-products')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Payment Gateway</label>
-                                                <select id="ecom-payment" required>
-                                                    <option value="paypal">PayPal</option>
-                                                    <option value="stripe">Stripe</option>
-                                                    <option value="local-bank">Local Bank</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>User Authentication</label>
-                                                <select id="ecom-auth" required>
-                                                    <option value="social-login">Social login</option>
-                                                    <option value="email-login">Email login</option>
-                                                    <option value="custom-login">Custom login</option>
-                                                    <option value="guest-checkout">Guest checkout</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Hosting Option</label>
-                                                <select id="ecom-hosting" required>
-                                                    <option value="shared">Shared</option>
-                                                    <option value="cloud">Cloud</option>
-                                                    <option value="dedicated">Dedicated</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Inventory Management Integration</label>
-                                                <select id="ecom-inventory" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Technical Support</label>
-                                                <select id="ecom-support" required>
-                                                    <option value="monthly">Monthly</option>
-                                                    <option value="quarterly">Quarterly</option>
-                                                    <option value="yearly">Yearly</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-buttons">
-                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
-                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('ecommerce')">Select E-commerce Services</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Mobile App Services Step -->
-                                <div id="mobile-services" class="customize-options" style="display: none;">
-                                    <div class="customize-option active">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                                <line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4>Mobile Application Services</h4>
-                                        <div class="services-form">
-                                            <div class="service-item">
-                                                <label>Number of Applications (minimum 1)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('mobile-num-apps')">-</button>
-                                                    <input type="number" id="mobile-num-apps" min="1" value="1">
-                                                    <button type="button" onclick="increaseValue('mobile-num-apps')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Platform</label>
-                                                <select id="mobile-platform" required>
-                                                    <option value="ios">iOS</option>
-                                                    <option value="android">Android</option>
-                                                    <option value="both">Both</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Number of Screens/Pages (minimum 1)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('mobile-num-screens')">-</button>
-                                                    <input type="number" id="mobile-num-screens" min="1" value="1">
-                                                    <button type="button" onclick="increaseValue('mobile-num-screens')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>User Authentication</label>
-                                                <select id="mobile-auth" required>
-                                                    <option value="social-login">Social login</option>
-                                                    <option value="email-login">Email login</option>
-                                                    <option value="custom-login">Custom login</option>
-                                                    <option value="none">None</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Payment Gateway (if applicable)</label>
-                                                <select id="mobile-payment" required>
-                                                    <option value="paypal">PayPal</option>
-                                                    <option value="stripe">Stripe</option>
-                                                    <option value="local-bank">Local Bank</option>
-                                                    <option value="other">Other</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Push Notifications</label>
-                                                <select id="mobile-push" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Hosting / Backend Server</label>
-                                                <select id="mobile-hosting" required>
-                                                    <option value="shared">Shared</option>
-                                                    <option value="cloud">Cloud</option>
-                                                    <option value="dedicated">Dedicated</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Technical Support</label>
-                                                <select id="mobile-support" required>
-                                                    <option value="monthly">Monthly</option>
-                                                    <option value="quarterly">Quarterly</option>
-                                                    <option value="yearly">Yearly</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-buttons">
-                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
-                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('mobile')">Select Mobile App Services</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Hybrid/Mix & Match Services Step -->
-                                <div id="hybrid-services" class="customize-options" style="display: none;">
-                                    <div class="customize-option active">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
-                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4>Mix & Match (Hybrid Package)</h4>
-                                        <div class="services-form">
-                                            <div class="service-item">
-                                                <label>Choose Components</label>
-                                                <select id="hybrid-components" required>
-                                                    <option value="website">Website</option>
-                                                    <option value="ecommerce">E-commerce Store</option>
-                                                    <option value="mobile">Mobile Application</option>
-                                                    <option value="website+ecommerce">Website + E-commerce Store</option>
-                                                    <option value="website+mobile">Website + Mobile Application</option>
-                                                    <option value="ecommerce+mobile">E-commerce Store + Mobile Application</option>
-                                                    <option value="all">All (Website + E-commerce + Mobile)</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Number of Platforms Selected (minimum 2, maximum 3)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('hybrid-num-platforms')">-</button>
-                                                    <input type="number" id="hybrid-num-platforms" min="2" max="3" value="2">
-                                                    <button type="button" onclick="increaseValue('hybrid-num-platforms')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Shared Authentication Across Platforms</label>
-                                                <select id="hybrid-shared-auth" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Shared Database / ERP Integration</label>
-                                                <select id="hybrid-shared-db" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Cross-Platform Sync</label>
-                                                <select id="hybrid-cross-sync" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Technical Support</label>
-                                                <select id="hybrid-support" required>
-                                                    <option value="monthly">Monthly</option>
-                                                    <option value="quarterly">Quarterly</option>
-                                                    <option value="yearly">Yearly</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-buttons">
-                                            <button class="option-btn secondary" onclick="backToCategories()">← Back</button>
-                                            <button class="option-btn" onclick="selectWebsiteAppsServiceType('hybrid')">Select Hybrid Services</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- ERP Systems Bundle Cards -->
-                        <div class="bundle-cards" id="erp-systems-cards">
-                            <div class="service-card-small" onclick="openBundleModal('erpSystemsModal')" style="cursor:pointer;">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="6" y1="6" x2="6.01" y2="6" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="6" y1="18" x2="6.01" y2="18" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4 data-translate="erpSystemsSuite">ERP Systems Suite</h4>
-                                <p data-translate="erpSuiteDesc">All-in-one ERP implementation, training, and support</p>
-                            </div>
-                        <!-- ERP Systems Modal -->
-                        <div id="erpSystemsModal" class="customize-modal bundle-modal">
-                            <div class="customize-modal-content bundle-modal-flex" style="max-width:900px;width:90vw;">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="erpSystemsSuite">ERP Systems Suite</h3>
-                                    <span class="close-modal" onclick="closeBundleModal('erpSystemsModal')">&times;</span>
-                                </div>
-                                <div class="bundle-features" style="max-height:600px;overflow-y:auto;display:block;">
-                                    <ul class="feature-list" style="list-style: none; padding: 0; margin: 0;">
-                                        <li class="feature-box" style="list-style: none;">Accounting</li>
-                                        <li class="feature-box" style="list-style: none;">Accounts Management</li>
-                                        <li class="feature-box" style="list-style: none;">Sales &amp; CRM</li>
-                                        <li class="feature-box" style="list-style: none;">Purchasing</li>
-                                        <li class="feature-box" style="list-style: none;">Inventory Management</li>
-                                    </ul>
-                                </div>
-                                <a href="request-service.html?service=ERP%20Systems%20Suite" class="order-bundle-btn" data-translate="orderThisSuite">Order This Suite</a>
-                            </div>
-                        </div>
-                            
-                            <!-- Customize Bundle - Full Width Below -->
-                            <div class="customize-card-wide" onclick="openErpCustomizeModal()">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="customize-content">
-                                    <h4 data-translate="customizeYourBundle">Customize Your Own Bundle</h4>
-                                    <p data-translate="customizeErpDesc">Create a personalized ERP systems package tailored to your specific business needs</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- ERP Systems Customize Modal -->
-                        <div id="erpCustomizeModal" class="customize-modal">
-                            <div class="customize-modal-content">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="customizeErpBundle">Customize Your ERP Systems Bundle</h3>
-                                    <span class="close-modal" onclick="closeErpCustomizeModal()">&times;</span>
-                                </div>
-                                <div class="customize-options">
-                                    <div class="customize-option active">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4 data-translate="erpModules">ERP Systems Modules</h4>
-                                        <div class="services-form">
-                                            <div class="service-item">
-                                                <label>General Accounting</label>
-                                                <select id="erp-general-accounting" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Inventory Management</label>
-                                                <select id="erp-inventory-management" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Suppliers & Purchases</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('erp-suppliers-purchases')">-</button>
-                                                    <input type="number" id="erp-suppliers-purchases" min="0" max="1" value="0">
-                                                    <button type="button" onclick="increaseValue('erp-suppliers-purchases')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Sales & Invoicing</label>
-                                                <select id="erp-sales-invoicing" required>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>CRM (Customer Relationship Management)</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('erp-crm')">-</button>
-                                                    <input type="number" id="erp-crm" min="0" max="1" value="0">
-                                                    <button type="button" onclick="increaseValue('erp-crm')">+</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button class="option-btn" onclick="selectErpServiceType('erp-systems')">Select ERP Systems</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- AI Agent Services Bundle Cards -->
-                        <div class="bundle-cards" id="ai-agent-cards">
-                            <div class="service-card-small" onclick="openBundleModal('aiAgentStarterModal')" style="cursor:pointer;">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M13 8H7" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M17 12H7" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4 data-translate="aiBundle1Starter">AI Agent Bundle 1 – Starter</h4>
-                                <p data-translate="aiBundle1Desc">For businesses taking their first step into AI automation.</p>
-                            </div>
-                            <div class="service-card-small" onclick="openBundleModal('aiAgentProModal')" style="cursor:pointer;">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4 data-translate="aiBundle2Pro">AI Agent Bundle 2 – Pro</h4>
-                                <p data-translate="aiBundle2Desc">For businesses that need advanced automation and customer engagement.</p>
-                            </div>
-                        <!-- AI Agent Bundle 1 – Starter Modal -->
-                        <div id="aiAgentStarterModal" class="customize-modal bundle-modal">
-                            <div class="customize-modal-content bundle-modal-flex">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="aiBundle1Starter">AI Agent Bundle 1 – Starter</h3>
-                                    <span class="close-modal" onclick="closeBundleModal('aiAgentStarterModal')">&times;</span>
-                                </div>
-                                <div class="bundle-features">
-                                    <div class="feature-box">For businesses taking their first step into AI automation.</div>
-                                    <div class="feature-box">AI chatbot (24/7 response handling)</div>
-                                    <div class="feature-box">Up to 2 communication channels (e.g., website & WhatsApp)</div>
-                                    <div class="feature-box">Predefined conversation flows</div>
-                                    <div class="feature-box">Basic FAQ automation</div>
-                                    <div class="feature-box">Monthly performance report</div>
-                                    <div class="feature-box">Email support</div>
-                                </div>
-                                <a href="request-service.html?service=AI%20Agent%20Bundle%201%20Starter" class="order-bundle-btn" data-translate="orderThisBundle">Order This Bundle</a>
-                            </div>
-                        </div>
-                        <!-- AI Agent Bundle 2 – Pro Modal -->
-                        <div id="aiAgentProModal" class="customize-modal bundle-modal">
-                            <div class="customize-modal-content bundle-modal-flex">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="aiBundle2Pro">AI Agent Bundle 2 – Pro</h3>
-                                    <span class="close-modal" onclick="closeBundleModal('aiAgentProModal')">&times;</span>
-                                </div>
-                                <div class="bundle-features">
-                                    <div class="feature-box">For businesses that need advanced automation and customer engagement.</div>
-                                    <div class="feature-box">AI chatbot (24/7 response handling)</div>
-                                    <div class="feature-box">Up to 5 communication channels (e.g., website, WhatsApp, Facebook, Instagram, Telegram)</div>
-                                    <div class="feature-box">Custom conversation flows with AI learning</div>
-                                    <div class="feature-box">Smart lead capture & CRM integration</div>
-                                    <div class="feature-box">Voice agent support (optional)</div>
-                                    <div class="feature-box">Ad campaign integration (AI-assisted responses for leads)</div>
-                                    <div class="feature-box">Detailed analytics dashboard</div>
-                                    <div class="feature-box">Priority support</div>
-                                </div>
-                                <a href="request-service.html?service=AI%20Agent%20Bundle%202%20Pro" class="order-bundle-btn" data-translate="orderThisBundle">Order This Bundle</a>
-                            </div>
-                        </div>
-                            
-                            <!-- Customize Bundle - Full Width Below -->
-                            <div class="customize-card-wide" onclick="openAiAgentCustomizeModal()">
-                                <div class="card-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="customize-content">
-                                    <h4 data-translate="customizeYourBundle">Customize Your Own Bundle</h4>
-                                    <p data-translate="customizeAiDesc">Create a personalized AI agent services package tailored to your specific business needs</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-                        <!-- AI Agent Services Customize Modal -->
-                        <div id="aiAgentCustomizeModal" class="customize-modal">
-                            <div class="customize-modal-content">
-                                <div class="customize-modal-header">
-                                    <h3 data-translate="customizeAiBundle">Customize Your AI Agent Services Bundle</h3>
-                                    <span class="close-modal" onclick="closeAiAgentCustomizeModal()">&times;</span>
-                                </div>
-                                <div class="customize-options">
-                                    <div class="customize-option active">
-                                        <div class="option-icon">
-                                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h4 data-translate="aiAgentServices">AI Agent Services</h4>
-                                        <div class="services-form">
-                                            <div class="service-item">
-                                                <label>Number of AI Agents</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('ai-number-of-agents')">-</button>
-                                                    <input type="number" id="ai-number-of-agents" min="1" value="1" data-min-required="1">
-                                                    <button type="button" onclick="increaseValue('ai-number-of-agents')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Agent Type</label>
-                                                <select id="ai-agent-type" required>
-                                                    <option value="chatbot">Chatbot</option>
-                                                    <option value="voice-assistant">Voice Assistant</option>
-                                                    <option value="customer-support">Customer Support</option>
-                                                    <option value="sales-assistant">Sales Assistant</option>
-                                                    <option value="custom">Custom</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Integration Platform</label>
-                                                <select id="ai-integration-platform" required>
-                                                    <option value="website">Website</option>
-                                                    <option value="mobile-app">Mobile App</option>
-                                                    <option value="whatsapp">WhatsApp</option>
-                                                    <option value="messenger">Messenger</option>
-                                                    <option value="slack">Slack</option>
-                                                    <option value="custom-api">Custom API</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Knowledge Base Source</label>
-                                                <select id="ai-knowledge-base" required>
-                                                    <option value="uploaded-docs">Uploaded Docs</option>
-                                                    <option value="website-crawling">Website Crawling</option>
-                                                    <option value="database">Database</option>
-                                                    <option value="erp">ERP</option>
-                                                    <option value="custom">Custom</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Languages Supported</label>
-                                                <select id="ai-languages" required>
-                                                    <option value="single">Single Language</option>
-                                                    <option value="multi">Multi-language</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Response Style</label>
-                                                <select id="ai-response-style" required>
-                                                    <option value="formal">Formal</option>
-                                                    <option value="friendly">Friendly</option>
-                                                    <option value="professional">Professional</option>
-                                                    <option value="custom">Custom</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Training Data Size</label>
-                                                <div class="counter-input">
-                                                    <button type="button" onclick="decreaseValue('ai-training-data')">-</button>
-                                                    <input type="number" id="ai-training-data" min="100" value="100" data-min-required="100">
-                                                    <button type="button" onclick="increaseValue('ai-training-data')">+</button>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>User Authentication (if needed)</label>
-                                                <select id="ai-user-auth" required>
-                                                    <option value="social-login">Social login</option>
-                                                    <option value="email-login">Email login</option>
-                                                    <option value="none">None</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="service-item">
-                                                <label>Technical Support</label>
-                                                <select id="ai-technical-support" required>
-                                                    <option value="monthly">Monthly</option>
-                                                    <option value="quarterly">Quarterly</option>
-                                                    <option value="yearly">Yearly</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <button class="option-btn" onclick="selectAiAgentServiceType('ai-agent-services')">Select AI Agent Services</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </section>
-                <!-- End Service Bundle Selection Section -->
-                
                 <!-- White Box Container for Services Grid -->
-                <div class="services-grid-container">
+                <div class="services-grid-container" id="marketing-media-cards">
+                    <span class="pg-label" style="margin-bottom:6px;">TIRAZ MEDIA</span>
                     <h2 class="portfolio-title"><span data-translate="comprehensiveSolutions">Comprehensive digital solutions</span><br><span data-translate="tailoredElevate">tailored to elevate your brand.</span></h2>
                     
                     <style>
@@ -1936,7 +1131,7 @@
                                             <img src="../images/services page/organic reach campaigns.png" alt="Organic Reach Campaigns" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
                                             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
-                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="organicCampaigns">Organic Rich Campaigns</h4>
+                                                    <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="organicCampaigns">Membership Campaigns</h4>
                                             </div>
                                     </div>
                                 </a>
@@ -2100,15 +1295,15 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3 class="footer-logo">TIRAZ MEDIA</h3>
-                <p style="text-align: right;" dir="rtl">© 2025<br>شركة تيراز ميديا<br>جميع الحقوق محفوظة</p>
+                <h3 class="footer-logo">TIRAZ BUSINESS</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركة طراز بيزنس<br>جميع الحقوق محفوظة</p>
             </div>
             <div class="footer-section">
                 <h4 data-translate="companyFooter">Company</h4>
                 <ul>
                     <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
-                    <li><a href="missions.html" data-translate="whyTIRAZ MEDIA">Why TIRAZ MEDIA?</a></li>
-                    <li><a href="team.html" data-translate="meetTheTeam">Meet the team</a></li>
+                    <li><a href="missions.html" data-translate="whyTirazBusiness">Why TIRAZ BUSINESS?</a></li>
+                    <li><a href="aboutus.html#team-section" data-translate="meetTheTeam">Meet the team</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -2138,6 +1333,8 @@
     </footer>
     
     <script src="../java/main.js"></script>
+    <script src="../java/theme-toggle.js"></script>
+    <script src="../java/cookie-consent.js"></script>
     
     <!-- Service Bundle JavaScript -->
     <script>

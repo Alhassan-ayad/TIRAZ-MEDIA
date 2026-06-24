@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TIRAZ MEDIA - Contact</title>
+    <title>TIRAZ BUSINESS - Contact</title>
+    <meta property="og:title" content="TIRAZ BUSINESS - Contact">
+    <meta property="og:description" content="TIRAZ BUSINESS - Business solutions, marketing, web/app, AI automation, ERP and consulting.">
+    <meta property="og:image" content="../images/contact%20us%20banner.jpg">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/theme-light.css">
     <script>
         (function() {
             const savedLang = localStorage.getItem('language') || 'ar';
             document.documentElement.lang = savedLang;
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('tiraz-theme') || 'dark');
             document.documentElement.style.visibility = 'hidden';
         })();
     </script>
@@ -140,7 +146,7 @@
     <!-- Mobile Sidebar Navigation (Standardized from Home Page) -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="sidebar-header">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height: 48px;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
             <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -230,6 +236,7 @@
                     <span class="lang-text">العربية</span>
                 </button>
             </div>
+            <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             <div class="sidebar-social-icons">
                 <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
                 <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
@@ -241,12 +248,13 @@
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height:54px;vertical-align:middle;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <div class="desktop-language-switcher">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="ar">ع</button>
+                <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             </div>
             <nav class="main-nav">
                 <ul>
@@ -284,7 +292,7 @@
             <!-- Contact Info Box (directly above form) -->
             <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:22px 28px 18px 28px;width:100%;margin-bottom:18px;color:#fff;">
                 <h4 style="color:#fff;font-size:1.5rem;font-weight:800;margin-bottom:12px;" data-translate="contactInfo">Contact Info</h4>
-                <div style="margin-bottom:10px;font-size:1.15rem;color:#fff;"><b data-translate="emailLabel">Email:</b> <a href="mailto:info@alt-mate.com" style="color:#b09778;text-decoration:none;font-size:1.15rem;">info@alt-mate.com</a></div>
+                <div style="margin-bottom:10px;font-size:1.15rem;color:#fff;"><b data-translate="emailLabel">Email:</b> <a href="mailto:info@tirazbusiness.com" style="color:#b09778;text-decoration:none;font-size:1.15rem;">info@tirazbusiness.com</a></div>
                 <div style="margin-bottom:10px;font-size:1.15rem;color:#fff;"><b data-translate="websiteLabel">Website:</b> <a href="https://alt-mate.com" target="_blank" style="color:#b09778;text-decoration:none;font-size:1.15rem;">alt-mate.com</a></div>
             </div>
             <!-- Contact Form -->
@@ -310,7 +318,7 @@
                     <option data-translate="service_option_social">Social Media Campaigns</option>
                     <option data-translate="service_option_advertising">Advertising Campaigns</option>
                     <option data-translate="service_option_whatsapp">WhatsApp Campaigns</option>
-                    <option data-translate="service_option_organic">Organic Rich Campaigns</option>
+                    <option data-translate="service_option_organic">Membership Campaigns</option>
                     <option data-translate="service_option_branding">Branding Plan</option>
                     <option data-translate="service_option_erp">(ERP) Systems</option>
                     <option data-translate="service_option_automated">Automated Response System</option>
@@ -333,35 +341,11 @@
             <div class="contact-locations-box" style="width:100%;max-width:500px;border:2.5px solid #192f59;border-radius:18px;padding:0;box-sizing:border-box;background:#192f59;">
                 <div class="contact-info-boxes" style="display:flex;flex-direction:column;gap:5px;width:100%;">
                     <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:15px 20px 12px 20px;">
-                        <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="egypt1Title">Egypt 1</h4>
-                        <div style="margin-bottom:6px;color:#fff;font-weight:700;" data-translate="egypt1CompanyName">شركة تيراز ميديا</div>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="phoneLabel">Phone:</b> <a href="tel:01111326270" style="color:#b09778;text-decoration:none;">01111326270</a></div>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="addressLabel">Address:</b> <span data-translate="egypt1Address">الاسكندرية سيدي جابر 53 شارع توت عنه امون - سموحة</span></div>
-                        <div><a href="https://maps.app.goo.gl/j6fTLATwp6PfFWsr9" target="_blank" style="color:#b09778;text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
-                    </div>
-                    <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:15px 20px 12px 20px;">
-                        <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="egypt2Title">Egypt 2</h4>
+                        <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="egypt2Title">Egypt</h4>
+                        <div style="margin-bottom:6px;color:#fff;font-weight:700;" data-translate="egypt1CompanyName">شركة طراز بيزنس</div>
                         <div style="margin-bottom:6px;color:#fff;"><b data-translate="phoneLabel">Phone:</b> <a href="tel:01111326270" style="color:#b09778;text-decoration:none;">01111326270</a> / <a href="tel:034233536" style="color:#b09778;text-decoration:none;">03-4233536</a></div>
                         <div style="margin-bottom:6px;color:#fff;"><b data-translate="addressLabel">Address:</b> <span data-translate="egyptAddress">75 El-Gaish Rd, Sporting, Alexandria</span></div>
                         <div><a href="https://maps.app.goo.gl/Z87x3RkYAHa4fzU79" target="_blank" style="color:#b09778;text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
-                    </div>
-                       <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:15px 20px 12px 20px;">
-                           <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="jordanTitle">Jordan</h4>
-                           <div style="margin-bottom:6px;color:#fff;"><b data-translate="phoneLabel">Phone:</b> <a href="tel:+962795953242" style="color:#b09778;text-decoration:none;">+962795953242</a> / <a href="tel:+96264291696" style="color:#b09778;text-decoration:none;">+96264291696</a></div>
-                           <div style="margin-bottom:6px;color:#fff;"><b data-translate="addressLabel">Address:</b> <span data-translate="jordanAddress">Al-Yadudah, Main Street, Essa Abu Odeh Mall, 1st Floor</span></div>
-                           <div><a href="https://maps.app.goo.gl/Sjtva3Jp5nhfuZeM6" target="_blank" style="color:#b09778;text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
-                       </div>
-                    <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:15px 20px 12px 20px;">
-                        <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="uaeTitle">UAE</h4>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="phoneLabel">Phone:</b> <a href="tel:00971566771001" style="color:#b09778;text-decoration:none;">00971566771001</a></div>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="addressLabel">Address:</b> <span data-translate="uaeAddress">Dusseldorf Business Point - Al Barsha Rd - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates</span></div>
-                        <div><a href="https://www.google.com/maps/place/Dusseldorf+Business+Point/@25.1145669,55.205055,797m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3e5f6beabf615ab5:0x3d0dcf9b883dad4b!8m2!3d25.1145669!4d55.205055!16s%2Fg%2F1hjh560jd!17m2!4m1!1e3!18m1!1e1?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" style="color:#b09778;text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
-                    </div>
-                    <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:15px 20px 12px 20px;">
-                        <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="saudiTitle">Saudi Arabia</h4>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="phoneLabel">Phone:</b> <a href="tel:+966550082883" style="color:#b09778;text-decoration:none;">+966 55 008 2883</a></div>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="addressLabel">Address:</b> <span data-translate="saudiAddress">Al-Mousi Complex - Al-Olaya Street - Riyadh - Saudi Arabia</span></div>
-                        <div><a href="https://www.google.com/maps/place/MMPQ%2B6W9+%D9%85%D9%88%D9%84+%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%89+%D8%A8%D8%B1%D8%AC+4%D8%8C+MMPQ%2B6W3%D8%8C+%D8%A7%D9%84%D8%AE%D9%88%D8%A7%D8%B1%D8%B2%D9%85%D9%8A%D8%8C+%D8%A7%D9%84%D9%84%D8%B9%D9%84%D9%8A%D8%A9%D8%8C,+Al+Olaya,+Riyadh+12221%D8%8C,+Saudi+Arabia%E2%80%AD/data=!4m2!3m1!1s0x3e2f031ecb05f817:0x88a89b60838e3013?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjQxLjgYACCIJyqiASw5NDI2NzcyNyw5NDI5MjE5NSw5NDI4NDQ2OSw5NDIyMzI5OSw5NDIxNjQxMyw5NDI4Mjg4NSw5NDI4MDU3Niw5NDIxMjQ5Niw5NDIwNzM5NCw5NDIwNzUwNiw5NDIwODUwNiw5NDIxNzUyMyw5NDIxODY1Myw5NDIyOTgzOSw5NDI3NTE2OCw5NDI3OTYxOSw0NzA4NDM5Myw5NDIxMzIwMEICRUc%3D&skid=d3e10f1d-7c44-4c97-8405-592cc78da85d" target="_blank" style="color:#b09778;text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
                     </div>
                 </div>
             </div>
@@ -387,29 +371,9 @@
         </div>
         <div class="locations-maps-wrapper">
             <div class="office-location-box">
-                <div class="office-title" data-translate="egypt1OfficeLocation">Egypt 1 Office Location</div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.821973740072!2d29.9416852!3d31.217753199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c49237d6afb3%3A0xe73aa3f9c77a7b0c!2s53%20Tout%20Ankh%20Amoun%2C%20Ezbet%20Saad%2C%20Sidi%20Gaber%2C%20Alexandria%20Governorate%205432065!5e1!3m2!1sen!2seg!4v1768999664759!5m2!1sen!2seg" width="100%" height="270" style="border:0; border-radius:12px; box-shadow:0 2px 12px #0002;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="office-address"><b data-translate="addressLabel">Address:</b> الاسكندرية سيدي جابر 53 شارع توت عنه امون - سموحة</div>
-            </div>
-            <div class="office-location-box">
-                <div class="office-title" data-translate="egypt2OfficeLocation">Egypt 2 Office Location</div>
+                <div class="office-title" data-translate="egypt2OfficeLocation">Egypt Office Location</div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.750385152526!2d29.930080699999998!3d31.2198173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c48a2f3bf22f%3A0xebcd0d7c7565c6f6!2s75%20El-Gaish%20Rd%2C%20Al%20Ibrahimeyah%20Bahri%20WA%20Sidi%20Gaber%2C%20Bab%20Shar&#39;%2C%20Alexandria%20Governorate%205424084!5e1!3m2!1sen!2seg!4v1767611340670!5m2!1sen!2seg" width="100%" height="270" style="border:0; border-radius:12px; box-shadow:0 2px 12px #0002;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="office-address"><b data-translate="addressLabel">Address:</b> <span data-translate="egyptAddress">75 El-Gaish Rd, Sporting, Alexandria</span></div>
-            </div>
-            <div class="office-location-box">
-                <div class="office-title" data-translate="uaeOfficeLocation">UAE Office Location</div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.5064241493706!2d55.20505499999999!3d25.114566899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6beabf615ab5%3A0x3d0dcf9b883dad4b!2sDusseldorf%20Business%20Point!5e1!3m2!1sen!2seg!4v1762228640370!5m2!1sen!2seg" width="100%" height="250" style="border:0; border-radius:12px; box-shadow:0 2px 12px #0002;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="office-address"><b data-translate="addressLabel">Address:</b> <span data-translate="uaeAddress">Dusseldorf Business Point - Al Barsha Rd - Al Barsha - Al Barsha 1 - Dubai - United Arab Emirates</span></div>
-            </div>
-            <div class="office-location-box">
-                <div class="office-title" data-translate="jordanOfficeLocation">Jordan Office Location</div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d407.10483666797626!2d35.916467485785994!3d31.845942100000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b595e90961f93%3A0x20c10e116466184a!2z2KPYs9mI2KfZgiDYudmK2LPZiSDYo9io2Ygg2LnZiNiv2Kk!5e1!3m2!1sen!2seg!4v1756288984131!5m2!1sen!2seg" width="100%" height="250" style="border:0; border-radius:12px; box-shadow:0 2px 12px #0002;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="office-address"><b data-translate="addressLabel">Address:</b> <span data-translate="jordanAddress">Al-Yadudah, Main Street, Essa Abu Odeh Mall, 1st Floor</span></div>
-            </div>
-            <div class="office-location-box">
-                <div class="office-title" data-translate="saudiOfficeLocation">Saudi Arabia Office Location</div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2378.8228408159234!2d46.68754145141489!3d24.686285859759508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f032919a47e0d%3A0xf570a7c5907d7584!2z2YXZiNmEINin2YTZhdmI2LPZiSDYqNix2KwgMQ!5e1!3m2!1sen!2seg!4v1757204906741!5m2!1sen!2seg" width="100%" height="250" style="border:0; border-radius:12px; box-shadow:0 2px 12px #0002;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="office-address"><b data-translate="addressLabel">Address:</b> <span data-translate="saudiAddress">Al-Mousi Complex, Olaya Street, Riyadh, Kingdom of Saudi Arabia</span></div>
             </div>
         </div>
     </div>
@@ -418,15 +382,15 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3 class="footer-logo">TIRAZ MEDIA</h3>
-                <p style="text-align: right;" dir="rtl">© 2025<br>شركة تيراز ميديا<br>جميع الحقوق محفوظة</p>
+                <h3 class="footer-logo">TIRAZ BUSINESS</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركة طراز بيزنس<br>جميع الحقوق محفوظة</p>
             </div>
             <div class="footer-section">
                 <h4 data-translate="companyFooter">Company</h4>
                 <ul>
                     <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
-                    <li><a href="missions.html" data-translate="whyTIRAZ MEDIA">Why TIRAZ MEDIA?</a></li>
-                    <li><a href="team.html" data-translate="meetTheTeam">Meet the team</a></li>
+                    <li><a href="missions.html" data-translate="whyTirazBusiness">Why TIRAZ BUSINESS?</a></li>
+                    <li><a href="aboutus.html#team-section" data-translate="meetTheTeam">Meet the team</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -456,6 +420,8 @@
     </footer>
 
     <script src="../java/main.js"></script>
+    <script src="../java/theme-toggle.js"></script>
+    <script src="../java/cookie-consent.js"></script>
     <script src="../java/language-switcher.js"></script>
     <!-- ...existing code... -->
     <script>

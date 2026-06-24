@@ -125,6 +125,32 @@ body {
 }
 
 /* ══════════════════════════════════════════
+   THEME TOGGLE BUTTON (light/dark)
+══════════════════════════════════════════ */
+.theme-toggle-btn {
+    background: transparent !important;
+    color: var(--gold) !important;
+    border: 1px solid #2a2a2a !important;
+    border-radius: 3px !important;
+    width: 32px;
+    height: 32px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s !important;
+    flex-shrink: 0;
+}
+html[data-theme="light"] .theme-toggle-btn { border-color: #ddd !important; }
+.theme-toggle-btn:hover {
+    background: var(--gold) !important;
+    color: #000 !important;
+    border-color: var(--gold) !important;
+}
+.theme-toggle-btn svg { width: 16px; height: 16px; stroke: currentColor; }
+.sidebar-footer .theme-toggle-btn { margin-top: 10px; }
+
+/* ══════════════════════════════════════════
    MOBILE SIDEBAR
 ══════════════════════════════════════════ */
 .mobile-sidebar {

@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIRAZ MEDIA - About Us</title>
+    <title>TIRAZ BUSINESS - About Us</title>
+    <meta property="og:title" content="TIRAZ BUSINESS - About Us">
+    <meta property="og:description" content="TIRAZ BUSINESS - Business solutions, marketing, web/app, AI automation, ERP and consulting.">
+    <meta property="og:image" content="../images/tiraz%20logo.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/theme-light.css">
     <script>
         (function() {
             const savedLang = localStorage.getItem('language') || 'ar';
             document.documentElement.lang = savedLang;
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('tiraz-theme') || 'dark');
             document.documentElement.style.visibility = 'hidden';
         })();
     </script>
@@ -391,7 +397,7 @@
     <!-- Mobile Sidebar Navigation (Standardized from Home Page) -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="sidebar-header">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height: 48px;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
             <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -481,6 +487,7 @@
                     <span class="lang-text">العربية</span>
                 </button>
             </div>
+            <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             <div class="sidebar-social-icons">
                 <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
                 <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
@@ -493,13 +500,14 @@
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height:54px;vertical-align:middle;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <!-- Language Switcher (Next to Home) -->
             <div class="desktop-language-switcher">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="ar">ع</button>
+                <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             </div>
             
             <nav class="main-nav">
@@ -533,22 +541,38 @@
         <div class="overview-container">
             <div class="overview-left">
                 <span class="overview-label" data-translate="whoWeAre">WE ARE</span>
-                <h2 class="overview-title" data-translate="aboutTitle">TIRAZ MEDIA is a bold-thinking business development and digital marketing agency working for leading brands worldwide.</h2>
-                <p class="overview-description" data-translate="aboutDescription1">We provide strategic and innovative solutions to help businesses grow, expand, and achieve sustainable success. Our deep understanding of digital marketing strategies and proven track record enable us to deliver effective solutions that drive measurable success for our clients.</p>
+                <h2 class="overview-title" data-translate="aboutTitle">TIRAZ BUSINESS is a forward-thinking business solutions company empowering leading brands worldwide — with marketing and media delivered through TIRAZ MEDIA.</h2>
+                <p class="overview-description" data-translate="aboutDescription1">We provide strategic and innovative solutions to help businesses grow, expand, and achieve sustainable success — spanning business consulting, technology, AI automation, and marketing. Our proven track record enables us to deliver effective solutions for our clients.</p>
             </div>
             <div class="overview-right">
                 <div class="overview-card">
-                    <h3 class="card-title" data-translate="aboutTitle">Company Overview</h3>
-                    <p class="card-description" data-translate="aboutDescription2">Over 5 years, TIRAZ MEDIA is a leading full-service digital marketing agency dedicated to empowering both B2B and B2C companies to achieve their KPIs and maximize ROI.</p>
+                    <h3 class="card-title" data-translate="companyOverviewTitle">Company Overview</h3>
+                    <p class="card-description" data-translate="aboutDescription2">For over 5 years, TIRAZ BUSINESS has empowered B2B and B2C companies across business solutions, technology, and marketing — delivering measurable results and maximizing ROI through our specialized arms, including TIRAZ MEDIA.</p>
                 </div>
                 <div class="overview-card">
                     <h3 class="card-title" data-translate="aboutUs">About Us</h3>
-                    <p class="card-description" dir="rtl" lang="ar" style="text-align: right;">الاسم TIRAZ MEDIA هو الاسم التجاري لشركة<br>تيراز ميديا<br>شركة مصرية متخصصة في حلول الأعمال والتقنيات الرقمية</p>
+                    <p class="card-description" dir="rtl" lang="ar" style="text-align: right;">الاسم TIRAZ BUSINESS هو الاسم التجاري لشركة<br>طراز بيزنس<br>شركة مصرية متخصصة في حلول الأعمال، تشمل التسويق والتقنية والذكاء الاصطناعي وأنظمة ERP، ويتولى التسويق والميديا ذراعها المتخصصة طراز ميديا</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Tiraz Media Highlight Section -->
+    <section class="tiraz-media-highlight-section" style="background: var(--dark-bg); padding: 70px 50px; text-align: center; border-top: 1px solid var(--dark-border); border-bottom: 1px solid var(--dark-border);">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height: 70px; margin-bottom: 24px;">
+            <h2 style="color: var(--text-primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 14px;" data-translate="tirazMediaHighlightTitle">TIRAZ MEDIA — the media & marketing arm of TIRAZ BUSINESS</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 28px;" data-translate="tirazMediaHighlightDesc">All marketing, advertising, and digital media services are delivered by TIRAZ MEDIA — the specialized media arm of TIRAZ BUSINESS.</p>
+            <div class="social-icons" style="display: inline-flex; gap: 12px; justify-content: center;">
+                <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/alt_mate_?igsh=MXYxZGkxaGFybWRyaA==" target="_blank"><img src="../images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/company/alt-mate-agency/" target="_blank"><img src="../images/linkedin-icon.png" alt="LinkedIn"></a>
+                <a href="https://x.com/altmate_1?t=gAmV9KzyBs8H6TX9MT2a5Q&s=09" target="_blank"><img src="../images/x-icon.png" alt="X"></a>
+                <a href="https://www.tiktok.com/@alt.mate7?_t=ZS-8xWQnXch0K8&_r=1" target="_blank"><img src="../images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+        </div>
+    </section>
+
     <!-- Methodology Section -->
     <section class="methodology-section">
         <div class="methodology-container">
@@ -667,6 +691,7 @@
                         <li data-translate="consultingServices">Consulting Services</li>
                         <li data-translate="digitalTransformation">Digital Transformation</li>
                         <li data-translate="institutionalDevelopment">Institutional Development</li>
+                        <li data-translate="virtualOffices">Virtual Offices</li>
                     </ul>
                 </div>
                 
@@ -752,7 +777,7 @@
     </section>
     
     <!-- Team Banner Section -->
-    <section class="team-banner">
+    <section class="team-banner" id="team-section">
         <div class="team-banner-content">
             <h1 class="team-banner-title" data-translate="meetOurTeam">Meet Our Team</h1>
             
@@ -793,14 +818,14 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3 class="footer-logo">TIRAZ MEDIA</h3>
-                <p style="text-align: right;" dir="rtl">© 2025<br>شركة تيراز ميديا<br>جميع الحقوق محفوظة</p>
+                <h3 class="footer-logo">TIRAZ BUSINESS</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركة طراز بيزنس<br>جميع الحقوق محفوظة</p>
             </div>
             <div class="footer-section">
                 <h4 data-translate="companyFooter">Company</h4>
                 <ul>
                     <li><a href="aboutus.html" data-translate="aboutUs">About us</a></li>
-                    <li><a href="missions.html" data-translate="whyTIRAZ MEDIA">Why TIRAZ MEDIA?</a></li>
+                    <li><a href="missions.html" data-translate="whyTirazBusiness">Why TIRAZ BUSINESS?</a></li>
                     <!-- Removed link to deleted page: Meet the team -->
                 </ul>
             </div>
@@ -1063,6 +1088,8 @@ function initializeTeamCarousel() {
 }
 </script>
     <script src="../java/main.js"></script>
+    <script src="../java/theme-toggle.js"></script>
+    <script src="../java/cookie-consent.js"></script>
 </body>
 </html>
 

@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIRAZ MEDIA</title>
+    <title>TIRAZ BUSINESS</title>
+    <meta property="og:title" content="TIRAZ BUSINESS">
+    <meta property="og:description" content="TIRAZ BUSINESS - Business solutions, marketing, web/app, AI automation, ERP and consulting.">
+    <meta property="og:image" content="../images/tiraz%20logo.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/theme-light.css">
     <!-- Prevent FOUC (Flash of Unstyled Content) by setting language before page renders -->
     <script>
         // This runs immediately before the page renders
         (function() {
             const savedLang = localStorage.getItem('language') || 'ar';
             document.documentElement.lang = savedLang;
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('tiraz-theme') || 'dark');
             // Hide body until translations are applied
             document.documentElement.style.visibility = 'hidden';
         })();
@@ -735,7 +741,7 @@
     <!-- Mobile Sidebar Navigation -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="sidebar-header">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height: 48px;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
             <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -826,6 +832,7 @@
                     <span class="lang-text">العربية</span>
                 </button>
             </div>
+            <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             
             <div class="sidebar-social-icons">
                 <a href="https://www.facebook.com/share/1EiuaBL4qq/" target="_blank"><img src="../images/facebook-icon.png" alt="Facebook"></a>
@@ -838,13 +845,14 @@
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height:54px;vertical-align:middle;">
+            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <!-- Language Switcher (Next to Home) -->
             <div class="desktop-language-switcher">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="ar">ع</button>
+                <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             </div>
             
             <nav class="main-nav">
@@ -892,7 +900,7 @@
         </svg>
         <div class="hero-content">
             <h1 class="hero-title" data-translate="heroTitle">Crafting Digital Experience to help Brands Grow</h1>
-            <p class="hero-subtitle" data-translate="heroSubtitle">The digital agency with a human approach</p>
+            <p class="hero-subtitle" data-translate="heroSubtitle">The business solutions partner with a human approach</p>
             <a href="samples.html" class="hero-button" data-translate="checkOutWork">CHECK OUT OUR WORK</a>
         </div>
     </section>
@@ -1392,7 +1400,7 @@
             </div>
             <div class="about-content">
                 <span class="about-label" data-translate="whoWeAre">WHO WE ARE</span>
-                <h2 class="about-title" data-translate="aboutTitle">Our designers and engineers know collaboration is the essence</h2>
+                <h2 class="about-title" data-translate="collaborationTitle">Our designers and engineers know collaboration is the essence</h2>
                 <div class="about-features">
                     <div class="feature-item">
                         <div class="feature-icon">
@@ -1407,7 +1415,7 @@
                         </div>
                         <div class="feature-content">
                             <h3 class="feature-title" data-translate="qualityProducts">Quality Products</h3>
-                            <p class="feature-description" data-translate="qualityProductsDesc">We provide quality products with top creative talent build brands that stand out section.</p>
+                            <p class="feature-description" data-translate="qualityProductsDesc">We deliver high-quality work backed by top creative and technical talent, building brands that truly stand out.</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -1422,7 +1430,7 @@
                         </div>
                         <div class="feature-content">
                             <h3 class="feature-title" data-translate="trueValue">True Value</h3>
-                            <p class="feature-description" data-translate="trueValueDesc">It's not just our track record the efficiency We increase true value talent to build.</p>
+                            <p class="feature-description" data-translate="trueValueDesc">It's not just about our track record — it's about real impact. We focus on outcomes that move your business forward.</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -1435,7 +1443,7 @@
                         </div>
                         <div class="feature-content">
                             <h3 class="feature-title" data-translate="discoverSharing">Discover & Sharing</h3>
-                            <p class="feature-description" data-translate="discoverSharingDesc">Whether you are fortune we Discover & share products bonorum undoubtable creative.</p>
+                            <p class="feature-description" data-translate="discoverSharingDesc">We discover what makes your brand unique and share it with the world through bold, creative storytelling.</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -1447,7 +1455,7 @@
                         </div>
                         <div class="feature-content">
                             <h3 class="feature-title" data-translate="buildFaster">Build Faster</h3>
-                            <p class="feature-description" data-translate="buildFasterDesc">Unlock opportunity by creating disc over human centered products through build faster.</p>
+                            <p class="feature-description" data-translate="buildFasterDesc">We unlock opportunity by creating human-centered products and solutions, built faster without compromising quality.</p>
                         </div>
                     </div>
                 </div>
@@ -1548,29 +1556,17 @@
         </div>
     </section>
     
-    <script>
-        // Pre-render content with correct language
-        (function() {
-            var lang = window.preloadedLang || 'en';
-            var t = window.preTranslations[lang];
-            
-            // Update main content immediately
-            document.getElementById('main-heading').textContent = t.homeContent;
-            document.getElementById('main-description').textContent = t.homeDescription;
-        })();
-    </script>
-    
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3 class="footer-logo" data-translate="footerAltmate">TIRAZ MEDIA</h3>
-                <p style="text-align: right;" dir="rtl">© 2025<br>شركة تيراز ميديا<br>جميع الحقوق محفوظة</p>
+                <h3 class="footer-logo" data-translate="footerAltmate">TIRAZ BUSINESS</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركة طراز بيزنس<br>جميع الحقوق محفوظة</p>
             </div>
             <div class="footer-section">
                 <h4 data-translate="company">Company</h4>
                 <ul>
                     <li><a href="aboutus.html" data-translate="aboutUsFooter">About us</a></li>
-                    <li><a href="missions.html" data-translate="whyAltmate">Why TIRAZ MEDIA?</a></li>
+                    <li><a href="missions.html" data-translate="whyAltmate">Why TIRAZ BUSINESS?</a></li>
                     <!-- Removed link to deleted page: Meet the team -->
                 </ul>
             </div>
@@ -1609,7 +1605,7 @@
             <div class="modal-body">
                 <div class="policy-section">
                     <h3 data-translate="privacyIntroTitle">Introduction</h3>
-                    <p data-translate="privacyIntroText">At TIRAZ MEDIA, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.</p>
+                    <p data-translate="privacyIntroText">At TIRAZ BUSINESS, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.</p>
                 </div>
                 
                 <div class="policy-section">
@@ -2105,6 +2101,8 @@
     </script>
     
     <script src="../java/main.js"></script>
+    <script src="../java/theme-toggle.js"></script>
+    <script src="../java/cookie-consent.js"></script>
     <script src="../java/language-switcher.js"></script>
 </body>
 </html>

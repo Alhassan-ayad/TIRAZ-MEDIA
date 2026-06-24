@@ -22,7 +22,7 @@ const translations = {
         
         // Hero Section
         heroTitle: "Crafting Digital Experience to help Brands Grow",
-        heroSubtitle: "The digital agency with a human approach",
+        heroSubtitle: "The business solutions partner with a human approach",
         checkOutWork: "CHECK OUT OUR WORK",
         
         // Services Section (Home)
@@ -58,15 +58,15 @@ const translations = {
         
         // About Section (Home)
         whoWeAre: "WHO WE ARE",
-        aboutTitle: "Our designers and engineers know collaboration is the essence",
+        collaborationTitle: "Our designers and engineers know collaboration is the essence",
         qualityProducts: "Quality Products",
-        qualityProductsDesc: "We provide quality products with top creative talent build brands that stand out section.",
+        qualityProductsDesc: "We deliver high-quality work backed by top creative and technical talent, building brands that truly stand out.",
         trueValue: "True Value",
-        trueValueDesc: "It's not just our track record the efficiency We increase true value talent to build.",
+        trueValueDesc: "It's not just about our track record — it's about real impact. We focus on outcomes that move your business forward.",
         discoverSharing: "Discover & Sharing",
-        discoverSharingDesc: "Whether you are fortune we Discover & share products bonorum undoubtable creative.",
+        discoverSharingDesc: "We discover what makes your brand unique and share it with the world through bold, creative storytelling.",
         buildFaster: "Build Faster",
-        buildFasterDesc: "Unlock opportunity by creating disc over human centered products through build faster.",
+        buildFasterDesc: "We unlock opportunity by creating human-centered products and solutions, built faster without compromising quality.",
         
         // Bundle CTA Section (Home)
         chooseBundleTitle: "Choose Your Bundle or Customize",
@@ -92,11 +92,14 @@ const translations = {
         privacyDescription: "We are committed to protecting your privacy and ensuring your data is handled securely. Your trust is important to us, and we're transparent about how we collect, use, and protect your information.",
         viewPolicy: "View Full Policy",
         managePreferences: "Manage Preferences",
+        cookieConsentText: "We use cookies to improve your experience, analyze site traffic, and personalize content. By clicking \"Accept\", you consent to our use of cookies.",
+        cookieAcceptBtn: "Accept",
+        cookieRejectBtn: "Reject",
         
         // Privacy Policy Modal Content
         privacyPolicyFull: "Privacy Policy",
         privacyIntroTitle: "Introduction",
-        privacyIntroText: "At TIRAZ MEDIA, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.",
+        privacyIntroText: "At TIRAZ BUSINESS, we are committed to protecting your privacy and ensuring that your personal data is handled securely and transparently. This Privacy Policy explains how we collect, use, store, and protect your information.",
         privacyCollectionTitle: "Information We Collect",
         privacyCollectionText: "We collect information that you provide directly to us, including name, email address, phone number, and business details when you contact us or use our services.",
         privacyUseTitle: "How We Use Your Information",
@@ -125,21 +128,21 @@ const translations = {
         // MISSIONS PAGE
         // ======================
         missionsPageTitle: "MISSIONS",
-        missionStatement: "At TIRAZ MEDIA, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.",
+        missionStatement: "At TIRAZ BUSINESS, we're dedicated to transforming how businesses grow — through business consulting, technology, AI automation, ERP systems, and marketing delivered by TIRAZ MEDIA. Our goal is to drive growth, increase visibility, and exceed expectations at every stage of our clients' journey.",
         visionMissionTitle: "VISION & MISSION",
         vision: "Vision",
-        visionText: "We aim to be the top digital marketing agency by empowering businesses with creative strategies that achieve real results and set new standards for success in the digital world.",
+        visionText: "We aim to be the leading business solutions partner in the region, empowering businesses with creative strategies and integrated technology that achieve real results and set new standards for success.",
         mission: "Mission",
-        missionText: "At TIRAZ MEDIA, we're dedicated to transform digital marketing solutions with innovative strategies. We empower businesses to succeed online by creating meaningful connections between our clients and their audiences. Our goal is to drive growth, increase visibility, and exceed expectations in the digital age.",
-        
+        missionText: "At TIRAZ BUSINESS, we're dedicated to transforming how businesses grow — through business consulting, technology, AI automation, ERP systems, and marketing delivered by TIRAZ MEDIA. Our goal is to drive growth, increase visibility, and exceed expectations at every stage of our clients' journey.",
+
         // Goals Section (Missions)
         goalsTill2030: "GOALS TILL 2030",
         year2020: "2020",
         foundation: "Foundation",
-        foundationDesc: "TIRAZ MEDIA as a digital marketing agency to support startups Business Development Agency",
+        foundationDesc: "TIRAZ BUSINESS was founded to support startups and growing companies with end-to-end business development solutions.",
         year2024: "2024",
         majorAchievements: "Major Achievements",
-        majorAchievementsDesc: "We've successfully implemented over 600 websites, 50+ applications, and 100 integrated systems, along with impactful advertising campaigns that have driven brand success in Egypt, the UAE, and Jordan.",
+        majorAchievementsDesc: "We've successfully implemented over 600 websites, 50+ applications, and 100 integrated systems, along with impactful advertising campaigns that have driven brand success across Egypt.",
         year2026: "2026",
         strategicPartnerships: "Strategic Partnerships",
         strategicPartnershipsDesc: "Partnerships with major industry players in the Middle East to enhance our service delivery and customer reach.",
@@ -148,7 +151,7 @@ const translations = {
         professionalDevelopmentDesc: "Develop comprehensive training programs to ensure continuous professional development and expertise in emerging digital trends.",
         year2030: "2030",
         regionalLeadership: "Regional Leadership",
-        regionalLeadershipDesc: "Strengthening our position as the leading comprehensive digital marketing agency in the MENA region.",
+        regionalLeadershipDesc: "Strengthening our position as a leading, comprehensive business solutions provider in the MENA region.",
         
         // ======================
         // ABOUT US PAGE
@@ -174,10 +177,31 @@ const translations = {
         businessDevelopmentDesc: "Strategic growth and transformation",
         customSolutions: "Custom Solutions",
         customSolutionsDesc: "Tailored solutions for unique business needs",
+        virtualOffices: "Virtual Offices",
+        tirazMediaHighlightTitle: "TIRAZ MEDIA — the media & marketing arm of TIRAZ BUSINESS",
+        tirazMediaHighlightDesc: "All marketing, advertising, and digital media services are delivered by TIRAZ MEDIA — the specialized media arm of TIRAZ BUSINESS.",
+        fiveActivitiesLabel: "OUR 5 BUSINESS ACTIVITIES",
+        fiveActivitiesTitle: "Five Specialized Activities, One Business Partner",
+        activityMarketingMedia: "Marketing & Media",
+        activityWebApp: "Website & Application",
+        activityAiAutomation: "AI & Automation",
+        activityErpOdoo: "ERP (Odoo) Systems",
+        activityConsulting: "Business Consulting & Solutions",
+        consultStrategyTitle: "Business Strategy & Planning",
+        consultStrategyDesc: "Clear, actionable roadmaps to help you set direction, prioritize investments, and grow with confidence.",
+        consultResearchTitle: "Market Research & Feasibility Studies",
+        consultResearchDesc: "Data-driven insight into your market, competitors, and customers before you commit resources.",
+        consultProcessTitle: "Process Optimization",
+        consultProcessDesc: "Streamlining operations and workflows to cut waste, reduce costs, and improve efficiency.",
+        consultGrowthTitle: "Growth & Financial Advisory",
+        consultGrowthDesc: "Practical financial and growth guidance to help you scale sustainably and maximize returns.",
+        consultRequestBtn: "Request a Consultation",
     // About Us - Paragraphs (split into three keys to match page)
-    aboutDescription1: "We provide strategic and innovative solutions to help businesses grow, expand, and achieve sustainable success. Our deep understanding of digital marketing strategies and proven track record enable us to deliver effective solutions that drive measurable success for our clients.",
-    aboutDescription2: "Over 5 years, TIRAZ MEDIA is a leading full-service digital marketing agency dedicated to empowering both B2B and B2C companies to achieve their KPIs and maximize ROI.",
-    aboutDescription3: "Our deep understanding of digital marketing strategies and proven track record enable us to deliver effective solutions that drive measurable success for our clients worldwide.",
+    aboutTitle: "TIRAZ BUSINESS is a forward-thinking business solutions company empowering leading brands worldwide — with marketing and media delivered through TIRAZ MEDIA.",
+    companyOverviewTitle: "Company Overview",
+    aboutDescription1: "We provide strategic and innovative solutions to help businesses grow, expand, and achieve sustainable success — spanning business consulting, technology, AI automation, and marketing. Our proven track record enables us to deliver effective solutions for our clients.",
+    aboutDescription2: "For over 5 years, TIRAZ BUSINESS has empowered B2B and B2C companies across business solutions, technology, and marketing — delivering measurable results and maximizing ROI through our specialized arms, including TIRAZ MEDIA.",
+    aboutDescription3: "Our deep understanding of business and technology, combined with a proven track record, enables us to deliver effective solutions that drive measurable success for our clients worldwide.",
     // About Us - Service list items
     googleAdsSeo: "Google Ads & SEO",
     socialMediaMarketing: "Social Media Marketing",
@@ -778,7 +802,7 @@ const translations = {
         advertisingOutcomeDetail: "increased brand awareness and customer acquisition.",
         
         // Organic Campaigns
-        organicCampaigns: "Organic Campaigns",
+        organicCampaigns: "Membership Campaigns",
         organicFullDesc: "Natural growth strategies that build lasting connections.",
         contentMarketing: "Content marketing and storytelling.",
         organicSocial: "Organic social media growth.",
@@ -945,7 +969,7 @@ const translations = {
         designedDeveloped: "Designed & Developed by TIRAZ MEDIA",
         company: "Company",
         aboutUsFooter: "About us",
-        whyAltmate: "Why TIRAZ MEDIA?",
+        whyAltmate: "Why TIRAZ BUSINESS?",
         meetTheTeam: "Meet the team",
         servicesFooter: "Services",
         digitalMediaFooter: "Digital Media",
@@ -997,8 +1021,8 @@ const translations = {
         sendMessage: "Send Message",
         egyptTitle: "Egypt",
         egypt1Title: "Egypt 1",
-        egypt2Title: "Egypt 2",
-        egypt1CompanyName: "شركة تيراز ميديا",
+        egypt2Title: "Egypt",
+        egypt1CompanyName: "شركة طراز ميديا",
         egypt1Address: "الاسكندرية سيدي جابر 53 شارع توت عنه امون - سموحة",
         jordanTitle: "Jordan",
         uaeTitle: "UAE",
@@ -1016,7 +1040,7 @@ const translations = {
         discoverLocations: "Discover our main office locations below. Each one is ready to welcome you and support your business needs.",
         egypt1OfficeLocation: "Egypt 1 Office Location",
         egyptOfficeLocation: "Egypt Office Location",
-        egypt2OfficeLocation: "Egypt 2 Office Location",
+        egypt2OfficeLocation: "Egypt Office Location",
         uaeOfficeLocation: "UAE Office Location",
         jordanOfficeLocation: "Jordan Office Location",
         saudiOfficeLocation: "Saudi Arabia Office Location",
@@ -1027,7 +1051,7 @@ const translations = {
         service_option_social: "Social Media Campaigns",
         service_option_advertising: "Advertising Campaigns",
         service_option_whatsapp: "WhatsApp Campaigns",
-        service_option_organic: "Organic Rich Campaigns",
+        service_option_organic: "Membership Campaigns",
         service_option_branding: "Branding Plan",
         service_option_erp: "(ERP) Systems",
         service_option_automated: "Automated Response System",
@@ -1070,7 +1094,7 @@ const translations = {
         // ======================
         // Hero Section
         heroTitle: "صناعة التجربة الرقمية لمساعدة العلامات التجارية على النمو",
-        heroSubtitle: "الوكالة الرقمية ذات النهج الإنساني",
+        heroSubtitle: "شريك حلول الأعمال ذو النهج الإنساني",
         checkOutWork: "شاهد أعمالنا",
         
         // Services Section (Home)
@@ -1106,15 +1130,15 @@ const translations = {
         
         // About Section (Home)
         whoWeAre: "من نحن",
-        aboutTitle: "مصممونا ومهندسونا يعرفون أن التعاون هو الجوهر",
+        collaborationTitle: "مصممونا ومهندسونا يعرفون أن التعاون هو الجوهر",
         qualityProducts: "منتجات عالية الجودة",
-        qualityProductsDesc: "نحن نقدم منتجات عالية الجودة مع أفضل المواهب الإبداعية لبناء علامات تجارية مميزة.",
+        qualityProductsDesc: "نقدّم أعمالاً عالية الجودة بدعم من أفضل المواهب الإبداعية والتقنية، لبناء علامات تجارية مميزة فعلاً.",
         trueValue: "القيمة الحقيقية",
-        trueValueDesc: "ليس فقط سجلنا الحافل بل الكفاءة. نحن نزيد القيمة الحقيقية للمواهب للبناء.",
+        trueValueDesc: "الأمر لا يتعلق فقط بسجلنا الحافل، بل بالأثر الحقيقي. نركّز على نتائج تدفع أعمالك إلى الأمام.",
         discoverSharing: "الاكتشاف والمشاركة",
-        discoverSharingDesc: "سواء كنت ثروة نحن نكتشف ونشارك منتجات بونوروم إبداعية لا شك فيها.",
+        discoverSharingDesc: "نكتشف ما يميّز علامتك التجارية، ونشاركه مع العالم بقصص إبداعية جريئة.",
         buildFaster: "البناء الأسرع",
-        buildFasterDesc: "افتح الفرص من خلال إنشاء قرص عبر منتجات تتمحور حول الإنسان من خلال البناء الأسرع.",
+        buildFasterDesc: "نفتح آفاق الفرص من خلال إنشاء منتجات وحلول تتمحور حول الإنسان، تُبنى بسرعة أكبر دون المساس بالجودة.",
         
         // Bundle CTA Section (Home)
         chooseBundleTitle: "اختر باقتك أو خصصها",
@@ -1140,11 +1164,14 @@ const translations = {
         privacyDescription: "نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك بشكل آمن، ثقتك مهمة بالنسبة لنا، ونحن شفافون بشأن كيفية جمع معلوماتك واستخدامها وحمايتها",
         viewPolicy: "عرض السياسة الكاملة",
         managePreferences: "إدارة التفضيلات",
+        cookieConsentText: "نستخدم ملفات تعريف الارتباط (الكوكيز) لتحسين تجربتك، وتحليل حركة الزيارات، وتخصيص المحتوى. بالضغط على \"قبول\"، فإنك توافق على استخدامنا لملفات تعريف الارتباط.",
+        cookieAcceptBtn: "قبول",
+        cookieRejectBtn: "رفض",
         
         // Privacy Policy Modal Content
         privacyPolicyFull: "سياسة الخصوصية",
         privacyIntroTitle: "مقدمة",
-        privacyIntroText: "في تيراز ميديا، نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك الشخصية بشكل آمن وشفاف، توضح سياسة الخصوصية هذه كيفية جمع معلوماتك واستخدامها وتخزينها وحمايتها",
+        privacyIntroText: "في طراز بيزنس، نحن ملتزمون بحماية خصوصيتك والتأكد من التعامل مع بياناتك الشخصية بشكل آمن وشفاف، توضح سياسة الخصوصية هذه كيفية جمع معلوماتك واستخدامها وتخزينها وحمايتها",
         privacyCollectionTitle: "المعلومات التي نجمعها",
         privacyCollectionText: "نجمع المعلومات التي تقدمها لنا مباشرة، بما في ذلك الاسم وعنوان البريد الإلكتروني ورقم الهاتف وتفاصيل العمل عند الاتصال بنا أو استخدام خدماتنا",
         privacyUseTitle: "كيف نستخدم معلوماتك",
@@ -1173,21 +1200,21 @@ const translations = {
         // MISSIONS PAGE
         // ======================
         missionsPageTitle: "المهام",
-        missionStatement: "في تيراز ميديا، نحن ملتزمون بتحويل حلول التسويق الرقمي باستراتيجيات مبتكرة. نمكّن الشركات من النجاح عبر الإنترنت من خلال إنشاء روابط ذات مغزى بين عملائنا وجماهيرهم. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في العصر الرقمي.",
+        missionStatement: "في طراز بيزنس، نحن ملتزمون بتحويل طريقة نمو الأعمال — من خلال استشارات الأعمال والتقنية والذكاء الاصطناعي وأنظمة ERP، والتسويق الذي تتولاه طراز ميديا. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في كل مرحلة من رحلة عملائنا.",
         visionMissionTitle: "الرؤية والمهمة",
         vision: "الرؤية",
-        visionText: "نهدف إلى أن نكون أفضل وكالة تسويق رقمي من خلال تمكين الشركات باستراتيجيات إبداعية تحقق نتائج حقيقية وتضع معايير جديدة للنجاح في العالم الرقمي.",
+        visionText: "نهدف إلى أن نكون الشريك الرائد في حلول الأعمال بالمنطقة، من خلال تمكين الشركات باستراتيجيات إبداعية وتقنية متكاملة تحقق نتائج حقيقية وتضع معايير جديدة للنجاح.",
         mission: "المهمة",
-        missionText: "في تيراز ميديا، نحن ملتزمون بتحويل حلول التسويق الرقمي باستراتيجيات مبتكرة. نمكّن الشركات من النجاح عبر الإنترنت من خلال إنشاء روابط ذات مغزى بين عملائنا وجماهيرهم. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في العصر الرقمي.",
+        missionText: "في طراز بيزنس، نحن ملتزمون بتحويل طريقة نمو الأعمال — من خلال استشارات الأعمال والتقنية والذكاء الاصطناعي وأنظمة ERP، والتسويق الذي تتولاه طراز ميديا. هدفنا هو دفع النمو وزيادة الظهور وتجاوز التوقعات في كل مرحلة من رحلة عملائنا.",
         
         // Goals Section (Missions)
         goalsTill2030: "الأهداف حتى 2030",
         year2020: "2020",
         foundation: "التأسيس",
-        foundationDesc: "تيراز ميديا كوكالة تسويق رقمي لدعم وكالة تطوير أعمال الشركات الناشئة",
+        foundationDesc: "تأسست طراز بيزنس لدعم الشركات الناشئة والنامية بحلول متكاملة لتطوير الأعمال.",
         year2024: "2024",
         majorAchievements: "الإنجازات الرئيسية",
-        majorAchievementsDesc: "لقد نجحنا في تنفيذ أكثر من 600 موقع ويب و 50+ تطبيق و 100 نظام متكامل، إلى جانب حملات إعلانية مؤثرة دفعت نجاح العلامة التجارية في مصر والإمارات العربية المتحدة والأردن.",
+        majorAchievementsDesc: "لقد نجحنا في تنفيذ أكثر من 600 موقع ويب و 50+ تطبيق و 100 نظام متكامل، إلى جانب حملات إعلانية مؤثرة دفعت نجاح العلامة التجارية في مصر.",
         year2026: "2026",
         strategicPartnerships: "الشراكات الاستراتيجية",
         strategicPartnershipsDesc: "شراكات مع اللاعبين الرئيسيين في الصناعة في الشرق الأوسط لتعزيز تقديم خدماتنا ووصول العملاء.",
@@ -1196,7 +1223,7 @@ const translations = {
         professionalDevelopmentDesc: "تطوير برامج تدريبية شاملة لضمان التطوير المهني المستمر والخبرة في الاتجاهات الرقمية الناشئة.",
         year2030: "2030",
         regionalLeadership: "القيادة الإقليمية",
-        regionalLeadershipDesc: "تعزيز مكانتنا كوكالة التسويق الرقمي الشاملة الرائدة في منطقة الشرق الأوسط وشمال إفريقيا.",
+        regionalLeadershipDesc: "تعزيز مكانتنا كمزود رائد ومتكامل لحلول الأعمال في منطقة الشرق الأوسط وشمال إفريقيا.",
         
         // ======================
         // ABOUT US PAGE
@@ -1222,10 +1249,31 @@ const translations = {
         businessDevelopmentDesc: "النمو الاستراتيجي والتحول",
         customSolutions: "حلول مخصصة",
         customSolutionsDesc: "حلول مصممة خصيصًا لاحتياجات الأعمال الفريدة",
+        virtualOffices: "المكاتب الافتراضية",
+        tirazMediaHighlightTitle: "طراز ميديا — الذراع المتخصصة في الميديا والتسويق لطراز بيزنس",
+        tirazMediaHighlightDesc: "جميع خدمات التسويق والإعلان والميديا الرقمية تُقدَّم من خلال طراز ميديا، الذراع المتخصصة في الميديا لطراز بيزنس.",
+        fiveActivitiesLabel: "أنشطتنا التجارية الخمسة",
+        fiveActivitiesTitle: "خمسة أنشطة متخصصة، شريك أعمال واحد",
+        activityMarketingMedia: "التسويق والميديا",
+        activityWebApp: "الويب سايت والأبلكيشن",
+        activityAiAutomation: "الذكاء الاصطناعي والأتمتة",
+        activityErpOdoo: "أنظمة ERP (Odoo)",
+        activityConsulting: "استشارات البيزنس وحلول الأعمال",
+        consultStrategyTitle: "استراتيجية وتخطيط الأعمال",
+        consultStrategyDesc: "خطط واضحة وقابلة للتنفيذ تساعدك على تحديد الاتجاه، وترتيب أولويات الاستثمار، والنمو بثقة.",
+        consultResearchTitle: "أبحاث السوق ودراسات الجدوى",
+        consultResearchDesc: "رؤية مبنية على البيانات حول سوقك ومنافسيك وعملائك قبل الالتزام بأي موارد.",
+        consultProcessTitle: "تحسين العمليات",
+        consultProcessDesc: "تبسيط العمليات وسير العمل لتقليل الهدر وخفض التكاليف وتحسين الكفاءة.",
+        consultGrowthTitle: "الاستشارات المالية ودعم النمو",
+        consultGrowthDesc: "إرشادات مالية وعملية تساعدك على النمو بشكل مستدام وتحقيق أعلى عائد ممكن.",
+        consultRequestBtn: "اطلب استشارة",
         // About Us - Paragraphs (split into three keys to match page)
-        aboutDescription1: "نقدم حلولًا استراتيجية ومبتكرة لمساعدة الشركات على النمو والتوسع وتحقيق النجاح المستدام. إن فهمنا العميق لاستراتيجيات التسويق الرقمي وسجلنا الحافل يمكننا من تقديم حلول فعّالة تقود إلى نجاح ملموس لعملائنا.",
-        aboutDescription2: "على مدار 5 سنوات، تُعد تيراز ميديا وكالة رائدة متكاملة الخدمات في التسويق الرقمي مكرّسة لتمكين كل من شركات B2B وB2C من تحقيق مؤشرات الأداء الرئيسية وزيادة العائد على الاستثمار.",
-        aboutDescription3: "فهمنا العميق لاستراتيجيات التسويق الرقمي وسجلنا الحافل يمكّننا من تقديم حلول فعّالة تقود إلى نجاح ملموس لعملائنا في جميع أنحاء العالم.",
+        aboutTitle: "طراز بيزنس شركة متخصصة في حلول الأعمال، تدعم علامات تجارية رائدة حول العالم — ويتولى التسويق والميديا ذراعها المتخصصة طراز ميديا.",
+        companyOverviewTitle: "نظرة عامة على الشركة",
+        aboutDescription1: "نقدم حلولًا استراتيجية ومبتكرة لمساعدة الشركات على النمو والتوسع وتحقيق النجاح المستدام، تشمل استشارات الأعمال والتقنية والذكاء الاصطناعي والتسويق. سجلنا الحافل يمكّننا من تقديم حلول فعّالة لعملائنا.",
+        aboutDescription2: "على مدار أكثر من 5 سنوات، مكّنت طراز بيزنس شركات B2B وB2C من النمو في حلول الأعمال والتقنية والتسويق، محققةً نتائج ملموسة وعائدًا أعلى على الاستثمار من خلال أذرعها المتخصصة، بما فيها طراز ميديا.",
+        aboutDescription3: "فهمنا العميق للأعمال والتقنية، إلى جانب سجلنا الحافل، يمكّننا من تقديم حلول فعّالة تقود إلى نجاح ملموس لعملائنا في جميع أنحاء العالم.",
     // About Us - Service list items
     googleAdsSeo: "إعلانات جوجل وتحسين محركات البحث",
     socialMediaMarketing: "التسويق عبر وسائل التواصل الاجتماعي",
@@ -1270,7 +1318,7 @@ const translations = {
         letsTalk: "لنتحدث !",
     // Team roles & descriptions (About Us)
     cofounderCeo: "الشريك المؤسس والرئيس التنفيذي",
-    ceoDesc: "قيادة رؤية تيراز ميديا والاتجاه الاستراتيجي بخبرة واسعة في الابتكار الرقمي ونمو الأعمال.",
+    ceoDesc: "قيادة رؤية طراز ميديا والاتجاه الاستراتيجي بخبرة واسعة في الابتكار الرقمي ونمو الأعمال.",
     chairman: "رئيس مجلس الإدارة",
     chairmanDesc: "الإشراف على الحوكمة المؤسسية وتقديم التوجيه الاستراتيجي لضمان النجاح طويل الأجل والممارسات الأخلاقية.",
     creditControl: "التحكم الائتماني",
@@ -1292,11 +1340,11 @@ const translations = {
     joinTeamDesc: "نحن نبحث دائمًا عن المواهب. تواصل معنا ولنصنع شيئًا رائعًا معًا.",
     // Footer/common
     allRightsReserved: "جميع الحقوق محفوظة.",
-    designedByAltMate: "تصميم وتطوير تيراز ميديا",
+    designedByAltMate: "تصميم وتطوير طراز ميديا",
     companyFooter: "الشركة",
     servicesFooter: "الخدمات",
     getUpdates: "احصل على تحديثاتنا",
-    whyAltMate: "لماذا تيراز ميديا؟",
+    whyAltMate: "لماذا طراز ميديا؟",
         
         // ======================
         // SERVICES PAGE
@@ -1642,7 +1690,7 @@ const translations = {
     // ======================
     // BLOG PAGE
     // ======================
-    altMateBlog: "مدونة تيراز ميديا",
+    altMateBlog: "مدونة طراز ميديا",
     blogSubtitle: "رؤى ونصائح وقصص من عالم التسويق الرقمي",
     featuredStory: "قصة مميزة",
     viewAll: "عرض الكل →",
@@ -2078,10 +2126,10 @@ const translations = {
         footerAltmate: "TIRAZ MEDIA",
         footerCopyright: "© 2025.",
         allRightsReserved: "جميع الحقوق محفوظة.",
-        designedDeveloped: "تصميم وتطوير تيراز ميديا",
+        designedDeveloped: "تصميم وتطوير طراز ميديا",
         company: "الشركة",
         aboutUsFooter: "من نحن",
-        whyAltmate: "لماذا تيراز ميديا؟",
+        whyAltmate: "لماذا طراز بيزنس؟",
         meetTheTeam: "تعرف على الفريق",
         servicesFooter: "الخدمات",
         digitalMediaFooter: "الوسائط الرقمية",
@@ -2091,7 +2139,7 @@ const translations = {
         yourEmailPlaceholder: "بريدك الإلكتروني",
         quickLinks: "روابط سريعة",
         followUs: "تابعنا",
-        copyrightText: "© 2025 تيراز ميديا. جميع الحقوق محفوظة.",
+        copyrightText: "© 2025 طراز ميديا. جميع الحقوق محفوظة.",
         privacyPolicy: "سياسة الخصوصية",
         termsOfService: "شروط الخدمة",
         
@@ -2133,8 +2181,8 @@ const translations = {
         sendMessage: "إرسال الرسالة",
         egyptTitle: "مصر",
         egypt1Title: "مصر 1",
-        egypt2Title: "مصر 2",
-        egypt1CompanyName: "شركة تيراز ميديا",
+        egypt2Title: "مصر",
+        egypt1CompanyName: "شركة طراز ميديا",
         egypt1Address: "الاسكندرية سيدي جابر 53 شارع توت عنه امون - سموحة",
         jordanTitle: "الأردن",
         uaeTitle: "الإمارات",
@@ -2152,7 +2200,7 @@ const translations = {
         discoverLocations: "اكتشف مواقع مكاتبنا الرئيسية أدناه كل مكتب جاهز لاستقبالك ودعم احتياجات عملك",
         egypt1OfficeLocation: "موقع مكتب مصر 1",
         egyptOfficeLocation: "موقع مكتب مصر",
-        egypt2OfficeLocation: "موقع مكتب مصر 2",
+        egypt2OfficeLocation: "موقع مكتب مصر",
         uaeOfficeLocation: "موقع مكتب الإمارات",
         jordanOfficeLocation: "موقع مكتب الأردن",
         saudiOfficeLocation: "موقع مكتب المملكة العربية السعودية",

@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════════
+   TIRAZ BUSINESS — LIGHT MODE OVERRIDES
+   Scoped to html[data-theme="light"]. Include AFTER theme.css.
+   Re-declares the theme.css custom properties (covers every rule
+   already written with var(--gold)/var(--dark-bg)/etc.), plus
+   explicit overrides for the handful of theme.css rules that use
+   literal hex colors instead of variables.
+═══════════════════════════════════════════════════════════ */
+
+html[data-theme="light"] {
+    --gold:        #B8923C;
+    --gold-light:  #D4AF5A;
+    --gold-dark:   #8A6B28;
+    --gold-glow:   rgba(184,146,60,0.20);
+    --dark-bg:     #FAFAF7;
+    --dark-card:   #FFFFFF;
+    --dark-card2:  #F3F1EC;
+    --dark-border: rgba(184,146,60,0.25);
+    --dark-border-h: rgba(184,146,60,0.7);
+    --text-primary: #1A1A1A;
+    --text-muted:   #5A5A60;
+}
+
+/* ── Body ── */
+html[data-theme="light"] body {
+    background: var(--dark-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ── Desktop Header ── */
+html[data-theme="light"] .main-header {
+    background: rgba(255,255,255,0.97) !important;
+    box-shadow: 0 2px 20px rgba(184,146,60,0.08) !important;
+}
+html[data-theme="light"] .main-nav a { color: #555 !important; }
+html[data-theme="light"] .lang-btn { color: #888 !important; border-color: #ddd !important; }
+
+/* ── Mobile Sidebar ── */
+html[data-theme="light"] .mobile-sidebar {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAFAF7 100%) !important;
+}
+html[data-theme="light"] .sidebar-header { background: #FFFFFF !important; }
+html[data-theme="light"] .close-sidebar-btn svg path { stroke: var(--gold) !important; }
+html[data-theme="light"] .sidebar-nav a { color: #555 !important; }
+html[data-theme="light"] .hamburger-menu-btn { box-shadow: 0 4px 12px rgba(184,146,60,0.10) !important; }
+
+/* ── Footer ── */
+html[data-theme="light"] .main-footer { background: #F3F1EC !important; }
+html[data-theme="light"] .newsletter-form { background: #FFFFFF !important; }
+html[data-theme="light"] .email-input { background: #FFFFFF !important; color: #1A1A1A !important; }
+html[data-theme="light"] .email-input::placeholder { color: #999 !important; }
+
+/* ── Page Hero ── */
+html[data-theme="light"] .pg-hero { background: #FFFDF8; }
+html[data-theme="light"] .pg-hero-title { color: #1A1A1A !important; }
+html[data-theme="light"] .pg-hero-sub { color: rgba(0,0,0,0.6) !important; }
+
+/* ── Theme Toggle Button ── */
+html[data-theme="light"] .theme-toggle-btn .icon-moon { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-sun { display: inline-block; }
+.theme-toggle-btn .icon-sun { display: none; }
+.theme-toggle-btn .icon-moon { display: inline-block; }
+
+/* ══════════════════════════════════════════
+   PAGE-SPECIFIC DARK SECTIONS (hardcoded hex
+   in each page's own embedded <style> block —
+   overridden here so the toggle reaches them too)
+══════════════════════════════════════════ */
+html[data-theme="light"] .about-hero-banner,
+html[data-theme="light"] .missions-hero,
+html[data-theme="light"] .char-strip,
+html[data-theme="light"] .services-section,
+html[data-theme="light"] .company-overview-section,
+html[data-theme="light"] .services-overview-section,
+html[data-theme="light"] .about-section,
+html[data-theme="light"] .about-image,
+html[data-theme="light"] .methodology-section,
+html[data-theme="light"] .vision-section,
+html[data-theme="light"] .goals-section,
+html[data-theme="light"] .privacy-policy-section,
+html[data-theme="light"] .team-carousel-section,
+html[data-theme="light"] .service-bundles-section {
+    background: var(--dark-bg) !important;
+}
+html[data-theme="light"] .about-content,
+html[data-theme="light"] .choose-bundle-section,
+html[data-theme="light"] .cta-section,
+html[data-theme="light"] .industries-section,
+html[data-theme="light"] .team-banner {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-card) 50%, var(--dark-bg) 100%) !important;
+}
+html[data-theme="light"] .service-card:hover,
+html[data-theme="light"] .preference-item,
+html[data-theme="light"] .vision-part:hover,
+html[data-theme="light"] .mission-part:hover,
+html[data-theme="light"] .svc-panel,
+html[data-theme="light"] .promo-strip,
+html[data-theme="light"] .service-type-toggle,
+html[data-theme="light"] .service-card-small,
+html[data-theme="light"] .customize-card-wide,
+html[data-theme="light"] .customize-modal-content,
+html[data-theme="light"] .modal-content,
+html[data-theme="light"] .modal-footer,
+html[data-theme="light"] .service-type-btn,
+html[data-theme="light"] .multi-select-options,
+html[data-theme="light"] .customize-options.grid-layout .customize-option {
+    background: var(--dark-card) !important;
+}
+html[data-theme="light"] .customize-modal-header {
+    background: linear-gradient(135deg, var(--dark-card) 0%, var(--dark-card2) 100%) !important;
+}
+html[data-theme="light"] .about-hero-title,
+html[data-theme="light"] .overview-title,
+html[data-theme="light"] .methodology-title,
+html[data-theme="light"] .card-title,
+html[data-theme="light"] .step-title,
+html[data-theme="light"] .services-overview-title,
+html[data-theme="light"] .vision-title,
+html[data-theme="light"] .goals-title,
+html[data-theme="light"] .goal-heading,
+html[data-theme="light"] .services-title,
+html[data-theme="light"] .service-title,
+html[data-theme="light"] .about-title,
+html[data-theme="light"] .feature-title,
+html[data-theme="light"] .testimonials-title,
+html[data-theme="light"] .privacy-title,
+html[data-theme="light"] .cta-text,
+html[data-theme="light"] .preference-header h4,
+html[data-theme="light"] .service-category-title,
+html[data-theme="light"] .industries-title,
+html[data-theme="light"] .member-name,
+html[data-theme="light"] .service-card-small h4,
+html[data-theme="light"] .choose-bundle-section h2,
+html[data-theme="light"] .svc-panel-title,
+html[data-theme="light"] .svc-main-title {
+    color: var(--text-primary) !important;
+}
+html[data-theme="light"] .mission-statement p {
+    color: var(--text-muted) !important;
+}
+html[data-theme="light"] .overview-description,
+html[data-theme="light"] .card-description,
+html[data-theme="light"] .step-description,
+html[data-theme="light"] .service-category-desc,
+html[data-theme="light"] .svc-check-list li {
+    color: var(--text-muted) !important;
+}
+html[data-theme="light"] .industry-name {
+    color: var(--text-primary) !important;
+}
+html[data-theme="light"] .industry-item::before {
+    color: rgba(184,146,60,0.35) !important;
+}
+html[data-theme="light"] .industry-item:hover::before {
+    color: rgba(184,146,60,0.6) !important;
+}

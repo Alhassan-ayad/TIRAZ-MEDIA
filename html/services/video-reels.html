@@ -40,13 +40,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Reels | TIRAZ MEDIA</title>
+    <title>Video Reels | TIRAZ BUSINESS</title>
+    <meta property="og:title" content="Video Reels | TIRAZ BUSINESS">
+    <meta property="og:description" content="TIRAZ BUSINESS - Business solutions, marketing, web/app, AI automation, ERP and consulting.">
+    <meta property="og:image" content="../../images/tiraz%20logo.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/theme-light.css">
     <script>
         (function() {
             const savedLang = localStorage.getItem('language') || 'ar';
             document.documentElement.lang = savedLang;
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('tiraz-theme') || 'dark');
             document.documentElement.style.visibility = 'hidden';
         })();
     </script>
@@ -63,7 +69,7 @@
     <!-- Mobile Sidebar Navigation -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="sidebar-header">
-            <img src="../../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height: 48px;">
+            <img src="../../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
             <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -152,12 +158,13 @@
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../../images/tiraz%20logo.png" alt="TIRAZ MEDIA Logo" style="height:54px;vertical-align:middle;">
+            <img src="../../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <div class="desktop-language-switcher">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="ar">ع</button>
+                <button class="theme-toggle-btn" aria-label="Toggle light/dark mode"><span class="icon-moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button>
             </div>
             <nav class="main-nav">
                 <ul>
@@ -205,15 +212,15 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3 class="footer-logo">TIRAZ MEDIA</h3>
-                <p style="text-align: right;" dir="rtl">© 2025<br>شركة تيراز ميديا<br>جميع الحقوق محفوظة</p>
+                <h3 class="footer-logo">TIRAZ BUSINESS</h3>
+                <p style="text-align: right;" dir="rtl">© 2025<br>شركة طراز بيزنس<br>جميع الحقوق محفوظة</p>
             </div>
             <div class="footer-section">
                 <h4>Company</h4>
                 <ul>
                     <li><a href="../aboutus.html">About us</a></li>
-                    <li><a href="../missions.html">Why TIRAZ MEDIA?</a></li>
-                    <li><a href="../team.html">Meet the team</a></li>
+                    <li><a href="../missions.html">Why TIRAZ BUSINESS?</a></li>
+                    <li><a href="../aboutus.html#team-section">Meet the team</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -243,5 +250,7 @@
     </footer>
     <script src="../../java/language-switcher.js"></script>
     <script src="../../java/main.js"></script>
+    <script src="../../java/theme-toggle.js"></script>
+    <script src="../../java/cookie-consent.js"></script>
 </body>
 </html>
