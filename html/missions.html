@@ -6,7 +6,7 @@
     <title>TIRAZ BUSINESS - Missions</title>
     <meta property="og:title" content="TIRAZ BUSINESS - Missions">
     <meta property="og:description" content="TIRAZ BUSINESS - Business solutions, marketing, web/app, AI automation, ERP and consulting.">
-    <meta property="og:image" content="../images/tiraz%20logo.png">
+    <meta property="og:image" content="../images/tiraz%20business%20logo.png">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/theme.css">
@@ -203,7 +203,11 @@
         }
         .vision-container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
         .vision-title {
-            color: #fff !important;
+            color: transparent !important;
+            background: linear-gradient(135deg, #E8C97A 0%, #C9A84C 60%, #9A7A3A 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
             font-family: 'Montserrat', sans-serif !important;
             font-weight: 900 !important;
             font-size: 2rem !important;
@@ -353,8 +357,15 @@
             font-size: 0.95rem !important;
             font-weight: 900 !important;
             color: var(--gold) !important;
+            background: transparent !important;
             padding-top: 22px !important;
+            padding: 22px 0 0 0 !important;
             position: relative;
+        }
+        .goal-card[data-year="2024"] .goal-year {
+            background: transparent !important;
+            animation: none !important;
+            box-shadow: none !important;
         }
         .goal-year::after {
             content: '';
@@ -368,9 +379,11 @@
         .goal-year::before {
             content: '';
             position: absolute;
+            left: auto !important;
             right: 5px; top: 30px;
             height: 2px; width: 24px;
-            background: rgba(201,168,76,0.35);
+            background: rgba(201,168,76,0.35) !important;
+            animation: none !important;
         }
 
         .goal-content {
@@ -488,7 +501,7 @@
     <!-- Mobile Sidebar Navigation -->
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="sidebar-header">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
+            <img src="../images/tiraz%20business%20logo.png" alt="TIRAZ BUSINESS Logo" style="height: 48px;">
             <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#192f59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -592,7 +605,7 @@
     <!-- Desktop Header (Hidden on Mobile) -->
     <header class="main-header">
         <div class="logo">
-            <img src="../images/tiraz%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
+            <img src="../images/tiraz%20business%20logo.png" alt="TIRAZ BUSINESS Logo" style="height:54px;vertical-align:middle;">
         </div>
         <div class="header-right">
             <!-- Language Switcher (Next to Home) -->
