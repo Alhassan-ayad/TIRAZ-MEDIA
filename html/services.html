@@ -902,6 +902,46 @@
                 gap: 12px;
             }
         }
+
+        /* ── Services page — dark/gold theme to match Home ── */
+        body.services-page-bg { background: var(--dark-bg) !important; }
+        .services-grid-container {
+            background: var(--dark-card) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.35) !important;
+            border: 1px solid var(--dark-border);
+        }
+        .portfolio-title { color: var(--text-primary) !important; }
+        .service-card {
+            border-color: var(--dark-border) !important;
+        }
+        .service-card:hover {
+            border-color: var(--gold) !important;
+            box-shadow: 0 10px 30px rgba(201,168,76,0.18) !important;
+        }
+        .promo-strip {
+            background: var(--dark-card) !important;
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+            position: relative;
+        }
+        .promo-strip::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.5;
+        }
+        .promo-text h3 { color: var(--text-primary) !important; }
+        .promo-text p { color: var(--text-muted) !important; }
+        .promo-btn {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)) !important;
+            color: #1a1505 !important;
+            box-shadow: 0 8px 20px rgba(201,168,76,0.25) !important;
+        }
+        .promo-btn:hover {
+            box-shadow: 0 10px 22px rgba(201,168,76,0.35) !important;
+        }
     </style>
 </head>
 <body class="services-page-bg">
@@ -1064,7 +1104,7 @@
                                 <a href="services/web-development.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/web development.jpg" alt="Web Development" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="websiteApplication">Website and Application</h4>
                                             </div>
@@ -1073,7 +1113,7 @@
                                 <a href="services/e-stores.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/creating and developing e stores.jpg" alt="E-Commerce Development" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="creatingEstores">Creating and Developing E-stores</h4>
                                             </div>
@@ -1082,7 +1122,7 @@
                                 <a href="services/seo.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/seo.jpg" alt="SEO" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="seoTitle">SEO</h4>
                                             </div>
@@ -1092,7 +1132,7 @@
                                 <a href="services/sem.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/search engine marketing.jpg" alt="Search Engine Marketing" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="sem">SEM</h4>
                                             </div>
@@ -1101,7 +1141,7 @@
                                 <a href="services/social-media-campaigns.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/socialmediacampaign.jpg" alt="Social Media Campaign" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="socialMediaCampaigns">Social Media Campaigns</h4>
                                             </div>
@@ -1110,7 +1150,7 @@
                                 <a href="services/advertising-campaigns.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/advertising campaigns.jpg" alt="Advertising Campaigns" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="advertisingCampaigns">Advertising Campaigns</h4>
                                             </div>
@@ -1120,7 +1160,7 @@
                                 <a href="services/whatsapp-campaigns.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/WhatsApp-Advertising-Campaign-Guide-1.png" alt="WhatsApp Marketing" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="whatsappCampaigns">WhatsApp Campaigns</h4>
                                             </div>
@@ -1129,7 +1169,7 @@
                                 <a href="services/organic-campaigns.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/organic reach campaigns.png" alt="Organic Reach Campaigns" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="organicCampaigns">Membership Campaigns</h4>
                                             </div>
@@ -1138,7 +1178,7 @@
                                 <a href="services/branding-plan.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/creating and Managing Business Development Consulting.jpeg" alt="Business Development Consulting" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="brandingPlan">Branding Plan</h4>
                                             </div>
@@ -1148,7 +1188,7 @@
                                 <a href="services/erp-systems.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/erp systems.jpg" alt="ERP Systems" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="erpSystemsTitle">(ERP) Systems</h4>
                                             </div>
@@ -1157,7 +1197,7 @@
                                 <a href="services/automated-response.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/automated responce system.webp" alt="Automated Response System" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="automatedResponse">Automated Response System</h4>
                                             </div>
@@ -1166,7 +1206,7 @@
                                 <a href="services/managing-comments.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/managing comments and messages.jpg" alt="Managing Comments and Messages" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="managingComments">Managing Comments and Messages</h4>
                                             </div>
@@ -1176,7 +1216,7 @@
                                 <a href="services/marketing-content.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/writing marketing content.jpg" alt="Writing Marketing Content" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="marketingContent">Writing Marketing Content</h4>
                                             </div>
@@ -1185,7 +1225,7 @@
                                 <a href="services/video-reels.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/video reel .png" alt="Video Reel" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="videoReels">Video Reels</h4>
                                             </div>
@@ -1194,7 +1234,7 @@
                                 <a href="services/motion-graphics.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/motion graphics.jpeg" alt="Motion Graphics" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="motionGraphics">Motion Graphic Video</h4>
                                             </div>
@@ -1204,7 +1244,7 @@
                                 <a href="services/graphic-design.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/graphic design .jpg" alt="Graphic Design" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="graphicDesign">Graphic Design</h4>
                                             </div>
@@ -1213,7 +1253,7 @@
                                 <a href="services/photography.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/photography.jpg" alt="Photography" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="photography">Professional Photography</h4>
                                             </div>
@@ -1222,7 +1262,7 @@
                                 <a href="services/promo-voice-over.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/promovoice over.jpg" alt="Promo Voice Over" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="promoVoiceOver">Promo Voice Over</h4>
                                             </div>
@@ -1232,7 +1272,7 @@
                                 <a href="services/erp-training.html" style="text-decoration:none;color:inherit;">
                                     <div class="service-card" style="height: 300px; padding: 0; overflow: hidden; position: relative;">
                                             <img src="../images/services page/Creating, Training and Maintaining Enterprise Resource Planning.jpg" alt="Enterprise Resource Planning" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; display: block;">
-                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(25, 47, 89, 0.6); border-radius: 10px;"></div>
+                                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(5,5,5,0.55); border-radius: 10px;"></div>
                                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 2;">
                                                     <h4 style="margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);" data-translate="erpSystems">Creating, Training and Maintaining Enterprise Resource Planning</h4>
                                             </div>
@@ -1334,8 +1374,7 @@
     
     <script src="../java/main.js"></script>
     <script src="../java/theme-toggle.js"></script>
-    <script src="../java/cookie-consent.js"></script>
-    
+
     <!-- Service Bundle JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {

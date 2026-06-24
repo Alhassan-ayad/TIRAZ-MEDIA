@@ -945,7 +945,7 @@
         /* ── Tab buttons ── */
         .bundle-btn {
             background: rgba(201,168,76,0.06) !important;
-            color: #bbb !important;
+            color: var(--text-muted) !important;
             border: 1.5px solid rgba(201,168,76,0.22) !important;
         }
         .bundle-btn:hover {
@@ -970,7 +970,7 @@
             border-color: rgba(201,168,76,0.5) !important;
         }
         .service-card-small h4 { color: #fff !important; }
-        .service-card-small p  { color: #A0A0B0 !important; }
+        .service-card-small p  { color: var(--text-muted) !important; }
 
         /* ── Best-selling ── */
         .best-selling-card {
@@ -1006,7 +1006,7 @@
             color: #000 !important;
         }
         .customize-content h4 { color: var(--gold) !important; }
-        .customize-content p  { color: #A0A0B0 !important; }
+        .customize-content p  { color: var(--text-muted) !important; }
 
         /* ── Promo strip ── */
         .promo-strip {
@@ -1014,7 +1014,7 @@
             border-top: 1px solid rgba(201,168,76,0.15) !important;
         }
         .promo-text h3 { color: var(--gold) !important; }
-        .promo-text p  { color: rgba(255,255,255,0.7) !important; }
+        .promo-text p  { color: var(--text-muted) !important; }
 
         /* ── Modal backdrop & content ── */
         .customize-modal-content {
@@ -1037,7 +1037,7 @@
         }
         .service-type-btn {
             background: #0d0d14 !important;
-            color: #bbb !important;
+            color: var(--text-muted) !important;
             border-color: rgba(201,168,76,0.2) !important;
         }
         .service-type-btn:hover {
@@ -1074,7 +1074,7 @@
         }
 
         /* ── Form inputs inside modal ── */
-        .service-item label { color: #bbb !important; }
+        .service-item label { color: var(--text-muted) !important; }
         .service-item select,
         .counter-input input {
             background: #111120 !important;
@@ -1090,7 +1090,7 @@
             background: #0d0d14 !important;
             border-color: var(--gold) !important;
         }
-        .checkbox-option { color: #bbb !important; border-bottom-color: rgba(201,168,76,0.1) !important; }
+        .checkbox-option { color: var(--text-muted) !important; border-bottom-color: rgba(201,168,76,0.1) !important; }
         .checkbox-option:hover { background-color: rgba(201,168,76,0.07) !important; }
         .dropdown-arrow { color: var(--gold) !important; }
         .counter-input button {
@@ -1098,7 +1098,7 @@
             color: #000 !important;
         }
         .counter-input button:hover { background: var(--gold) !important; }
-        .counter-input .unit { color: #A0A0B0 !important; }
+        .counter-input .unit { color: var(--text-muted) !important; }
 
         /* ── Action buttons inside modal ── */
         .option-btn {
@@ -1111,12 +1111,12 @@
         .option-btn.secondary {
             background: #1a1a28 !important;
             border-color: rgba(201,168,76,0.3) !important;
-            color: #bbb !important;
+            color: var(--text-muted) !important;
         }
 
         /* ── Customize option text ── */
         .customize-option h4 { color: var(--gold) !important; }
-        .customize-option p  { color: #A0A0B0 !important; }
+        .customize-option p  { color: var(--text-muted) !important; }
         .customize-options.grid-layout .customize-option {
             background: #0d0d14 !important;
             border-color: rgba(201,168,76,0.2) !important;
@@ -2909,9 +2909,8 @@
 
     <script src="../java/main.js"></script>
     <script src="../java/theme-toggle.js"></script>
-    <script src="../java/cookie-consent.js"></script>
     <script src="../java/language-switcher.js"></script>
-    
+
     <!-- Service Bundle JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {

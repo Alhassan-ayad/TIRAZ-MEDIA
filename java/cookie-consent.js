@@ -1,6 +1,23 @@
 (function () {
-    var STORAGE_KEY = 'tiraz-cookie-consent';
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    var COOKIE_NAME = 'tiraz-cookie-consent';
+    var COOKIE_DAYS = 180;
+
+    function getCookie(name) {
+        var match = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+        return match ? decodeURIComponent(match[1]) : null;
+    }
+
+    function setCookie(name, value, days) {
+        var expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+        var secure = location.protocol === 'https:' ? '; Secure' : '';
+        document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax' + secure;
+    }
+
+    var alreadyDecided = getCookie(COOKIE_NAME);
+    if (!alreadyDecided) {
+        try { alreadyDecided = localStorage.getItem(COOKIE_NAME); } catch (e) {}
+    }
+    if (alreadyDecided) return;
 
     var style = document.createElement('style');
     style.textContent =
@@ -29,7 +46,8 @@
     document.body.appendChild(bar);
 
     function dismiss(choice) {
-        localStorage.setItem(STORAGE_KEY, choice);
+        setCookie(COOKIE_NAME, choice, COOKIE_DAYS);
+        try { localStorage.setItem(COOKIE_NAME, choice); } catch (e) {}
         bar.remove();
     }
 

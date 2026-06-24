@@ -52,14 +52,25 @@
         }
         
         /* Office Location Box Styles */
+        body.contact-page-bg { background: var(--dark-bg) !important; }
+        .locations-intro-banner {
+            background: var(--dark-bg) !important;
+            color: var(--text-primary) !important;
+            border-top: 1px solid var(--dark-border) !important;
+        }
         .office-location-box {
-            border: 2.5px solid #b09778;
+            background: var(--dark-card) !important;
+            border: 1.5px solid var(--gold);
+            box-shadow: 0 6px 32px rgba(201,168,76,0.10), 0 1.5px 6px rgba(201,168,76,0.06);
             transition: box-shadow 0.2s, border 0.2s, transform 0.18s cubic-bezier(.4,1.4,.6,1.1);
         }
         .office-location-box:hover {
-            box-shadow: 0 8px 36px #b0977833, 0 2px 12px #b0977822;
+            box-shadow: 0 8px 36px rgba(201,168,76,0.22), 0 2px 12px rgba(201,168,76,0.14);
             transform: scale(1.045);
         }
+        .office-address { color: var(--text-muted) !important; }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { color: var(--text-muted) !important; opacity: 1; }
         
         @media (max-width: 768px) {
             /* Reduce font size for Our Global Presence section on mobile */
@@ -132,7 +143,7 @@
 .office-title {
     font-size: 1.3rem !important;
     font-weight: 800;
-    color: #b09778;
+    color: var(--gold);
     margin-bottom: 10px;
 }
 </style>
@@ -277,10 +288,10 @@
     <div class="contact-banner" style="width:100%;position:relative;text-align:left;margin-bottom:30px;display:flex;align-items:center;min-height:525px;">
         <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;">
             <img src="../images/contact us banner.jpg" alt="Contact Us Banner" style="width:100%;height:100%;max-height:700px;object-fit:cover;">
-            <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(10,20,60,0.32);z-index:2;"></div>
+            <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(120deg, rgba(5,5,5,0.85) 25%, rgba(5,5,5,0.55) 65%, rgba(5,5,5,0.22) 100%);z-index:2;"></div>
         </div>
         <div style="position:relative;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;height:100%;padding-left:60px;max-width:50%;color:#fff;">
-            <span style="letter-spacing:0.2em;font-size:1.2rem;font-weight:500;opacity:0.85;margin-bottom:18px;color:#b09778;" data-translate="contactUs">CONTACT US</span>
+            <span style="letter-spacing:0.2em;font-size:1.2rem;font-weight:500;opacity:0.85;margin-bottom:18px;color:var(--gold);" data-translate="contactUs">CONTACT US</span>
             <div style="font-size:3.2rem;font-weight:900;line-height:1.1;margin-bottom:0.5rem;" data-translate="contactBannerTitle">Let's Work<br>Together</div>
         </div>
     </div>
@@ -290,26 +301,26 @@
         <!-- Left: Contact Form and Contact Info -->
         <div class="contact-form-container" style="flex:1;max-width:600px;display:flex;flex-direction:column;gap:0;">
             <!-- Contact Info Box (directly above form) -->
-            <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:22px 28px 18px 28px;width:100%;margin-bottom:18px;color:#fff;">
-                <h4 style="color:#fff;font-size:1.5rem;font-weight:800;margin-bottom:12px;" data-translate="contactInfo">Contact Info</h4>
-                <div style="margin-bottom:10px;font-size:1.15rem;color:#fff;"><b data-translate="emailLabel">Email:</b> <a href="mailto:info@tirazbusiness.com" style="color:#b09778;text-decoration:none;font-size:1.15rem;">info@tirazbusiness.com</a></div>
-                <div style="margin-bottom:10px;font-size:1.15rem;color:#fff;"><b data-translate="websiteLabel">Website:</b> <a href="https://alt-mate.com" target="_blank" style="color:#b09778;text-decoration:none;font-size:1.15rem;">alt-mate.com</a></div>
+            <div style="background:var(--dark-card);border:1px solid var(--dark-border);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.25);padding:22px 28px 18px 28px;width:100%;margin-bottom:18px;color:var(--text-primary);">
+                <h4 style="color:var(--text-primary);font-size:1.5rem;font-weight:800;margin-bottom:12px;" data-translate="contactInfo">Contact Info</h4>
+                <div style="margin-bottom:10px;font-size:1.15rem;color:var(--text-primary);"><b data-translate="emailLabel">Email:</b> <a href="mailto:info@tirazbusiness.com" style="color:var(--gold);text-decoration:none;font-size:1.15rem;">info@tirazbusiness.com</a></div>
+                <div style="margin-bottom:10px;font-size:1.15rem;color:var(--text-primary);"><b data-translate="websiteLabel">Website:</b> <a href="https://alt-mate.com" target="_blank" style="color:var(--gold);text-decoration:none;font-size:1.15rem;">alt-mate.com</a></div>
             </div>
             <!-- Contact Form -->
-            <form class="contact-form" id="contactForm" style="background:#fff;padding:32px 28px 28px 28px;border-radius:16px;box-shadow:0 4px 24px rgba(10,20,60,0.08);display:flex;flex-direction:column;gap:18px;width:100%;">
-                <h3 style="margin-bottom:10px;font-size:2.7rem;color:#192f59;font-weight:900;display:flex;align-items:center;gap:10px;" data-translate="getInTouch">
-                    <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#b09778;border-radius:50%;">
+            <form class="contact-form" id="contactForm" style="background:var(--dark-card);border:1px solid var(--dark-border);padding:32px 28px 28px 28px;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.3);display:flex;flex-direction:column;gap:18px;width:100%;">
+                <h3 style="margin-bottom:10px;font-size:2.7rem;color:var(--text-primary);font-weight:900;display:flex;align-items:center;gap:10px;" data-translate="getInTouch">
+                    <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));border-radius:50%;">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="20" height="20" rx="10" fill="none"/>
-                            <path d="M3.5 6.5A2 2 0 0 1 5.5 4.5h9a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3.5 6.5A2 2 0 0 1 5.5 4.5h9a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2v-7Zm1.75.75 5.25 3.5 5.25-3.5" stroke="#1a1505" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
                     Get in Touch
                 </h3>
-                <input type="text" name="name" placeholder="Enter your name" data-translate="enterYourName" required style="padding:12px 14px;border-radius:8px;border:1px solid #d1d5db;font-size:1rem;">
-                <input type="email" name="email" placeholder="Enter your email" data-translate="enterYourEmail" required style="padding:12px 14px;border-radius:8px;border:1px solid #d1d5db;font-size:1rem;">
-                <input type="tel" name="phone_number" placeholder="Enter your mobile phone number" data-translate="enterYourPhone" required style="padding:12px 14px;border-radius:8px;border:1px solid #d1d5db;font-size:1rem;">
-                <select name="service" required style="padding:12px 14px;border-radius:8px;border:1px solid #d1d5db;font-size:1rem;">
+                <input type="text" name="name" placeholder="Enter your name" data-translate="enterYourName" required style="padding:12px 14px;border-radius:8px;border:1px solid var(--dark-border);background:var(--dark-bg);color:var(--text-primary);font-size:1rem;">
+                <input type="email" name="email" placeholder="Enter your email" data-translate="enterYourEmail" required style="padding:12px 14px;border-radius:8px;border:1px solid var(--dark-border);background:var(--dark-bg);color:var(--text-primary);font-size:1rem;">
+                <input type="tel" name="phone_number" placeholder="Enter your mobile phone number" data-translate="enterYourPhone" required style="padding:12px 14px;border-radius:8px;border:1px solid var(--dark-border);background:var(--dark-bg);color:var(--text-primary);font-size:1rem;">
+                <select name="service" required style="padding:12px 14px;border-radius:8px;border:1px solid var(--dark-border);background:var(--dark-bg);color:var(--text-primary);font-size:1rem;">
                     <option value="" data-translate="selectService">Select a service</option>
                     <option data-translate="service_option_website">Website and Application</option>
                     <option data-translate="service_option_estores">Creating and Developing E-stores</option>
@@ -331,21 +342,21 @@
                     <option data-translate="service_option_voiceover">Promo Voice Over</option>
                     <option data-translate="service_option_erp_full">Creating, Training and Maintaining Enterprise Resource Planning</option>
                 </select>
-                <textarea name="message" placeholder="Write your message" data-translate="writeYourMessage" rows="4" required style="padding:12px 14px;border-radius:8px;border:1px solid #d1d5db;font-size:1rem;"></textarea>
-                <button type="submit" data-translate="sendMessage" style="background:#b09778;color:#fff;font-weight:700;font-size:1.1rem;padding:12px 0;border:none;border-radius:8px;cursor:pointer;transition:background 0.2s;">Send Message</button>
-                <div id="formStatus" style="margin-top:10px;color:#192f59;font-weight:700;"></div>
+                <textarea name="message" placeholder="Write your message" data-translate="writeYourMessage" rows="4" required style="padding:12px 14px;border-radius:8px;border:1px solid var(--dark-border);background:var(--dark-bg);color:var(--text-primary);font-size:1rem;"></textarea>
+                <button type="submit" data-translate="sendMessage" style="background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));color:#1a1505;font-weight:700;font-size:1.1rem;padding:12px 0;border:none;border-radius:8px;cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;">Send Message</button>
+                <div id="formStatus" style="margin-top:10px;color:var(--text-primary);font-weight:700;"></div>
             </form>
         </div>
         <!-- Right: Egypt, Jordan, UAE Info Boxes -->
         <div class="contact-locations-container" style="flex:1;display:flex;flex-direction:column;align-items:center;max-width:340px;">
-            <div class="contact-locations-box" style="width:100%;max-width:500px;border:2.5px solid #192f59;border-radius:18px;padding:0;box-sizing:border-box;background:#192f59;">
+            <div class="contact-locations-box" style="width:100%;max-width:500px;border:1.5px solid var(--gold);border-radius:18px;padding:0;box-sizing:border-box;background:var(--dark-card);">
                 <div class="contact-info-boxes" style="display:flex;flex-direction:column;gap:5px;width:100%;">
-                    <div style="background:#192f59;border-radius:14px;box-shadow:0 2px 12px rgba(10,20,60,0.07);padding:15px 20px 12px 20px;">
-                        <h4 style="color:#fff;font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="egypt2Title">Egypt</h4>
-                        <div style="margin-bottom:6px;color:#fff;font-weight:700;" data-translate="egypt1CompanyName">شركة طراز بيزنس</div>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="phoneLabel">Phone:</b> <a href="tel:01111326270" style="color:#b09778;text-decoration:none;">01111326270</a> / <a href="tel:034233536" style="color:#b09778;text-decoration:none;">03-4233536</a></div>
-                        <div style="margin-bottom:6px;color:#fff;"><b data-translate="addressLabel">Address:</b> <span data-translate="egyptAddress">75 El-Gaish Rd, Sporting, Alexandria</span></div>
-                        <div><a href="https://maps.app.goo.gl/Z87x3RkYAHa4fzU79" target="_blank" style="color:#b09778;text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
+                    <div style="background:var(--dark-card);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.25);padding:15px 20px 12px 20px;">
+                        <h4 style="color:var(--text-primary);font-size:1.7rem;font-weight:700;margin-bottom:8px;" data-translate="egypt2Title">Egypt</h4>
+                        <div style="margin-bottom:6px;color:var(--text-primary);font-weight:700;" data-translate="egypt1CompanyName">شركة طراز بيزنس</div>
+                        <div style="margin-bottom:6px;color:var(--text-primary);"><b data-translate="phoneLabel">Phone:</b> <a href="tel:01111326270" style="color:var(--gold);text-decoration:none;">01111326270</a> / <a href="tel:034233536" style="color:var(--gold);text-decoration:none;">03-4233536</a></div>
+                        <div style="margin-bottom:6px;color:var(--text-primary);"><b data-translate="addressLabel">Address:</b> <span data-translate="egyptAddress">75 El-Gaish Rd, Sporting, Alexandria</span></div>
+                        <div><a href="https://maps.app.goo.gl/Z87x3RkYAHa4fzU79" target="_blank" style="color:var(--gold);text-decoration:underline;" data-translate="viewOnMap">View on Map</a></div>
                     </div>
                 </div>
             </div>
@@ -354,13 +365,13 @@
 
     <!-- Our Global Presence Section -->
     <div class="our-global-presence-section" style="width:100%;position:relative;text-align:left;margin-bottom:30px;display:flex;align-items:center;min-height:420px;max-height:600px;">
-        <img src="../images/MAP.png" alt="Our Global Presence Map" style="width:100%;height:100%;object-fit:cover;max-height:600px;min-height:420px;filter:brightness(0.82);">
-        <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(25,47,89,0.32);z-index:2;"></div>
+        <img src="../images/MAP.png" alt="Our Global Presence Map" style="width:100%;height:100%;object-fit:cover;max-height:600px;min-height:420px;filter:brightness(0.7) saturate(0.9);">
+        <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(120deg, rgba(5,5,5,0.82) 25%, rgba(5,5,5,0.5) 65%, rgba(5,5,5,0.2) 100%);z-index:2;"></div>
         <div style="position:absolute;z-index:3;left:7vw;top:50%;transform:translateY(-50%);color:#fff;max-width:700px;">
-            <h2 style="font-size:3.2rem;font-weight:900;line-height:1.1;margin-bottom:0.5rem;letter-spacing:0.5px;text-shadow:0 2px 8px #192F5908;" data-translate="ourGlobalPresence">Our Global Presence</h2>
+            <h2 style="font-size:3.2rem;font-weight:900;line-height:1.1;margin-bottom:0.5rem;letter-spacing:0.5px;text-shadow:0 2px 8px rgba(0,0,0,0.4);" data-translate="ourGlobalPresence">Our Global Presence</h2>
             <div style="font-size:1.65rem;font-weight:500;line-height:1.6;" data-translate="globalPresenceText">
                     <!-- Arabic global presence text removed as requested -->
-          <span class="global-presence-en">We proudly <span style="color:#b09778;font-weight:600;" data-translate="serveWorldwide">serve clients worldwide</span>.<br></span>
+          <span class="global-presence-en">We proudly <span style="color:var(--gold-light);font-weight:600;" data-translate="serveWorldwide">serve clients worldwide</span>.<br></span>
             </div>
         </div>
     </div>
@@ -421,7 +432,6 @@
 
     <script src="../java/main.js"></script>
     <script src="../java/theme-toggle.js"></script>
-    <script src="../java/cookie-consent.js"></script>
     <script src="../java/language-switcher.js"></script>
     <!-- ...existing code... -->
     <script>
