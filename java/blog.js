@@ -3,7 +3,7 @@
 
 // Configuration object for backend integration
 const blogConfig = {
-    apiEndpoint: 'https://alt-mate.com/api/posts',
+    apiEndpoint: 'https://tirazbusiness.com/api/posts',
     postsPerPage: 9
 };
 

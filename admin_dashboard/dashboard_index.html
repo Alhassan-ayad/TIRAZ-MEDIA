@@ -3,6 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <script>
+        // Auth guard: require a logged-in session and attach the token to every /api request.
+        (function () {
+            const token = sessionStorage.getItem('tirazAuth');
+            if (!token) { window.location.replace('login.html'); return; }
+            const _fetch = window.fetch.bind(window);
+            window.fetch = function (input, init) {
+                init = Object.assign({}, init);
+                const url = (typeof input === 'string') ? input : (input && input.url) || '';
+                if (url.indexOf('/api/') !== -1) {
+                    const headers = new Headers(init.headers || (typeof input !== 'string' && input.headers) || {});
+                    if (!headers.has('Authorization')) headers.set('Authorization', 'Basic ' + token);
+                    init.headers = headers;
+                }
+                return _fetch(input, init).then(function (res) {
+                    if (res.status === 401) {            // token rejected/expired -> back to login
+                        sessionStorage.removeItem('tirazAuth');
+                        window.location.replace('login.html');
+                    }
+                    return res;
+                });
+            };
+            window.tirazLogout = function () {
+                sessionStorage.removeItem('tirazAuth');
+                window.location.replace('login.html');
+            };
+        })();
+    </script>
     <style>
         body {
             margin: 0;
@@ -591,10 +619,10 @@
         let editingBlogPostId = null;
         
         // API URLs
-        const API_BASE = 'https://alt-mate.com/api';
-        const PROJ_API = 'https://alt-mate.com/api/projects';
-        const EMP_API = 'https://alt-mate.com/api/employees';
-        const BLOG_API = 'https://alt-mate.com/api/posts';
+        const API_BASE = 'https://tirazbusiness.com/api';
+        const PROJ_API = 'https://tirazbusiness.com/api/projects';
+        const EMP_API = 'https://tirazbusiness.com/api/employees';
+        const BLOG_API = 'https://tirazbusiness.com/api/posts';
 
         sidebarLinks.forEach(link => {
             link.addEventListener('click', function(e) {

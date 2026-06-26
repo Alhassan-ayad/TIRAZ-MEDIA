@@ -1,5 +1,5 @@
 
-const API_URL = 'https://alt-mate.com/api/allcontacts';
+const API_URL = 'https://tirazbusiness.com/api/allcontacts';
 
 function logout() {
     window.location.href = 'login.html';
